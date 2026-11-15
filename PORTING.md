@@ -17,7 +17,7 @@ app's declared `permissions.api`.
 
 ## What carried over unchanged
 
-- `app.json` `name` (`agent-worlds`), `version` (`1.0.0`), `permissions`,
+- `app.json` `name` (`agent-worlds`), `permissions`,
   `platform`, `defaultEnabled` (`false`), `tags`, `useCases` and
   `configuration`. `tests/test_manifest_contract.py` compares the ones adoption
   reads with the built-in's manifest (`tests/fixtures/builtin-app.json`).
@@ -38,6 +38,13 @@ app's declared `permissions.api`.
   comes back.
 - The strings, in every language the dashboard ships, under the same keys
   (`ui/i18n/<locale>.json`).
+
+## Version
+
+The `version` started equal to the built-in's (`1.0.0`) and only moves up:
+adoption matches it against Kiro Crew's pin of one commit here, and the pin
+moves the built-in's version with it. `1.0.1` is the first release, the one the
+pin names.
 
 ## What changed, and why
 
