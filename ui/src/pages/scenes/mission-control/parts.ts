@@ -171,7 +171,7 @@ export function drawAgent(d: DrawFn, a: MCAgent, _t: number) {
   d(bx - 1, by, 10, 8, a.color)
   d(bx - 1, by, 10, 2, lt)
   d(bx - 1, by + 6, 10, 2, dk)
-  // Amazon smile arrow on shirt
+  // smile arrow on shirt
   d(bx + 1, by + 4, 4, 1, '#f90')
   d(bx + 4, by + 3, 1, 1, '#f90') // arrow tip
   // Arms + hands

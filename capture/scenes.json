@@ -138,7 +138,7 @@
         }
       ],
       "settle_ms": 9000,
-      "alt": "Wizard Tower selected in the scene buttons, with the same six agents drawn as wizards at desks in a stone tower"
+      "alt": "Wizard Tower selected in the scene buttons, with the six agents drawn as wizards in a stone tower: five at their desks and one walking past a desk on the way to its own"
     },
     {
       "name": "use-case-new-session",
