@@ -1,13 +1,14 @@
 {
   "app": "agent-worlds",
-  "fixture": "minimal",
+  "fixture": "empty",
   "locale": "en-US",
   "timezone": "UTC",
   "provenance_note": "The isolated gateway served the Agent Worlds page built into the Kiro Crew checkout (src/kiro_crew/apps/builtins/agent_worlds, website/src/pages/WorldsPage.tsx) at its /worlds route, because a gateway that still ships the built-in cannot install a second app under the same name. This repository is the externally packaged copy of that page, ported onto the App SDK; PORTING.md lists where the two differ, and none of the differences is on screen in these pictures.",
-  "data": "fictional: four chat sessions and two scheduled jobs created through Kiro Crew's own session and cron APIs",
+  "data": "fictional: three chat sessions and two scheduled jobs created through Kiro Crew's own session and cron APIs, beside the one untitled session Kiro Crew opens on its first start",
   "data_notes": [
     "The sessions were created empty with a title and no message, so every character is idle: no agent turn ran, and no model was asked anything.",
-    "The two scheduled jobs are enabled but not due during the capture, so they show as idle sprites."
+    "The two scheduled jobs are enabled but not due during the capture, so they show as idle sprites.",
+    "The seed fixture is the empty one. The untitled session is the one Kiro Crew opens on its first start, so the scene shows four sessions and two jobs."
   ],
   "init_storage": {
     "mc-nav": "0",
@@ -35,6 +36,16 @@
       "optional": true
     },
     {
+      "name": "acknowledge the current privacy notice, as a returning user has",
+      "method": "PUT",
+      "path": "/api/config/theme",
+      "body": {
+        "onboarded": true,
+        "privacy_acked": true,
+        "privacy_ack_version": 2
+      }
+    },
+    {
       "name": "a session planning the garden",
       "method": "POST",
       "path": "/api/chat/slots",
@@ -56,14 +67,6 @@
       "path": "/api/chat/slots",
       "body": {
         "title": "Check the bird count totals"
-      }
-    },
-    {
-      "name": "a session fixing a website",
-      "method": "POST",
-      "path": "/api/chat/slots",
-      "body": {
-        "title": "Fix the recipe site footer"
       }
     },
     {
@@ -111,8 +114,8 @@
         "light",
         "dark"
       ],
-      "settle_ms": 2500,
-      "alt": "The Agent Worlds page in Kiro Crew: a pixel-art office where six characters sit at desks, one for each of four chat sessions and two scheduled jobs, with the scene buttons Office, Panda Den, Neural Net, Wizard Tower, Deep Lab and more above it"
+      "settle_ms": 9000,
+      "alt": "The Agent Worlds page in Kiro Crew: a pixel-art office where six characters sit at desks, one for each of four chat sessions and two scheduled jobs, with the scene buttons Office, Panda Den, Neural Net, Wizard Tower, Deep Lab, Mission Control, Watering Hole and Kiro Haunt above it"
     },
     {
       "name": "use-case-glance",
@@ -120,8 +123,8 @@
       "themes": [
         "light"
       ],
-      "settle_ms": 2500,
-      "alt": "The page header reads 6 agents present, 0 active and 2 slots open above the office scene, where each character carries the name of its session or scheduled job"
+      "settle_ms": 9000,
+      "alt": "The page header reads 6 agents present, 0 active and 2 slots open above the office scene, where each character carries the name of its session or scheduled job and an idle sign"
     },
     {
       "name": "use-case-scenes",
@@ -131,38 +134,50 @@
       ],
       "steps": [
         {
-          "click": "role=radio[name=\"Wizard Tower scene\"]"
+          "click": "button[aria-label^=\"Wizard Tower scene\"]"
         }
       ],
-      "settle_ms": 2500,
-      "alt": "The Wizard Tower scene selected in the scene buttons, with the same six agents drawn as wizards around a glowing tower"
+      "settle_ms": 9000,
+      "alt": "Wizard Tower selected in the scene buttons, with the same six agents drawn as wizards at desks in a stone tower"
     },
     {
       "name": "use-case-new-session",
       "path": "/worlds",
       "themes": [
-        "light"
+        "dark"
       ],
       "steps": [
         {
-          "click": "role=button[name=\"New session\"]"
+          "click": "button[aria-label^=\"Neural Net scene\"]"
+        },
+        {
+          "wait_ms": 3000
+        },
+        {
+          "click": "button:has-text(\"New session\") >> visible=true"
         },
         {
           "wait_for": "text=7 agents present"
+        },
+        {
+          "wait_ms": 10000
+        },
+        {
+          "scroll": "text=Agent Worlds"
         }
       ],
-      "settle_ms": 2500,
-      "alt": "After choosing New session in the corner of the scene, the header reads 7 agents present and a seventh character has joined the office"
+      "settle_ms": 9000,
+      "alt": "Neural Net selected, after choosing New session in the corner of the scene: the header reads 7 agents present and an Untitled session node has joined the constellation of agents"
     }
   ],
   "walkthrough": {
     "name": "walkthrough",
     "path": "/worlds",
     "theme": "dark",
-    "alt": "A recording of the Agent Worlds page: the office scene with six idle agents, then the Wizard Tower, Deep Lab and Mission Control scenes, then New session adding a seventh agent",
+    "alt": "A recording of the Agent Worlds page: the office scene with six idle agents, then the Wizard Tower, Deep Lab, Mission Control and Neural Net scenes, then New session adding a seventh agent to the constellation",
     "steps": [
       {
-        "wait_ms": 1500
+        "wait_ms": 6000
       },
       {
         "caption": "Each chat session and scheduled job is a character",
@@ -172,7 +187,7 @@
         "wait_ms": 2500
       },
       {
-        "click": "role=radio[name=\"Wizard Tower scene\"]"
+        "click": "button[aria-label^=\"Wizard Tower scene\"]"
       },
       {
         "caption": "Pick a scene: your choice is remembered",
@@ -182,29 +197,32 @@
         "wait_ms": 2500
       },
       {
-        "click": "role=radio[name=\"Deep Lab scene\"]"
+        "click": "button[aria-label^=\"Deep Lab scene\"]"
       },
       {
         "wait_ms": 2000
       },
       {
-        "click": "role=radio[name=\"Mission Control scene\"]"
+        "click": "button[aria-label^=\"Mission Control scene\"]"
       },
       {
         "wait_ms": 2000
       },
       {
-        "click": "role=radio[name=\"Office scene\"]"
+        "click": "button[aria-label^=\"Neural Net scene\"]"
       },
       {
         "caption": "New session starts a chat without leaving the page",
         "position": "bottom"
       },
       {
-        "click": "role=button[name=\"New session\"]"
+        "click": "button:has-text(\"New session\") >> visible=true"
       },
       {
         "wait_for": "text=7 agents present"
+      },
+      {
+        "wait_ms": 4000
       },
       {
         "caption": "",
