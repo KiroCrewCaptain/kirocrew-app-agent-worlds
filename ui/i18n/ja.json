@@ -1,0 +1,151 @@
+{
+  "app": {
+    "needs_newer_host": "このバージョンの Kiro Crew では Agent Worlds がセッションにアクセスできません。ここにエージェントを表示するには Kiro Crew を更新してください。"
+  },
+  "hooks": {
+    "useSceneInteraction": {
+      "all_slots_are_occupied": "すべてのスロットが使用中です",
+      "approve": "承認",
+      "click_for_thread": "スレッドをクリック",
+      "close_thread_view": "スレッドビューを閉じる",
+      "couldn_t_load_messages": "メッセージを読み込めませんでした",
+      "create_a_new_chat_session_a_new_agent_joins_this": "新しいチャットセッションを作成：新しいエージェントがこの世界に参加します",
+      "cron": "定期実行{{detail}}",
+      "cron_running": "Cron · 実行中",
+      "deny": "却下",
+      "idle": "アイドル",
+      "kiro_is_working": "kiro が作業中…",
+      "loading_thread": "スレッドを読み込み中…",
+      "message": "{{name}} にメッセージ",
+      "message_sent": "メッセージが送信されました",
+      "message_this_agent": "このエージェントにメッセージを送信…",
+      "needs_approval": "承認が必要です：",
+      "new_session": "+ 新しいセッション",
+      "no_messages_yet": "まだメッセージがありません",
+      "open_chat": "チャットを開く",
+      "recent_messages_for": "{{name}} の最近のメッセージ",
+      "retry": "再試行",
+      "retry_sending_message": "メッセージ送信を再試行",
+      "send": "送信",
+      "send_message": "メッセージを送信",
+      "sending_message": "メッセージを送信中",
+      "steer_this_agent": "このエージェントを操作…",
+      "subagent": "サブエージェント{{detail}}",
+      "summoning": "召喚中…",
+      "waiting_on_approval": "承認待ち中：",
+      "working": "作業中"
+    }
+  },
+  "manifest": {
+    "configuration_1": "アプリを有効にして Agent Worlds を開き、シーンを選択します。必要なら別ウィンドウにポップアウトできます。認証情報や外部サービスは不要です。",
+    "description": "実行中のエージェントをアニメーション化されたピクセルアートシーンの文字に変えます。そのため、ひと目で Kiro Crew がどのくらい忙しいかがわかります。各アクティブなエージェントはスプライトとして表示され、仕事が開始および完了するときに反応します。クラシックなオフィスからウィザードタワーまたは水中ラボへのテーマシーンをまたいでいます。別のウィンドウにポップアウトして、作業中に2番目の画面に保つことができます。",
+    "display_name": "Agent Worlds",
+    "highlight_1": "実行中のエージェントをリストではなく文字として表示するライブビュー",
+    "highlight_2": "オフィス、パンダの巣穴、ニューラルネット、ウィザードタワー、ディープラボを含むテーマシーン",
+    "highlight_3": "別のウィンドウにポップアウトします。シーンの選択は同期したまま",
+    "highlight_4": "訪問のたびに選択したシーンを記憶します",
+    "highlight_5": "キャラクターをクリックすると、最新のメッセージを読み、返信や方向修正をし、待機中のツールを承認または拒否できます",
+    "page_label": "ワールド",
+    "use_case_1": "クルーの作業中、実行中のエージェント、cron、サブエージェントをセカンドスクリーンで一覧できます。"
+  },
+  "pages": {
+    "chatPage": {
+      "delivery_unconfirmed": "送信が確認できません：入力欄にテキストを戻しました。再送信する前に会話履歴を確認してください。",
+      "send_failed_with_error": "送信に失敗しました: {{error}}"
+    },
+    "scenes": {
+      "config": {
+        "ghost_desc": "帽子、メガネ、マントを身につけた Kiro のゴーストたち",
+        "ghost_label": "Kiro ゴースト",
+        "mission_desc": "NASA の運用センター",
+        "mission_label": "Mission Control",
+        "neural_desc": "星座マップ",
+        "neural_label": "ニューラルネットワーク",
+        "office_desc": "クラシックなピクセルオフィス",
+        "office_label": "オフィス",
+        "panda_desc": "竹林のワークスペース、全員パンダ",
+        "panda_label": "パンダのすみか",
+        "serengeti_desc": "キリン、イボイノシシ、ゾウがいるセレンゲティのサバンナ",
+        "serengeti_label": "水飲み場",
+        "underwater_desc": "海中ステーション",
+        "underwater_label": "深海ラボ",
+        "wizard_desc": "錬金術の実験室",
+        "wizard_label": "魔法使いの塔"
+      },
+      "ghostScene": {
+        "friendly_hauntings_only": "友好的な幽霊だけ",
+        "kiro_ghost_haunt_animation": "Kiro ゴーストの出没アニメーション",
+        "kiro_ghost_haunt_text_overlay": "Kiro ゴーストの出没テキストオーバーレイ",
+        "kiro_haunt": "Kiro ゴースト"
+      },
+      "missionControl": {
+        "missionControlScene": {
+          "lv_level_title": "Lv.{{level}} {{title}}",
+          "mission_control_scene": "ミッションコントロールのシーン"
+        }
+      },
+      "neuralConstellationScene": {
+        "active": "アクティブ",
+        "idle": "アイドル",
+        "neural_constellation_animation": "ニューラル星座のアニメーション",
+        "neural_constellation_text_overlay": "ニューラル星座のテキストオーバーレイ",
+        "neural_network": "ニューラルネットワーク"
+      },
+      "officeScene": {
+        "active": "アクティブ",
+        "agent_office": "エージェントオフィス",
+        "done": "完了",
+        "headquarters": "本部",
+        "no_tasks": "タスクなし",
+        "office_scene": "オフィスのシーン",
+        "office_scene_labels": "オフィスシーンのラベル",
+        "to_do": "未着手"
+      },
+      "pandaOfficeScene": {
+        "panda_den": "🐼 パンダのすみか",
+        "panda_office_scene": "パンダオフィスのシーン",
+        "panda_office_scene_labels": "パンダオフィスシーンのラベル"
+      },
+      "underwaterLabScene": {
+        "deep_sea_lab": "深海ラボ",
+        "research_station": "研究ステーション",
+        "underwater_lab_scene": "海中ラボのシーン",
+        "underwater_lab_scene_labels": "海中ラボシーンのラベル"
+      },
+      "wateringHoleScene": {
+        "on_the_savanna": "サバンナに {{n}}/{{total}}",
+        "watering_hole": "水飲み場",
+        "watering_hole_scene": "水飲み場のシーン",
+        "watering_hole_scene_labels": "水飲み場シーンのラベル"
+      },
+      "wizardTowerScene": {
+        "arcane_academy": "魔法学院",
+        "casting": "詠唱中",
+        "empty": "空き",
+        "i_see": "なるほど！",
+        "resting": "休憩中",
+        "wizard_tower_scene": "魔法使いの塔のシーン",
+        "wizard_tower_spell_text": "魔法使いの塔の呪文テキスト"
+      }
+    },
+    "worldsPage": {
+      "agent_worlds": "Agent Worlds",
+      "agents_active_other": "{{n}} 件アクティブ",
+      "agents_present_other": "{{n}} エージェント在席",
+      "focus_popout": "ポップアウトをフォーカス",
+      "hide_controls": "コントロールを隠す",
+      "playing_in_popout_window": "ポップアウトウィンドウで再生中",
+      "pop_out_to_separate_window": "別ウィンドウにポップアウト",
+      "scene_button": "{{label}} シーン：{{desc}}",
+      "scene_label": "シーン",
+      "show_controls": "コントロールを表示",
+      "slots_open_other": "空きスロット {{n}} 個",
+      "summary": "{{present}}、{{active}}、{{open}}"
+    },
+    "worldsPopout": {
+      "hide_controls": "コントロールを隠す",
+      "scene_label": "シーン",
+      "show_controls": "コントロールを表示"
+    }
+  }
+}

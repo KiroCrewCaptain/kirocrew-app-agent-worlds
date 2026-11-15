@@ -1,0 +1,219 @@
+{
+  "app": "agent-worlds",
+  "fixture": "minimal",
+  "locale": "en-US",
+  "timezone": "UTC",
+  "provenance_note": "The isolated gateway served the Agent Worlds page built into the Kiro Crew checkout (src/kiro_crew/apps/builtins/agent_worlds, website/src/pages/WorldsPage.tsx) at its /worlds route, because a gateway that still ships the built-in cannot install a second app under the same name. This repository is the externally packaged copy of that page, ported onto the App SDK; PORTING.md lists where the two differ, and none of the differences is on screen in these pictures.",
+  "data": "fictional: four chat sessions and two scheduled jobs created through Kiro Crew's own session and cron APIs",
+  "data_notes": [
+    "The sessions were created empty with a title and no message, so every character is idle: no agent turn ran, and no model was asked anything.",
+    "The two scheduled jobs are enabled but not due during the capture, so they show as idle sprites."
+  ],
+  "init_storage": {
+    "mc-nav": "0",
+    "mc-agent-scene": "office"
+  },
+  "ready": "text=agents present",
+  "forbid_text": [
+    "can't reach your sessions",
+    "kirocrew-harness-"
+  ],
+  "setup": [
+    {
+      "name": "turn the app on",
+      "method": "POST",
+      "path": "/api/apps/agent-worlds/enable"
+    },
+    {
+      "name": "retire the host's one-time startup intro",
+      "method": "POST",
+      "path": "/api/feature-videos/feedback",
+      "body": {
+        "id": "crewmates",
+        "status": "dismissed"
+      },
+      "optional": true
+    },
+    {
+      "name": "a session planning the garden",
+      "method": "POST",
+      "path": "/api/chat/slots",
+      "body": {
+        "title": "Plan the spring garden beds"
+      }
+    },
+    {
+      "name": "a session drafting a newsletter",
+      "method": "POST",
+      "path": "/api/chat/slots",
+      "body": {
+        "title": "Draft the trail club newsletter"
+      }
+    },
+    {
+      "name": "a session reviewing a spreadsheet",
+      "method": "POST",
+      "path": "/api/chat/slots",
+      "body": {
+        "title": "Check the bird count totals"
+      }
+    },
+    {
+      "name": "a session fixing a website",
+      "method": "POST",
+      "path": "/api/chat/slots",
+      "body": {
+        "title": "Fix the recipe site footer"
+      }
+    },
+    {
+      "name": "a morning digest job",
+      "method": "POST",
+      "path": "/api/crons",
+      "body": {
+        "name": "Morning weather digest",
+        "message": "Summarize today's forecast for the community garden.",
+        "cron": "0 7 * * *"
+      }
+    },
+    {
+      "name": "a weekly reminder job",
+      "method": "POST",
+      "path": "/api/crons",
+      "body": {
+        "name": "Weekly seed inventory",
+        "message": "List the seed packets that are running low.",
+        "cron": "0 9 * * 1"
+      }
+    }
+  ],
+  "setup_when_not_built_in": [
+    {
+      "name": "install this repository",
+      "method": "POST",
+      "path": "/api/apps/install",
+      "body": {
+        "source": "{{app_root}}"
+      }
+    },
+    {
+      "name": "turn the app on",
+      "method": "POST",
+      "path": "/api/apps/agent-worlds/enable"
+    }
+  ],
+  "_setup_when_not_built_in_note": "capture.py ignores the key above. Once Kiro Crew no longer ships Agent Worlds built in, replace the 'turn the app on' step in setup with these two steps, and change every path from /worlds to /apps/agent-worlds.",
+  "screenshots": [
+    {
+      "name": "hero",
+      "path": "/worlds",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "settle_ms": 2500,
+      "alt": "The Agent Worlds page in Kiro Crew: a pixel-art office where six characters sit at desks, one for each of four chat sessions and two scheduled jobs, with the scene buttons Office, Panda Den, Neural Net, Wizard Tower, Deep Lab and more above it"
+    },
+    {
+      "name": "use-case-glance",
+      "path": "/worlds",
+      "themes": [
+        "light"
+      ],
+      "settle_ms": 2500,
+      "alt": "The page header reads 6 agents present, 0 active and 2 slots open above the office scene, where each character carries the name of its session or scheduled job"
+    },
+    {
+      "name": "use-case-scenes",
+      "path": "/worlds",
+      "themes": [
+        "light"
+      ],
+      "steps": [
+        {
+          "click": "role=radio[name=\"Wizard Tower scene\"]"
+        }
+      ],
+      "settle_ms": 2500,
+      "alt": "The Wizard Tower scene selected in the scene buttons, with the same six agents drawn as wizards around a glowing tower"
+    },
+    {
+      "name": "use-case-new-session",
+      "path": "/worlds",
+      "themes": [
+        "light"
+      ],
+      "steps": [
+        {
+          "click": "role=button[name=\"New session\"]"
+        },
+        {
+          "wait_for": "text=7 agents present"
+        }
+      ],
+      "settle_ms": 2500,
+      "alt": "After choosing New session in the corner of the scene, the header reads 7 agents present and a seventh character has joined the office"
+    }
+  ],
+  "walkthrough": {
+    "name": "walkthrough",
+    "path": "/worlds",
+    "theme": "dark",
+    "alt": "A recording of the Agent Worlds page: the office scene with six idle agents, then the Wizard Tower, Deep Lab and Mission Control scenes, then New session adding a seventh agent",
+    "steps": [
+      {
+        "wait_ms": 1500
+      },
+      {
+        "caption": "Each chat session and scheduled job is a character",
+        "position": "bottom"
+      },
+      {
+        "wait_ms": 2500
+      },
+      {
+        "click": "role=radio[name=\"Wizard Tower scene\"]"
+      },
+      {
+        "caption": "Pick a scene: your choice is remembered",
+        "position": "bottom"
+      },
+      {
+        "wait_ms": 2500
+      },
+      {
+        "click": "role=radio[name=\"Deep Lab scene\"]"
+      },
+      {
+        "wait_ms": 2000
+      },
+      {
+        "click": "role=radio[name=\"Mission Control scene\"]"
+      },
+      {
+        "wait_ms": 2000
+      },
+      {
+        "click": "role=radio[name=\"Office scene\"]"
+      },
+      {
+        "caption": "New session starts a chat without leaving the page",
+        "position": "bottom"
+      },
+      {
+        "click": "role=button[name=\"New session\"]"
+      },
+      {
+        "wait_for": "text=7 agents present"
+      },
+      {
+        "caption": "",
+        "position": "bottom"
+      },
+      {
+        "wait_ms": 3000
+      }
+    ],
+    "tail_ms": 1500
+  }
+}

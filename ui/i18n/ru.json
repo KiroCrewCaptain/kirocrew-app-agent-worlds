@@ -1,0 +1,160 @@
+{
+  "app": {
+    "needs_newer_host": "В этой версии Kiro Crew приложение Agent Worlds не может получить доступ к твоим сессиям. Обнови Kiro Crew, чтобы видеть здесь своих агентов."
+  },
+  "hooks": {
+    "useSceneInteraction": {
+      "all_slots_are_occupied": "Все слоты заняты",
+      "approve": "Разрешить",
+      "click_for_thread": "нажмите, чтобы открыть ветку",
+      "close_thread_view": "Закрыть просмотр ветки",
+      "couldn_t_load_messages": "Не удалось загрузить сообщения",
+      "create_a_new_chat_session_a_new_agent_joins_this": "Создать новый чат: в этот мир придёт новый агент",
+      "cron": "Cron{{detail}}",
+      "cron_running": "Cron · выполняется",
+      "deny": "Запретить",
+      "idle": "Простой",
+      "kiro_is_working": "kiro работает…",
+      "loading_thread": "Загрузка ветки…",
+      "message": "Написать {{name}}",
+      "message_sent": "Сообщение отправлено",
+      "message_this_agent": "Написать этому агенту...",
+      "needs_approval": "требуется разрешение:",
+      "new_session": "+ Новый сеанс",
+      "no_messages_yet": "Сообщений пока нет",
+      "open_chat": "Открыть чат",
+      "recent_messages_for": "Последние сообщения для {{name}}",
+      "retry": "Повторить",
+      "retry_sending_message": "Повторить отправку сообщения",
+      "send": "Отправить",
+      "send_message": "Отправить сообщение",
+      "sending_message": "Отправка сообщения",
+      "steer_this_agent": "Скорректировать этого агента...",
+      "subagent": "Субагент{{detail}}",
+      "summoning": "вызов...",
+      "waiting_on_approval": "Ожидание разрешения:",
+      "working": "Работает"
+    }
+  },
+  "manifest": {
+    "configuration_1": "Включите приложение, откройте Agent Worlds, выберите сцену и при желании вынесите её в отдельное окно; учётные данные и внешние сервисы не требуются.",
+    "description": "Превращает запущенных агентов в персонажей анимированной пиксельной сцены, чтобы по одному взгляду было понятно, насколько загружен Kiro Crew. Каждый активный агент показан спрайтом, который реагирует на начало и завершение работы, а сцены оформлены по-разному, от классического офиса до башни волшебника или подводной лаборатории. Открой сцену в отдельном окне, чтобы держать её на втором экране во время работы.",
+    "display_name": "Agent Worlds",
+    "highlight_1": "Наглядная картина работающих агентов: персонажи вместо списка",
+    "highlight_2": "Оформленные сцены, среди них Office, Panda Den, Neural Net, Wizard Tower и Deep Lab",
+    "highlight_3": "Открывается в отдельном окне для второго монитора; выбранная сцена остаётся синхронизированной",
+    "highlight_4": "Запоминает выбранную сцену между визитами",
+    "highlight_5": "Нажми на персонажа, чтобы прочитать его последние сообщения, ответить ему или скорректировать курс, а также разрешить или отклонить инструмент, которого он ждёт",
+    "page_label": "Миры",
+    "use_case_1": "Следите одним взглядом на втором экране за активными агентами, cron-задачами и субагентами во время работы команды."
+  },
+  "pages": {
+    "chatPage": {
+      "delivery_unconfirmed": "Доставка не подтверждена: ваш текст возвращён в поле ввода; проверьте переписку, прежде чем отправлять снова.",
+      "send_failed_with_error": "Не удалось отправить: {{error}}"
+    },
+    "scenes": {
+      "config": {
+        "ghost_desc": "Призраки Kiro в шляпах, очках и плащах",
+        "ghost_label": "Призраки Kiro",
+        "mission_desc": "Операционный центр NASA",
+        "mission_label": "Mission Control",
+        "neural_desc": "Карта созвездий",
+        "neural_label": "Нейросеть",
+        "office_desc": "Классический пиксельный офис",
+        "office_label": "Офис",
+        "panda_desc": "Рабочее место в бамбуковом лесу, одни панды",
+        "panda_label": "Логово панды",
+        "serengeti_desc": "Саванна Серенгети с жирафами, бородавочниками и слонами",
+        "serengeti_label": "Водопой",
+        "underwater_desc": "Подводная станция",
+        "underwater_label": "Глубоководная лаборатория",
+        "wizard_desc": "Алхимическая лаборатория",
+        "wizard_label": "Башня волшебника"
+      },
+      "ghostScene": {
+        "friendly_hauntings_only": "только дружелюбные призраки",
+        "kiro_ghost_haunt_animation": "Анимация призрака Kiro",
+        "kiro_ghost_haunt_text_overlay": "Текстовый слой анимации призрака Kiro",
+        "kiro_haunt": "Призраки Kiro"
+      },
+      "missionControl": {
+        "missionControlScene": {
+          "lv_level_title": "Ур.{{level}} {{title}}",
+          "mission_control_scene": "Сцена центра управления"
+        }
+      },
+      "neuralConstellationScene": {
+        "active": "активно",
+        "idle": "простой",
+        "neural_constellation_animation": "Анимация нейронного созвездия",
+        "neural_constellation_text_overlay": "Текстовый слой нейронного созвездия",
+        "neural_network": "Нейросеть"
+      },
+      "officeScene": {
+        "active": "Активно",
+        "agent_office": "Офис агентов",
+        "done": "Готово",
+        "headquarters": "штаб",
+        "no_tasks": "Нет задач",
+        "office_scene": "Сцена офиса",
+        "office_scene_labels": "Подписи сцены офиса",
+        "to_do": "К выполнению"
+      },
+      "pandaOfficeScene": {
+        "panda_den": "🐼 Логово панды",
+        "panda_office_scene": "Сцена офиса панд",
+        "panda_office_scene_labels": "Подписи сцены офиса панд"
+      },
+      "underwaterLabScene": {
+        "deep_sea_lab": "Глубоководная лаборатория",
+        "research_station": "исследовательская станция",
+        "underwater_lab_scene": "Сцена подводной лаборатории",
+        "underwater_lab_scene_labels": "Подписи сцены подводной лаборатории"
+      },
+      "wateringHoleScene": {
+        "on_the_savanna": "{{n}}/{{total}} в саванне",
+        "watering_hole": "Водопой",
+        "watering_hole_scene": "Сцена водопоя",
+        "watering_hole_scene_labels": "Подписи сцены водопоя"
+      },
+      "wizardTowerScene": {
+        "arcane_academy": "Академия магии",
+        "casting": "колдует",
+        "empty": "пусто",
+        "i_see": "Понятно!",
+        "resting": "отдыхает",
+        "wizard_tower_scene": "Сцена башни волшебника",
+        "wizard_tower_spell_text": "Текст заклинания в башне волшебника"
+      }
+    },
+    "worldsPage": {
+      "agent_worlds": "Agent Worlds",
+      "agents_active_few": "{{n}} активных",
+      "agents_active_many": "{{n}} активных",
+      "agents_active_one": "{{n}} активный",
+      "agents_active_other": "{{n}} активного",
+      "agents_present_few": "{{n}} агента на месте",
+      "agents_present_many": "{{n}} агентов на месте",
+      "agents_present_one": "{{n}} агент на месте",
+      "agents_present_other": "{{n}} агента на месте",
+      "focus_popout": "Перейти к отдельному окну",
+      "hide_controls": "Скрыть управление",
+      "playing_in_popout_window": "Воспроизводится в отдельном окне",
+      "pop_out_to_separate_window": "Открыть в отдельном окне",
+      "scene_button": "Сцена {{label}}: {{desc}}",
+      "scene_label": "Сцена",
+      "show_controls": "Показать управление",
+      "slots_open_few": "{{n}} свободных слота",
+      "slots_open_many": "{{n}} свободных слотов",
+      "slots_open_one": "{{n}} свободный слот",
+      "slots_open_other": "{{n}} свободного слота",
+      "summary": "{{present}} · {{active}} · {{open}}"
+    },
+    "worldsPopout": {
+      "hide_controls": "Скрыть управление",
+      "scene_label": "Сцена",
+      "show_controls": "Показать управление"
+    }
+  }
+}
