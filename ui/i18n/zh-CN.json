@@ -1,0 +1,151 @@
+{
+  "app": {
+    "needs_newer_host": "在此版本的 Kiro Crew 中，Agent Worlds 无法访问你的会话。请更新 Kiro Crew，以便在这里看到你的代理。"
+  },
+  "hooks": {
+    "useSceneInteraction": {
+      "all_slots_are_occupied": "所有槽位都已占用",
+      "approve": "批准",
+      "click_for_thread": "点击查看话题",
+      "close_thread_view": "关闭话题视图",
+      "couldn_t_load_messages": "无法加载消息",
+      "create_a_new_chat_session_a_new_agent_joins_this": "创建新的聊天会话：会有新代理加入这个世界",
+      "cron": "定时任务{{detail}}",
+      "cron_running": "定时任务 · 运行中",
+      "deny": "拒绝",
+      "idle": "空闲",
+      "kiro_is_working": "kiro 正在工作…",
+      "loading_thread": "加载话题…",
+      "message": "消息 {{name}}",
+      "message_sent": "消息已发送",
+      "message_this_agent": "给此代理发消息…",
+      "needs_approval": "需要审批：",
+      "new_session": "+ 新建会话",
+      "no_messages_yet": "暂无消息",
+      "open_chat": "打开聊天",
+      "recent_messages_for": "{{name}} 的最近消息",
+      "retry": "重试",
+      "retry_sending_message": "重新发送消息",
+      "send": "发送",
+      "send_message": "发送消息",
+      "sending_message": "正在发送消息",
+      "steer_this_agent": "引导此代理…",
+      "subagent": "子代理{{detail}}",
+      "summoning": "正在召唤…",
+      "waiting_on_approval": "等待审批：",
+      "working": "工作中"
+    }
+  },
+  "manifest": {
+    "configuration_1": "启用应用，打开 Agent Worlds，选择场景，并可弹出为独立窗口；无需凭据或外部服务。",
+    "description": "把正在运行的代理变成动态像素画场景里的角色，一眼就能看出 Kiro Crew 有多忙。每个活跃代理都是一个精灵图，随着工作开始和结束做出反应；场景主题从经典办公室到巫师塔或水下实验室。弹出为独立窗口，就能在工作时把它放在第二块屏幕上。",
+    "display_name": "Agent Worlds",
+    "highlight_1": "实时查看哪些代理正在运行，以角色而非列表呈现",
+    "highlight_2": "主题场景包括 Office、Panda Den、Neural Net、Wizard Tower 和 Deep Lab",
+    "highlight_3": "弹出为独立窗口放到第二台显示器上；场景选择保持同步",
+    "highlight_4": "记住你选择的场景，下次打开时沿用",
+    "highlight_5": "点击一个角色即可阅读它的最新消息、回复或引导它，并批准或拒绝它正在等待的工具",
+    "page_label": "Worlds",
+    "use_case_1": "在团队工作时，通过第二块屏幕上的概览视图实时查看代理、定时任务和子代理。"
+  },
+  "pages": {
+    "chatPage": {
+      "delivery_unconfirmed": "尚未确认送达：你的文字已放回输入框；再次发送前请先查看对话记录。",
+      "send_failed_with_error": "发送失败：{{error}}"
+    },
+    "scenes": {
+      "config": {
+        "ghost_desc": "戴着帽子、眼镜和披风的 Kiro 幽灵",
+        "ghost_label": "Kiro 出没",
+        "mission_desc": "NASA 指挥中心",
+        "mission_label": "Mission Control",
+        "neural_desc": "星座图",
+        "neural_label": "神经网络",
+        "office_desc": "经典像素办公室",
+        "office_label": "办公室",
+        "panda_desc": "竹林工作区，全是熊猫",
+        "panda_label": "熊猫窝",
+        "serengeti_desc": "塞伦盖蒂草原，有长颈鹿、疣猪和大象",
+        "serengeti_label": "水源地",
+        "underwater_desc": "水下工作站",
+        "underwater_label": "深海实验室",
+        "wizard_desc": "炼金实验室",
+        "wizard_label": "巫师塔"
+      },
+      "ghostScene": {
+        "friendly_hauntings_only": "仅限友好出没",
+        "kiro_ghost_haunt_animation": "Kiro 幽灵出没动画",
+        "kiro_ghost_haunt_text_overlay": "Kiro 幽灵出没文字浮层",
+        "kiro_haunt": "Kiro 出没"
+      },
+      "missionControl": {
+        "missionControlScene": {
+          "lv_level_title": "{{level}} 级 {{title}}",
+          "mission_control_scene": "任务控制中心场景"
+        }
+      },
+      "neuralConstellationScene": {
+        "active": "活跃",
+        "idle": "空闲",
+        "neural_constellation_animation": "神经星座动画",
+        "neural_constellation_text_overlay": "神经星座文字浮层",
+        "neural_network": "神经网络"
+      },
+      "officeScene": {
+        "active": "进行中",
+        "agent_office": "代理办公室",
+        "done": "已完成",
+        "headquarters": "总部",
+        "no_tasks": "暂无任务",
+        "office_scene": "办公室场景",
+        "office_scene_labels": "办公室场景标签",
+        "to_do": "待办"
+      },
+      "pandaOfficeScene": {
+        "panda_den": "🐼 熊猫窝",
+        "panda_office_scene": "熊猫办公室场景",
+        "panda_office_scene_labels": "熊猫办公室场景标签"
+      },
+      "underwaterLabScene": {
+        "deep_sea_lab": "深海实验室",
+        "research_station": "研究站",
+        "underwater_lab_scene": "水下实验室场景",
+        "underwater_lab_scene_labels": "水下实验室场景标签"
+      },
+      "wateringHoleScene": {
+        "on_the_savanna": "{{n}}/{{total}} 只在草原上",
+        "watering_hole": "水源地",
+        "watering_hole_scene": "水源地场景",
+        "watering_hole_scene_labels": "水源地场景标签"
+      },
+      "wizardTowerScene": {
+        "arcane_academy": "秘法学院",
+        "casting": "施法中",
+        "empty": "空位",
+        "i_see": "原来如此！",
+        "resting": "休息中",
+        "wizard_tower_scene": "巫师塔场景",
+        "wizard_tower_spell_text": "巫师塔法术文字"
+      }
+    },
+    "worldsPage": {
+      "agent_worlds": "Agent Worlds",
+      "agents_active_other": "{{n}} 个活动",
+      "agents_present_other": "{{n}} 个代理在场",
+      "focus_popout": "聚焦弹出窗口",
+      "hide_controls": "隐藏控制项",
+      "playing_in_popout_window": "正在弹出窗口中播放",
+      "pop_out_to_separate_window": "弹出到独立窗口",
+      "scene_button": "{{label}} 场景：{{desc}}",
+      "scene_label": "场景",
+      "show_controls": "展开控制项",
+      "slots_open_other": "{{n}} 个空闲槽位",
+      "summary": "{{present}}，{{active}}，{{open}}"
+    },
+    "worldsPopout": {
+      "hide_controls": "隐藏控制项",
+      "scene_label": "场景",
+      "show_controls": "展开控制项"
+    }
+  }
+}

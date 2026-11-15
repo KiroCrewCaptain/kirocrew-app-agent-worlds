@@ -1,0 +1,154 @@
+{
+  "app": {
+    "needs_newer_host": "Kiro Crew-এর এই সংস্করণে Agent Worlds তোমার সেশনগুলো দেখতে পারছে না। এখানে তোমার এজেন্টদের দেখতে Kiro Crew আপডেট করো।"
+  },
+  "hooks": {
+    "useSceneInteraction": {
+      "all_slots_are_occupied": "সব স্লট ভর্তি",
+      "approve": "অনুমোদন",
+      "click_for_thread": "থ্রেড দেখতে ক্লিক করুন",
+      "close_thread_view": "থ্রেড ভিউ বন্ধ করুন",
+      "couldn_t_load_messages": "মেসেজ লোড করা যায়নি",
+      "create_a_new_chat_session_a_new_agent_joins_this": "নতুন চ্যাট সেশন তৈরি করো: এই জগতে নতুন একজন এজেন্ট যোগ দেবে",
+      "cron": "Cron{{detail}}",
+      "cron_running": "Cron · চলছে",
+      "deny": "প্রত্যাখ্যান",
+      "idle": "নিষ্ক্রিয়",
+      "kiro_is_working": "kiro কাজ করছে…",
+      "loading_thread": "থ্রেড লোড হচ্ছে…",
+      "message": "{{name}}-কে বার্তা",
+      "message_sent": "মেসেজ পাঠানো হয়েছে",
+      "message_this_agent": "এই এজেন্টকে মেসেজ করো…",
+      "needs_approval": "অনুমোদন প্রয়োজন:",
+      "new_session": "+ নতুন সেশন",
+      "no_messages_yet": "এখনও কোনো মেসেজ নেই",
+      "open_chat": "চ্যাট খুলুন",
+      "recent_messages_for": "{{name}}-এর সাম্প্রতিক বার্তা",
+      "retry": "আবার চেষ্টা করো",
+      "retry_sending_message": "মেসেজ আবার পাঠানোর চেষ্টা করো",
+      "send": "পাঠাও",
+      "send_message": "মেসেজ পাঠাও",
+      "sending_message": "মেসেজ পাঠানো হচ্ছে",
+      "steer_this_agent": "এই এজেন্টকে স্টিয়ার করো…",
+      "subagent": "সাবএজেন্ট{{detail}}",
+      "summoning": "ডাকা হচ্ছে…",
+      "waiting_on_approval": "অনুমোদনের অপেক্ষায়:",
+      "working": "কাজ করছে"
+    }
+  },
+  "manifest": {
+    "configuration_1": "অ্যাপটি চালু করে Agent Worlds খুলুন, একটি দৃশ্য বেছে নিন এবং চাইলে আলাদা উইন্ডোতে নিন; কোনো পরিচয়পত্র বা বাইরের পরিষেবা লাগে না।",
+    "description": "তোমার চলমান এজেন্টগুলোকে অ্যানিমেটেড পিক্সেল-আর্ট দৃশ্যের চরিত্রে বদলে দেয়, যাতে এক নজরেই বোঝা যায় Kiro Crew কতটা ব্যস্ত। প্রতিটি সক্রিয় এজেন্ট একটি স্প্রাইট হিসেবে দেখা যায়, যা কাজ শুরু ও শেষ হওয়ার সঙ্গে প্রতিক্রিয়া দেখায়, সাধারণ অফিস থেকে জাদুকরের মিনার বা পানির নিচের ল্যাব পর্যন্ত থিমযুক্ত দৃশ্যে। আলাদা উইন্ডোতে বের করে নিলে কাজ করার সময় এটি দ্বিতীয় স্ক্রিনে রাখা যায়।",
+    "display_name": "Agent Worlds",
+    "highlight_1": "কোন এজেন্টগুলো চলছে তার লাইভ ভিউ, তালিকা নয় বরং চরিত্র হিসেবে",
+    "highlight_2": "থিমযুক্ত দৃশ্য, যেমন Office, Panda Den, Neural Net, Wizard Tower ও Deep Lab",
+    "highlight_3": "দ্বিতীয় মনিটরের জন্য আলাদা উইন্ডোতে বের করে নাও; দৃশ্যের নির্বাচন সিঙ্কে থাকে",
+    "highlight_4": "তুমি যে দৃশ্য বেছেছ, পরের বারও তা মনে রাখে",
+    "highlight_5": "কোনো চরিত্রে ক্লিক করে তার সাম্প্রতিক বার্তা পড়ো, তাকে উত্তর দাও বা দিক বদলাও, আর যে টুলের জন্য সে অপেক্ষা করছে তা অনুমোদন বা প্রত্যাখ্যান করো",
+    "page_label": "Worlds",
+    "use_case_1": "Crew কাজ করার সময় লাইভ এজেন্ট, cron ও subagent-এর কার্যকলাপ দ্বিতীয় স্ক্রিনে এক নজরে দেখুন।"
+  },
+  "pages": {
+    "chatPage": {
+      "delivery_unconfirmed": "ডেলিভারি নিশ্চিত হয়নি: আপনার লেখা ইনপুট বাক্সে ফিরিয়ে দেওয়া হয়েছে; আবার পাঠানোর আগে কথোপকথনটি দেখে নিন।",
+      "send_failed_with_error": "পাঠানো যায়নি: {{error}}"
+    },
+    "scenes": {
+      "config": {
+        "ghost_desc": "টুপি, চশমা আর কেপ পরা Kiro ভূত",
+        "ghost_label": "Kiro ভূতুড়ে ডেরা",
+        "mission_desc": "NASA অপারেশন কেন্দ্র",
+        "mission_label": "Mission Control",
+        "neural_desc": "নক্ষত্রমণ্ডলের মানচিত্র",
+        "neural_label": "নিউরাল নেটওয়ার্ক",
+        "office_desc": "ক্লাসিক পিক্সেল অফিস",
+        "office_label": "অফিস",
+        "panda_desc": "বাঁশবনের কর্মক্ষেত্র, সবাই পান্ডা",
+        "panda_label": "পান্ডার ডেরা",
+        "serengeti_desc": "জিরাফ, ওয়ার্টহগ আর হাতির সেরেঙ্গেটি সাভানা",
+        "serengeti_label": "জলাশয়",
+        "underwater_desc": "জলের নিচের স্টেশন",
+        "underwater_label": "গভীর সমুদ্র ল্যাব",
+        "wizard_desc": "আলকেমির পরীক্ষাগার",
+        "wizard_label": "জাদুকরের মিনার"
+      },
+      "ghostScene": {
+        "friendly_hauntings_only": "শুধু বন্ধুত্বপূর্ণ ভূতুড়েপনা",
+        "kiro_ghost_haunt_animation": "Kiro ভূতের ভুতুড়ে অ্যানিমেশন",
+        "kiro_ghost_haunt_text_overlay": "Kiro ভূতের ভুতুড়ে টেক্সট ওভারলে",
+        "kiro_haunt": "Kiro ভূতুড়ে ডেরা"
+      },
+      "missionControl": {
+        "missionControlScene": {
+          "lv_level_title": "লেভেল {{level}} {{title}}",
+          "mission_control_scene": "মিশন কন্ট্রোল দৃশ্য"
+        }
+      },
+      "neuralConstellationScene": {
+        "active": "সক্রিয়",
+        "idle": "নিষ্ক্রিয়",
+        "neural_constellation_animation": "নিউরাল কনস্টেলেশন অ্যানিমেশন",
+        "neural_constellation_text_overlay": "নিউরাল কনস্টেলেশন টেক্সট ওভারলে",
+        "neural_network": "নিউরাল নেটওয়ার্ক"
+      },
+      "officeScene": {
+        "active": "সক্রিয়",
+        "agent_office": "এজেন্ট অফিস",
+        "done": "সম্পন্ন",
+        "headquarters": "সদর দপ্তর",
+        "no_tasks": "কোনো টাস্ক নেই",
+        "office_scene": "অফিস দৃশ্য",
+        "office_scene_labels": "অফিস দৃশ্যের লেবেল",
+        "to_do": "করতে হবে"
+      },
+      "pandaOfficeScene": {
+        "panda_den": "🐼 পান্ডার ডেরা",
+        "panda_office_scene": "পান্ডা অফিস দৃশ্য",
+        "panda_office_scene_labels": "পান্ডা অফিস দৃশ্যের লেবেল"
+      },
+      "underwaterLabScene": {
+        "deep_sea_lab": "গভীর সমুদ্র ল্যাব",
+        "research_station": "গবেষণা কেন্দ্র",
+        "underwater_lab_scene": "পানির নিচের ল্যাব দৃশ্য",
+        "underwater_lab_scene_labels": "পানির নিচের ল্যাব দৃশ্যের লেবেল"
+      },
+      "wateringHoleScene": {
+        "on_the_savanna": "সাভানায় {{n}}/{{total}}",
+        "watering_hole": "জলাশয়",
+        "watering_hole_scene": "জলাশয় দৃশ্য",
+        "watering_hole_scene_labels": "জলাশয় দৃশ্যের লেবেল"
+      },
+      "wizardTowerScene": {
+        "arcane_academy": "জাদুবিদ্যা অ্যাকাডেমি",
+        "casting": "মন্ত্র পড়ছে",
+        "empty": "খালি",
+        "i_see": "বুঝলাম!",
+        "resting": "বিশ্রামে",
+        "wizard_tower_scene": "জাদুকরের টাওয়ার দৃশ্য",
+        "wizard_tower_spell_text": "জাদুকরের টাওয়ারের মন্ত্র টেক্সট"
+      }
+    },
+    "worldsPage": {
+      "agent_worlds": "Agent Worlds",
+      "agents_active_one": "{{n}}টি সক্রিয়",
+      "agents_active_other": "{{n}}টি সক্রিয়",
+      "agents_present_one": "{{n}}টি এজেন্ট উপস্থিত",
+      "agents_present_other": "{{n}}টি এজেন্ট উপস্থিত",
+      "focus_popout": "পপআউটে ফোকাস করুন",
+      "hide_controls": "কন্ট্রোল লুকাও",
+      "playing_in_popout_window": "পপআউট উইন্ডোতে চলছে",
+      "pop_out_to_separate_window": "আলাদা উইন্ডোতে পপ আউট করুন",
+      "scene_button": "{{label}} দৃশ্য: {{desc}}",
+      "scene_label": "দৃশ্য",
+      "show_controls": "কন্ট্রোল দেখাও",
+      "slots_open_one": "{{n}}টি স্লট খোলা",
+      "slots_open_other": "{{n}}টি স্লট খোলা",
+      "summary": "{{present}} · {{active}} · {{open}}"
+    },
+    "worldsPopout": {
+      "hide_controls": "কন্ট্রোল লুকাও",
+      "scene_label": "দৃশ্য",
+      "show_controls": "কন্ট্রোল দেখাও"
+    }
+  }
+}

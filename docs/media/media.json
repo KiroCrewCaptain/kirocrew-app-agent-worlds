@@ -1,0 +1,88 @@
+{
+  "app": "agent-worlds",
+  "captured_at": "2026-11-15T01:09:22Z",
+  "app_commit": "d7bb7971b220c4e30ee607ce7338a569fc3137d7",
+  "kirocrew_commit": "33979525d89382cf64d8b109c553e0561c57acbb",
+  "kirocrew_tree_dirty": false,
+  "gateway": "isolated temporary home, approval=reads; a freshly seeded gateway for the stub screenshots, one for the live ones and one for the walkthrough",
+  "data": "fictional, seeded through the app's HTTP API (capture/scenes.json)",
+  "agent_backend": {
+    "live": [],
+    "live_model": null,
+    "stub": "Kiro Crew's offline stub ACP backend (capture/stub_backend.py) for every other scene; no chat reply is shown from it",
+    "credit_reading": "the browser answers the top bar's credit readout (/api/sessions/usage) with \"no reading\", so no account balance or email can be shown"
+  },
+  "note": "The isolated gateway served the Agent Worlds page built into the Kiro Crew checkout (src/kiro_crew/apps/builtins/agent_worlds, website/src/pages/WorldsPage.tsx) at its /worlds route, because a gateway that still ships the built-in cannot install a second app under the same name. This repository is the externally packaged copy of that page, ported onto the App SDK; PORTING.md lists where the two differ, and none of the differences is on screen in these pictures.",
+  "data_notes": [
+    "The sessions were created empty with a title and no message, so every character is idle: no agent turn ran, and no model was asked anything.",
+    "The two scheduled jobs are enabled but not due during the capture, so they show as idle sprites.",
+    "The seed fixture is the empty one. The untitled session is the one Kiro Crew opens on its first start, so the scene shows four sessions and two jobs."
+  ],
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "device_scale": 2,
+  "screenshots": [
+    {
+      "file": "hero-dark.png",
+      "name": "hero",
+      "theme": "dark",
+      "bytes": 260662,
+      "width": 1600,
+      "height": 1000,
+      "alt": "The Agent Worlds page in Kiro Crew: a pixel-art office where six characters sit at desks, one for each of four chat sessions and two scheduled jobs, with the scene buttons Office, Panda Den, Neural Net, Wizard Tower, Deep Lab, Mission Control, Watering Hole and Kiro Haunt above it"
+    },
+    {
+      "file": "hero-light.png",
+      "name": "hero",
+      "theme": "light",
+      "bytes": 252619,
+      "width": 1600,
+      "height": 1000,
+      "alt": "The Agent Worlds page in Kiro Crew: a pixel-art office where six characters sit at desks, one for each of four chat sessions and two scheduled jobs, with the scene buttons Office, Panda Den, Neural Net, Wizard Tower, Deep Lab, Mission Control, Watering Hole and Kiro Haunt above it"
+    },
+    {
+      "file": "use-case-glance-light.png",
+      "name": "use-case-glance",
+      "theme": "light",
+      "bytes": 253870,
+      "width": 1600,
+      "height": 1000,
+      "alt": "The page header reads 6 agents present, 0 active and 2 slots open above the office scene, where each character carries the name of its session or scheduled job and an idle sign"
+    },
+    {
+      "file": "use-case-new-session-dark.png",
+      "name": "use-case-new-session",
+      "theme": "dark",
+      "bytes": 735573,
+      "width": 1600,
+      "height": 1000,
+      "alt": "Neural Net selected, after choosing New session in the corner of the scene: the header reads 7 agents present and an Untitled session node has joined the constellation of agents"
+    },
+    {
+      "file": "use-case-scenes-light.png",
+      "name": "use-case-scenes",
+      "theme": "light",
+      "bytes": 229750,
+      "width": 1600,
+      "height": 1000,
+      "alt": "Wizard Tower selected in the scene buttons, with the six agents drawn as wizards in a stone tower: five at their desks and one walking past a desk on the way to its own"
+    }
+  ],
+  "walkthrough": {
+    "shortened_waits_s": [],
+    "mp4": {
+      "file": "walkthrough.mp4",
+      "bytes": 1414365
+    },
+    "gif": {
+      "file": "walkthrough.gif",
+      "bytes": 7633518,
+      "width": 960,
+      "fps": 10
+    },
+    "theme": "dark",
+    "alt": "A recording of the Agent Worlds page: the office scene with six idle agents, then the Wizard Tower, Deep Lab, Mission Control and Neural Net scenes, then New session adding a seventh agent to the constellation"
+  }
+}

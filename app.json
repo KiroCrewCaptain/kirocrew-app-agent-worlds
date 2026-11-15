@@ -1,0 +1,196 @@
+{
+  "name": "agent-worlds",
+  "version": "1.0.0",
+  "displayName": "Agent Worlds",
+  "description": "Turns your running agents into characters in an animated pixel-art scene, so a glance tells you how busy Kiro Crew is. Each active agent appears as a sprite that reacts as work starts and finishes, across themed scenes from a classic office to a wizard tower or an underwater lab. Pop it out into its own window to keep it on a second screen while you work.",
+  "author": "kirocrew",
+  "license": "Apache-2.0",
+  "minKiroCrewVersion": "0.14.0",
+  "tags": [
+    "visualization",
+    "agents"
+  ],
+  "highlights": [
+    "Live view of which agents are running, as characters rather than a list",
+    "Themed scenes including Office, Panda Den, Neural Net, Wizard Tower, and Deep Lab",
+    "Pop out into a separate window for a second monitor; scene choice stays in sync",
+    "Remembers your chosen scene between visits",
+    "Click a character to read its latest messages, reply to or steer it, and approve or deny the tool it is waiting on"
+  ],
+  "defaultEnabled": false,
+  "platform": {
+    "os": [
+      "macos",
+      "linux",
+      "windows"
+    ]
+  },
+  "iconPath": "assets/icon.png",
+  "heroImage": "assets/hero-light.png",
+  "heroImageDark": "assets/hero-dark.png",
+  "heroImageDetail": "assets/hero-detail-light.png",
+  "heroImageDetailDark": "assets/hero-detail-dark.png",
+  "permissions": {
+    "api": [
+      "=/api/chat",
+      "/api/chat/slots",
+      "/api/approvals",
+      "=/api/crons",
+      "=/api/spawn",
+      "=/api/config/default-agent",
+      "=/api/dashboard/config"
+    ]
+  },
+  "ui": {
+    "entry": "dist/index.mjs",
+    "pages": [
+      {
+        "route": "/apps/agent-worlds",
+        "label": "Worlds"
+      }
+    ]
+  },
+  "useCases": [
+    "Keep an at-a-glance, second-screen view of live agents, crons, and subagents while a crew is working."
+  ],
+  "configuration": [
+    "Enable the app, open Agent Worlds, choose a scene, and optionally pop it out; no credentials or external service are required."
+  ],
+  "screenshots": [
+    "assets/screenshot-main.png"
+  ],
+  "l10n": {
+    "bn": {
+      "displayName": "Agent Worlds",
+      "description": "তোমার চলমান এজেন্টগুলোকে অ্যানিমেটেড পিক্সেল-আর্ট দৃশ্যের চরিত্রে বদলে দেয়, যাতে এক নজরেই বোঝা যায় Kiro Crew কতটা ব্যস্ত। প্রতিটি সক্রিয় এজেন্ট একটি স্প্রাইট হিসেবে দেখা যায়, যা কাজ শুরু ও শেষ হওয়ার সঙ্গে প্রতিক্রিয়া দেখায়, সাধারণ অফিস থেকে জাদুকরের মিনার বা পানির নিচের ল্যাব পর্যন্ত থিমযুক্ত দৃশ্যে। আলাদা উইন্ডোতে বের করে নিলে কাজ করার সময় এটি দ্বিতীয় স্ক্রিনে রাখা যায়।",
+      "pageLabel": "Worlds",
+      "highlights": [
+        "কোন এজেন্টগুলো চলছে তার লাইভ ভিউ, তালিকা নয় বরং চরিত্র হিসেবে",
+        "থিমযুক্ত দৃশ্য, যেমন Office, Panda Den, Neural Net, Wizard Tower ও Deep Lab",
+        "দ্বিতীয় মনিটরের জন্য আলাদা উইন্ডোতে বের করে নাও; দৃশ্যের নির্বাচন সিঙ্কে থাকে",
+        "তুমি যে দৃশ্য বেছেছ, পরের বারও তা মনে রাখে",
+        "কোনো চরিত্রে ক্লিক করে তার সাম্প্রতিক বার্তা পড়ো, তাকে উত্তর দাও বা দিক বদলাও, আর যে টুলের জন্য সে অপেক্ষা করছে তা অনুমোদন বা প্রত্যাখ্যান করো"
+      ]
+    },
+    "de": {
+      "displayName": "Agent Worlds",
+      "description": "Verwandelt deine laufenden Agenten in Figuren einer animierten Pixel-Art-Szene, sodass ein Blick genügt, um zu sehen, wie ausgelastet Kiro Crew ist. Jeder aktive Agent erscheint als Sprite, das reagiert, wenn Arbeit beginnt und endet, über Themenszenen hinweg, vom klassischen Büro bis zum Zauberturm oder Unterwasserlabor. Kopple es in ein eigenes Fenster aus, um es beim Arbeiten auf einem zweiten Bildschirm zu behalten.",
+      "pageLabel": "Welten",
+      "highlights": [
+        "Live-Ansicht der laufenden Agenten, als Figuren statt als Liste",
+        "Themenszenen wie Büro, Panda-Höhle, Neuronales Netz, Zauberturm und Tiefseelabor",
+        "In ein separates Fenster für einen zweiten Monitor auskoppeln; die Szenenauswahl bleibt synchron",
+        "Merkt sich deine gewählte Szene zwischen den Besuchen",
+        "Klicke auf eine Figur, um ihre neuesten Nachrichten zu lesen, ihr zu antworten oder sie umzulenken und das Tool zu erlauben oder abzulehnen, auf das sie wartet"
+      ]
+    },
+    "es": {
+      "displayName": "Agent Worlds",
+      "description": "Convierte tus agentes en ejecución en personajes de una escena animada de pixel art, así un vistazo te dice qué tan ocupado está Kiro Crew. Cada agente activo aparece como un sprite que reacciona cuando el trabajo empieza y termina, en escenas temáticas que van de una oficina clásica a una torre del mago o un laboratorio submarino. Ábrelo en su propia ventana para mantenerlo en una segunda pantalla mientras trabajas.",
+      "pageLabel": "Worlds",
+      "highlights": [
+        "Vista en vivo de qué agentes están en ejecución, como personajes en lugar de una lista",
+        "Escenas temáticas como Oficina, Guarida de pandas, Red neuronal, Torre del mago y Laboratorio submarino",
+        "Ábrela en una ventana aparte para un segundo monitor; la escena elegida se mantiene sincronizada",
+        "Recuerda la escena que elegiste entre visitas",
+        "Haz clic en un personaje para leer sus últimos mensajes, responderle o reorientarlo, y aprobar o denegar la herramienta que está esperando"
+      ]
+    },
+    "fr": {
+      "displayName": "Agent Worlds",
+      "description": "Transforme tes agents en cours d’exécution en personnages d’une scène animée en pixel art : un coup d’œil suffit pour savoir à quel point Kiro Crew est occupé. Chaque agent actif apparaît sous forme de sprite qui réagit quand une tâche démarre et quand elle se termine, dans des scènes thématiques allant du bureau classique à la tour du magicien ou au laboratoire sous-marin. Détache la scène dans sa propre fenêtre pour la garder sur un second écran pendant que tu travailles.",
+      "pageLabel": "Mondes",
+      "highlights": [
+        "Vue en direct des agents en cours d’exécution, sous forme de personnages plutôt que de liste",
+        "Scènes thématiques, dont Bureau, Repaire des pandas, Réseau neuronal, Tour du magicien et Labo des profondeurs",
+        "Détache la scène dans une fenêtre séparée pour un second écran ; le choix de scène reste synchronisé",
+        "Retient la scène que tu as choisie d’une visite à l’autre",
+        "Clique sur un personnage pour lire ses derniers messages, lui répondre ou le réorienter, et approuver ou refuser l’outil qu’il attend"
+      ]
+    },
+    "hi": {
+      "displayName": "Agent Worlds",
+      "description": "तुम्हारे चल रहे एजेंट को एनिमेटेड पिक्सेल-आर्ट दृश्य के किरदारों में बदल देता है, ताकि एक नज़र में पता चल जाए कि Kiro Crew कितना व्यस्त है। हर सक्रिय एजेंट एक स्प्राइट के रूप में दिखता है जो काम शुरू और खत्म होने पर प्रतिक्रिया देता है, और दृश्य क्लासिक ऑफ़िस से लेकर जादूगर की मीनार या पानी के नीचे की प्रयोगशाला तक थीम पर आधारित होते हैं। इसे अपनी अलग विंडो में निकालो और काम करते वक़्त दूसरी स्क्रीन पर रखो।",
+      "pageLabel": "Worlds",
+      "highlights": [
+        "कौन-कौन से एजेंट चल रहे हैं इसका लाइव नज़ारा, सूची की जगह किरदारों के रूप में",
+        "थीम वाले दृश्य जिनमें Office, Panda Den, Neural Net, Wizard Tower और Deep Lab शामिल हैं",
+        "दूसरे मॉनिटर के लिए अलग विंडो में निकालो; दृश्य का चुनाव सिंक में रहता है",
+        "तुम्हारा चुना हुआ दृश्य अगली बार के लिए याद रखता है",
+        "किसी किरदार पर क्लिक करके उसके ताज़ा संदेश पढ़ो, उसे जवाब दो या दिशा बदलो, और जिस टूल का वह इंतज़ार कर रहा है उसे मंज़ूर या नामंज़ूर करो"
+      ]
+    },
+    "it": {
+      "displayName": "Agent Worlds",
+      "description": "Trasforma gli agenti in esecuzione in personaggi di una scena animata in pixel art: un’occhiata ti dice quanto è occupato Kiro Crew. Ogni agente attivo appare come uno sprite che reagisce quando il lavoro inizia e finisce, in scene a tema che vanno da un ufficio classico a una torre da mago o a un laboratorio sottomarino. Aprila in una finestra separata per tenerla su un secondo schermo mentre lavori.",
+      "pageLabel": "Worlds",
+      "highlights": [
+        "Vista in tempo reale di quali agenti sono in esecuzione, come personaggi anziché come elenco",
+        "Scene a tema tra cui Office, Panda Den, Neural Net, Wizard Tower e Deep Lab",
+        "Aprila in una finestra separata per un secondo monitor; la scena scelta resta sincronizzata",
+        "Ricorda la scena scelta tra una visita e l’altra",
+        "Fai clic su un personaggio per leggerne gli ultimi messaggi, rispondergli o reindirizzarlo, e approvare o negare lo strumento che sta aspettando"
+      ]
+    },
+    "ja": {
+      "displayName": "Agent Worlds",
+      "description": "実行中のエージェントをアニメーション化されたピクセルアートシーンの文字に変えます。そのため、ひと目で Kiro Crew がどのくらい忙しいかがわかります。各アクティブなエージェントはスプライトとして表示され、仕事が開始および完了するときに反応します。クラシックなオフィスからウィザードタワーまたは水中ラボへのテーマシーンをまたいでいます。別のウィンドウにポップアウトして、作業中に2番目の画面に保つことができます。",
+      "pageLabel": "ワールド",
+      "highlights": [
+        "実行中のエージェントをリストではなく文字として表示するライブビュー",
+        "オフィス、パンダの巣穴、ニューラルネット、ウィザードタワー、ディープラボを含むテーマシーン",
+        "別のウィンドウにポップアウトします。シーンの選択は同期したまま",
+        "訪問のたびに選択したシーンを記憶します",
+        "キャラクターをクリックすると、最新のメッセージを読み、返信や方向修正をし、待機中のツールを承認または拒否できます"
+      ]
+    },
+    "ko": {
+      "displayName": "Agent Worlds",
+      "description": "실행 중인 에이전트를 애니메이션 픽셀 아트 장면 속 캐릭터로 바꿔, 한눈에 Kiro Crew가 얼마나 바쁜지 알 수 있게 합니다. 활성 에이전트마다 스프라이트로 나타나 작업이 시작되고 끝날 때 반응하며, 고전적인 사무실부터 마법사 탑이나 심해 연구소까지 테마 장면을 넘나듭니다. 별도 창으로 띄워 작업하는 동안 두 번째 화면에 계속 띄워 둘 수 있습니다.",
+      "pageLabel": "월드",
+      "highlights": [
+        "어떤 에이전트가 실행 중인지 목록이 아닌 캐릭터로 보여 주는 실시간 뷰",
+        "사무실·판다 굴·뉴럴 넷·마법사 탑·심해 연구소 등 테마 장면",
+        "보조 모니터용으로 별도 창으로 띄우기. 장면 선택은 계속 동기화됩니다",
+        "다시 방문해도 선택한 장면을 기억합니다",
+        "캐릭터를 클릭해 최근 메시지를 읽고, 답장하거나 방향을 바꾸고, 기다리는 도구를 승인하거나 거부할 수 있습니다"
+      ]
+    },
+    "pt": {
+      "displayName": "Agent Worlds",
+      "description": "Transforma seus agentes em execução em personagens de uma cena animada em pixel art, para você saber num relance o quanto o Kiro Crew está ocupado. Cada agente ativo aparece como um sprite que reage conforme o trabalho começa e termina, em cenas temáticas que vão de um escritório clássico a uma torre de mago ou um laboratório submarino. Abra em uma janela separada para deixá-la em uma segunda tela enquanto você trabalha.",
+      "pageLabel": "Mundos",
+      "highlights": [
+        "Visão ao vivo de quais agentes estão em execução, como personagens em vez de uma lista",
+        "Cenas temáticas, incluindo Office, Panda Den, Neural Net, Wizard Tower e Deep Lab",
+        "Abra em uma janela separada para um segundo monitor; a escolha da cena continua sincronizada",
+        "Lembra a cena que você escolheu entre visitas",
+        "Clique em um personagem para ler as mensagens mais recentes, responder ou redirecionar, e aprovar ou negar a ferramenta que ele está aguardando"
+      ]
+    },
+    "ru": {
+      "displayName": "Agent Worlds",
+      "description": "Превращает запущенных агентов в персонажей анимированной пиксельной сцены, чтобы по одному взгляду было понятно, насколько загружен Kiro Crew. Каждый активный агент показан спрайтом, который реагирует на начало и завершение работы, а сцены оформлены по-разному, от классического офиса до башни волшебника или подводной лаборатории. Открой сцену в отдельном окне, чтобы держать её на втором экране во время работы.",
+      "pageLabel": "Миры",
+      "highlights": [
+        "Наглядная картина работающих агентов: персонажи вместо списка",
+        "Оформленные сцены, среди них Office, Panda Den, Neural Net, Wizard Tower и Deep Lab",
+        "Открывается в отдельном окне для второго монитора; выбранная сцена остаётся синхронизированной",
+        "Запоминает выбранную сцену между визитами",
+        "Нажми на персонажа, чтобы прочитать его последние сообщения, ответить ему или скорректировать курс, а также разрешить или отклонить инструмент, которого он ждёт"
+      ]
+    },
+    "zh-CN": {
+      "displayName": "Agent Worlds",
+      "description": "把正在运行的代理变成动态像素画场景里的角色，一眼就能看出 Kiro Crew 有多忙。每个活跃代理都是一个精灵图，随着工作开始和结束做出反应；场景主题从经典办公室到巫师塔或水下实验室。弹出为独立窗口，就能在工作时把它放在第二块屏幕上。",
+      "pageLabel": "Worlds",
+      "highlights": [
+        "实时查看哪些代理正在运行，以角色而非列表呈现",
+        "主题场景包括 Office、Panda Den、Neural Net、Wizard Tower 和 Deep Lab",
+        "弹出为独立窗口放到第二台显示器上；场景选择保持同步",
+        "记住你选择的场景，下次打开时沿用",
+        "点击一个角色即可阅读它的最新消息、回复或引导它，并批准或拒绝它正在等待的工具"
+      ]
+    }
+  }
+}

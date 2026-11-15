@@ -1,0 +1,154 @@
+{
+  "app": {
+    "needs_newer_host": "Kiro Crew के इस संस्करण में Agent Worlds तुम्हारे सेशन तक नहीं पहुँच पा रहा। अपने एजेंट यहाँ देखने के लिए Kiro Crew अपडेट करो।"
+  },
+  "hooks": {
+    "useSceneInteraction": {
+      "all_slots_are_occupied": "सभी स्लॉट भरे हुए हैं",
+      "approve": "स्वीकृत करें",
+      "click_for_thread": "थ्रेड के लिए क्लिक करें",
+      "close_thread_view": "थ्रेड दृश्य बंद करें",
+      "couldn_t_load_messages": "संदेश लोड नहीं हो सके",
+      "create_a_new_chat_session_a_new_agent_joins_this": "नया चैट सेशन बनाएँ: इस दुनिया में एक नया एजेंट शामिल होता है",
+      "cron": "Cron{{detail}}",
+      "cron_running": "Cron · चल रहा है",
+      "deny": "अस्वीकार करें",
+      "idle": "निष्क्रिय",
+      "kiro_is_working": "kiro काम कर रहा है…",
+      "loading_thread": "थ्रेड लोड हो रहा है…",
+      "message": "{{name}} को संदेश भेजें",
+      "message_sent": "संदेश भेजा गया",
+      "message_this_agent": "इस एजेंट को संदेश भेजें…",
+      "needs_approval": "स्वीकृति चाहिए:",
+      "new_session": "+ नया सेशन",
+      "no_messages_yet": "अभी कोई संदेश नहीं",
+      "open_chat": "चैट खोलें",
+      "recent_messages_for": "{{name}} के हाल के संदेश",
+      "retry": "फिर कोशिश करें",
+      "retry_sending_message": "संदेश फिर भेजने की कोशिश करें",
+      "send": "भेजें",
+      "send_message": "संदेश भेजें",
+      "sending_message": "संदेश भेजा जा रहा है",
+      "steer_this_agent": "इस एजेंट को दिशा दें…",
+      "subagent": "सबएजेंट{{detail}}",
+      "summoning": "बुलाया जा रहा है…",
+      "waiting_on_approval": "स्वीकृति की प्रतीक्षा:",
+      "working": "काम कर रहा है"
+    }
+  },
+  "manifest": {
+    "configuration_1": "ऐप सक्षम करें, Agent Worlds खोलें, कोई दृश्य चुनें और चाहें तो उसे अलग विंडो में खोलें; किसी क्रेडेंशियल या बाहरी सेवा की आवश्यकता नहीं है।",
+    "description": "तुम्हारे चल रहे एजेंट को एनिमेटेड पिक्सेल-आर्ट दृश्य के किरदारों में बदल देता है, ताकि एक नज़र में पता चल जाए कि Kiro Crew कितना व्यस्त है। हर सक्रिय एजेंट एक स्प्राइट के रूप में दिखता है जो काम शुरू और खत्म होने पर प्रतिक्रिया देता है, और दृश्य क्लासिक ऑफ़िस से लेकर जादूगर की मीनार या पानी के नीचे की प्रयोगशाला तक थीम पर आधारित होते हैं। इसे अपनी अलग विंडो में निकालो और काम करते वक़्त दूसरी स्क्रीन पर रखो।",
+    "display_name": "Agent Worlds",
+    "highlight_1": "कौन-कौन से एजेंट चल रहे हैं इसका लाइव नज़ारा, सूची की जगह किरदारों के रूप में",
+    "highlight_2": "थीम वाले दृश्य जिनमें Office, Panda Den, Neural Net, Wizard Tower और Deep Lab शामिल हैं",
+    "highlight_3": "दूसरे मॉनिटर के लिए अलग विंडो में निकालो; दृश्य का चुनाव सिंक में रहता है",
+    "highlight_4": "तुम्हारा चुना हुआ दृश्य अगली बार के लिए याद रखता है",
+    "highlight_5": "किसी किरदार पर क्लिक करके उसके ताज़ा संदेश पढ़ो, उसे जवाब दो या दिशा बदलो, और जिस टूल का वह इंतज़ार कर रहा है उसे मंज़ूर या नामंज़ूर करो",
+    "page_label": "Worlds",
+    "use_case_1": "Crew के काम करते समय लाइव एजेंट, cron और subagent की गतिविधि पर दूसरी स्क्रीन से एक नज़र में नज़र रखें।"
+  },
+  "pages": {
+    "chatPage": {
+      "delivery_unconfirmed": "डिलीवरी की पुष्टि नहीं हुई: तुम्हारा टेक्स्ट इनपुट बॉक्स में वापस आ गया है; दोबारा भेजने से पहले बातचीत देखो।",
+      "send_failed_with_error": "भेजना विफल: {{error}}"
+    },
+    "scenes": {
+      "config": {
+        "ghost_desc": "टोपी, चश्मा और लबादा पहने Kiro भूत",
+        "ghost_label": "Kiro भूत-अड्डा",
+        "mission_desc": "NASA संचालन केंद्र",
+        "mission_label": "Mission Control",
+        "neural_desc": "तारामंडल का नक्शा",
+        "neural_label": "न्यूरल नेटवर्क",
+        "office_desc": "क्लासिक पिक्सेल ऑफ़िस",
+        "office_label": "ऑफ़िस",
+        "panda_desc": "बाँस के जंगल में कार्यस्थल, सब पांडा",
+        "panda_label": "पांडा अड्डा",
+        "serengeti_desc": "जिराफ़, वॉर्टहॉग और हाथियों वाला सेरेनगेटी सवाना",
+        "serengeti_label": "पानी का ठिकाना",
+        "underwater_desc": "पानी के नीचे का स्टेशन",
+        "underwater_label": "गहरे समुद्र की लैब",
+        "wizard_desc": "कीमियागरी प्रयोगशाला",
+        "wizard_label": "जादूगर की मीनार"
+      },
+      "ghostScene": {
+        "friendly_hauntings_only": "केवल दोस्ताना भूत",
+        "kiro_ghost_haunt_animation": "Kiro भूत एनिमेशन",
+        "kiro_ghost_haunt_text_overlay": "Kiro भूत टेक्स्ट ओवरले",
+        "kiro_haunt": "Kiro भूत-अड्डा"
+      },
+      "missionControl": {
+        "missionControlScene": {
+          "lv_level_title": "स्तर {{level}} {{title}}",
+          "mission_control_scene": "मिशन कंट्रोल दृश्य"
+        }
+      },
+      "neuralConstellationScene": {
+        "active": "सक्रिय",
+        "idle": "निष्क्रिय",
+        "neural_constellation_animation": "न्यूरल तारामंडल एनिमेशन",
+        "neural_constellation_text_overlay": "न्यूरल तारामंडल टेक्स्ट ओवरले",
+        "neural_network": "न्यूरल नेटवर्क"
+      },
+      "officeScene": {
+        "active": "सक्रिय",
+        "agent_office": "एजेंट ऑफ़िस",
+        "done": "पूर्ण",
+        "headquarters": "मुख्यालय",
+        "no_tasks": "कोई टास्क नहीं",
+        "office_scene": "ऑफ़िस दृश्य",
+        "office_scene_labels": "ऑफ़िस दृश्य के लेबल",
+        "to_do": "बाकी"
+      },
+      "pandaOfficeScene": {
+        "panda_den": "🐼 पांडा अड्डा",
+        "panda_office_scene": "पांडा ऑफ़िस दृश्य",
+        "panda_office_scene_labels": "पांडा ऑफ़िस दृश्य के लेबल"
+      },
+      "underwaterLabScene": {
+        "deep_sea_lab": "गहरे समुद्र की लैब",
+        "research_station": "शोध केंद्र",
+        "underwater_lab_scene": "अंडरवाटर लैब दृश्य",
+        "underwater_lab_scene_labels": "अंडरवाटर लैब दृश्य के लेबल"
+      },
+      "wateringHoleScene": {
+        "on_the_savanna": "सवाना में {{n}}/{{total}}",
+        "watering_hole": "पानी का ठिकाना",
+        "watering_hole_scene": "पानी के ठिकाने का दृश्य",
+        "watering_hole_scene_labels": "पानी के ठिकाने के दृश्य के लेबल"
+      },
+      "wizardTowerScene": {
+        "arcane_academy": "जादुई अकादमी",
+        "casting": "जादू कर रहा है",
+        "empty": "खाली",
+        "i_see": "समझ गया!",
+        "resting": "आराम कर रहा है",
+        "wizard_tower_scene": "जादूगर की मीनार का दृश्य",
+        "wizard_tower_spell_text": "जादूगर की मीनार का मंत्र टेक्स्ट"
+      }
+    },
+    "worldsPage": {
+      "agent_worlds": "Agent Worlds",
+      "agents_active_one": "{{n}} सक्रिय",
+      "agents_active_other": "{{n}} सक्रिय",
+      "agents_present_one": "{{n}} एजेंट मौजूद",
+      "agents_present_other": "{{n}} एजेंट मौजूद",
+      "focus_popout": "पॉपआउट पर फ़ोकस करें",
+      "hide_controls": "नियंत्रण छिपाएँ",
+      "playing_in_popout_window": "पॉपआउट विंडो में चल रहा है",
+      "pop_out_to_separate_window": "अलग विंडो में पॉप आउट करें",
+      "scene_button": "{{label}} दृश्य: {{desc}}",
+      "scene_label": "दृश्य",
+      "show_controls": "नियंत्रण दिखाएँ",
+      "slots_open_one": "{{n}} स्लॉट खाली",
+      "slots_open_other": "{{n}} स्लॉट खाली",
+      "summary": "{{present}} · {{active}} · {{open}}"
+    },
+    "worldsPopout": {
+      "hide_controls": "नियंत्रण छिपाएँ",
+      "scene_label": "दृश्य",
+      "show_controls": "नियंत्रण दिखाएँ"
+    }
+  }
+}

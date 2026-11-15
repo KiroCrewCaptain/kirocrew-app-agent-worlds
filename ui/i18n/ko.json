@@ -1,0 +1,151 @@
+{
+  "app": {
+    "needs_newer_host": "이 버전의 Kiro Crew에서는 Agent Worlds가 세션에 접근할 수 없습니다. 여기에서 에이전트를 보려면 Kiro Crew를 업데이트하세요."
+  },
+  "hooks": {
+    "useSceneInteraction": {
+      "all_slots_are_occupied": "모든 슬롯이 사용 중입니다",
+      "approve": "승인",
+      "click_for_thread": "클릭하면 스레드 표시",
+      "close_thread_view": "스레드 보기 닫기",
+      "couldn_t_load_messages": "메시지를 불러오지 못했습니다",
+      "create_a_new_chat_session_a_new_agent_joins_this": "새 채팅 세션 만들기: 새 에이전트가 이 세계에 참여합니다",
+      "cron": "정기 실행{{detail}}",
+      "cron_running": "정기 실행 · 실행 중",
+      "deny": "거부",
+      "idle": "유휴",
+      "kiro_is_working": "kiro가 작업 중…",
+      "loading_thread": "스레드 불러오는 중…",
+      "message": "{{name}}에게 메시지",
+      "message_sent": "메시지를 보냈습니다",
+      "message_this_agent": "이 에이전트에게 메시지…",
+      "needs_approval": "승인 필요:",
+      "new_session": "+ 새 세션",
+      "no_messages_yet": "아직 메시지가 없습니다",
+      "open_chat": "채팅 열기",
+      "recent_messages_for": "{{name}}의 최근 메시지",
+      "retry": "다시 시도",
+      "retry_sending_message": "메시지 보내기 다시 시도",
+      "send": "보내기",
+      "send_message": "메시지 보내기",
+      "sending_message": "메시지 보내는 중",
+      "steer_this_agent": "이 에이전트에 지시…",
+      "subagent": "서브에이전트{{detail}}",
+      "summoning": "소환 중…",
+      "waiting_on_approval": "승인 대기 중:",
+      "working": "작업 중"
+    }
+  },
+  "manifest": {
+    "configuration_1": "앱을 활성화하고 Agent Worlds를 연 다음 장면을 선택하세요. 필요하면 별도 창으로 띄울 수 있습니다. 자격 증명이나 외부 서비스는 필요하지 않습니다.",
+    "description": "실행 중인 에이전트를 애니메이션 픽셀 아트 장면 속 캐릭터로 바꿔, 한눈에 Kiro Crew가 얼마나 바쁜지 알 수 있게 합니다. 활성 에이전트마다 스프라이트로 나타나 작업이 시작되고 끝날 때 반응하며, 고전적인 사무실부터 마법사 탑이나 심해 연구소까지 테마 장면을 넘나듭니다. 별도 창으로 띄워 작업하는 동안 두 번째 화면에 계속 띄워 둘 수 있습니다.",
+    "display_name": "Agent Worlds",
+    "highlight_1": "어떤 에이전트가 실행 중인지 목록이 아닌 캐릭터로 보여 주는 실시간 뷰",
+    "highlight_2": "사무실·판다 굴·뉴럴 넷·마법사 탑·심해 연구소 등 테마 장면",
+    "highlight_3": "보조 모니터용으로 별도 창으로 띄우기. 장면 선택은 계속 동기화됩니다",
+    "highlight_4": "다시 방문해도 선택한 장면을 기억합니다",
+    "highlight_5": "캐릭터를 클릭해 최근 메시지를 읽고, 답장하거나 방향을 바꾸고, 기다리는 도구를 승인하거나 거부할 수 있습니다",
+    "page_label": "월드",
+    "use_case_1": "크루가 작업하는 동안 실행 중인 에이전트, cron, 서브에이전트를 세컨드 스크린에서 한눈에 확인합니다."
+  },
+  "pages": {
+    "chatPage": {
+      "delivery_unconfirmed": "전송이 확인되지 않았습니다: 입력한 텍스트를 입력창에 되돌려 두었습니다. 다시 보내기 전에 대화 기록을 확인하세요.",
+      "send_failed_with_error": "전송 실패: {{error}}"
+    },
+    "scenes": {
+      "config": {
+        "ghost_desc": "모자, 안경, 망토를 걸친 Kiro 유령들",
+        "ghost_label": "Kiro 유령 출몰",
+        "mission_desc": "NASA 운영 센터",
+        "mission_label": "Mission Control",
+        "neural_desc": "별자리 지도",
+        "neural_label": "뉴럴 네트워크",
+        "office_desc": "클래식 픽셀 오피스",
+        "office_label": "오피스",
+        "panda_desc": "대나무 숲 작업 공간, 모두 판다",
+        "panda_label": "판다 소굴",
+        "serengeti_desc": "기린, 혹멧돼지, 코끼리가 있는 세렝게티 사바나",
+        "serengeti_label": "물웅덩이",
+        "underwater_desc": "수중 기지",
+        "underwater_label": "심해 연구소",
+        "wizard_desc": "연금술 실험실",
+        "wizard_label": "마법사의 탑"
+      },
+      "ghostScene": {
+        "friendly_hauntings_only": "친절한 유령만",
+        "kiro_ghost_haunt_animation": "Kiro 유령 출몰 애니메이션",
+        "kiro_ghost_haunt_text_overlay": "Kiro 유령 출몰 텍스트 오버레이",
+        "kiro_haunt": "Kiro 유령 출몰"
+      },
+      "missionControl": {
+        "missionControlScene": {
+          "lv_level_title": "Lv.{{level}} {{title}}",
+          "mission_control_scene": "미션 컨트롤 장면"
+        }
+      },
+      "neuralConstellationScene": {
+        "active": "활성",
+        "idle": "대기",
+        "neural_constellation_animation": "뉴럴 별자리 애니메이션",
+        "neural_constellation_text_overlay": "뉴럴 별자리 텍스트 오버레이",
+        "neural_network": "뉴럴 네트워크"
+      },
+      "officeScene": {
+        "active": "활성",
+        "agent_office": "에이전트 오피스",
+        "done": "완료",
+        "headquarters": "본부",
+        "no_tasks": "태스크 없음",
+        "office_scene": "오피스 장면",
+        "office_scene_labels": "오피스 장면 레이블",
+        "to_do": "할 일"
+      },
+      "pandaOfficeScene": {
+        "panda_den": "🐼 판다 소굴",
+        "panda_office_scene": "판다 오피스 장면",
+        "panda_office_scene_labels": "판다 오피스 장면 레이블"
+      },
+      "underwaterLabScene": {
+        "deep_sea_lab": "심해 연구소",
+        "research_station": "연구 기지",
+        "underwater_lab_scene": "수중 연구소 장면",
+        "underwater_lab_scene_labels": "수중 연구소 장면 레이블"
+      },
+      "wateringHoleScene": {
+        "on_the_savanna": "사바나에 {{n}}/{{total}}",
+        "watering_hole": "물웅덩이",
+        "watering_hole_scene": "물웅덩이 장면",
+        "watering_hole_scene_labels": "물웅덩이 장면 레이블"
+      },
+      "wizardTowerScene": {
+        "arcane_academy": "비전 학원",
+        "casting": "시전 중",
+        "empty": "비어 있음",
+        "i_see": "그렇군요!",
+        "resting": "휴식 중",
+        "wizard_tower_scene": "마법사 탑 장면",
+        "wizard_tower_spell_text": "마법사 탑 주문 텍스트"
+      }
+    },
+    "worldsPage": {
+      "agent_worlds": "Agent Worlds",
+      "agents_active_other": "{{n}}개 활동 중",
+      "agents_present_other": "에이전트 {{n}}개 참석",
+      "focus_popout": "팝아웃 포커스",
+      "hide_controls": "컨트롤 숨기기",
+      "playing_in_popout_window": "팝아웃 창에서 재생 중",
+      "pop_out_to_separate_window": "별도 창으로 팝아웃",
+      "scene_button": "{{label}} 장면: {{desc}}",
+      "scene_label": "장면",
+      "show_controls": "컨트롤 표시",
+      "slots_open_other": "빈 슬롯 {{n}}개",
+      "summary": "{{present}} · {{active}} · {{open}}"
+    },
+    "worldsPopout": {
+      "hide_controls": "컨트롤 숨기기",
+      "scene_label": "장면",
+      "show_controls": "컨트롤 표시"
+    }
+  }
+}

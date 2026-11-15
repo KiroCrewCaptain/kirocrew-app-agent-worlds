@@ -1,0 +1,154 @@
+{
+  "app": {
+    "needs_newer_host": "Agent Worlds kann in dieser Version von Kiro Crew deine Sitzungen nicht erreichen. Aktualisiere Kiro Crew, um deine Agenten hier zu sehen."
+  },
+  "hooks": {
+    "useSceneInteraction": {
+      "all_slots_are_occupied": "Alle Slots sind belegt",
+      "approve": "Genehmigen",
+      "click_for_thread": "für Thread klicken",
+      "close_thread_view": "Thread-Ansicht schließen",
+      "couldn_t_load_messages": "Nachrichten konnten nicht geladen werden",
+      "create_a_new_chat_session_a_new_agent_joins_this": "Neue Chat-Sitzung erstellen: ein neuer Agent betritt diese Welt",
+      "cron": "Cron{{detail}}",
+      "cron_running": "Cron · läuft",
+      "deny": "Ablehnen",
+      "idle": "Inaktiv",
+      "kiro_is_working": "Kiro arbeitet…",
+      "loading_thread": "Thread wird geladen…",
+      "message": "Nachricht {{name}}",
+      "message_sent": "Nachricht gesendet",
+      "message_this_agent": "Diesem Agenten schreiben…",
+      "needs_approval": "benötigt Genehmigung:",
+      "new_session": "+ Neue Sitzung",
+      "no_messages_yet": "Noch keine Nachrichten",
+      "open_chat": "Chat öffnen",
+      "recent_messages_for": "Neueste Nachrichten für {{name}}",
+      "retry": "Erneut versuchen",
+      "retry_sending_message": "Senden erneut versuchen",
+      "send": "Senden",
+      "send_message": "Nachricht senden",
+      "sending_message": "Nachricht wird gesendet",
+      "steer_this_agent": "Diesen Agenten steuern…",
+      "subagent": "Subagent{{detail}}",
+      "summoning": "wird herbeigerufen…",
+      "waiting_on_approval": "Warten auf Genehmigung:",
+      "working": "Arbeitet"
+    }
+  },
+  "manifest": {
+    "configuration_1": "Aktiviere die App, öffne Agent Worlds, wähle eine Szene und kopple sie optional in ein eigenes Fenster aus; Anmeldedaten oder externe Dienste sind nicht erforderlich.",
+    "description": "Verwandelt deine laufenden Agenten in Figuren einer animierten Pixel-Art-Szene, sodass ein Blick genügt, um zu sehen, wie ausgelastet Kiro Crew ist. Jeder aktive Agent erscheint als Sprite, das reagiert, wenn Arbeit beginnt und endet, über Themenszenen hinweg, vom klassischen Büro bis zum Zauberturm oder Unterwasserlabor. Kopple es in ein eigenes Fenster aus, um es beim Arbeiten auf einem zweiten Bildschirm zu behalten.",
+    "display_name": "Agent Worlds",
+    "highlight_1": "Live-Ansicht der laufenden Agenten, als Figuren statt als Liste",
+    "highlight_2": "Themenszenen wie Büro, Panda-Höhle, Neuronales Netz, Zauberturm und Tiefseelabor",
+    "highlight_3": "In ein separates Fenster für einen zweiten Monitor auskoppeln; die Szenenauswahl bleibt synchron",
+    "highlight_4": "Merkt sich deine gewählte Szene zwischen den Besuchen",
+    "highlight_5": "Klicke auf eine Figur, um ihre neuesten Nachrichten zu lesen, ihr zu antworten oder sie umzulenken und das Tool zu erlauben oder abzulehnen, auf das sie wartet",
+    "page_label": "Welten",
+    "use_case_1": "Behalte aktive Agenten, Cronjobs und Subagenten während der Crew-Arbeit auf einem zweiten Bildschirm jederzeit im Blick."
+  },
+  "pages": {
+    "chatPage": {
+      "delivery_unconfirmed": "Zustellung nicht bestätigt: dein Text steht wieder im Eingabefeld; prüfe den Verlauf, bevor du erneut sendest.",
+      "send_failed_with_error": "Senden fehlgeschlagen: {{error}}"
+    },
+    "scenes": {
+      "config": {
+        "ghost_desc": "Kiro-Geister mit Hüten, Brillen und Umhängen",
+        "ghost_label": "Kiro-Spuk",
+        "mission_desc": "NASA-Kontrollzentrum",
+        "mission_label": "Mission Control",
+        "neural_desc": "Sternbildkarte",
+        "neural_label": "Neuronales Netz",
+        "office_desc": "Klassisches Pixel-Büro",
+        "office_label": "Büro",
+        "panda_desc": "Arbeitsplatz im Bambuswald, nur Pandas",
+        "panda_label": "Panda-Höhle",
+        "serengeti_desc": "Serengeti-Savanne mit Giraffen, Warzenschweinen und Elefanten",
+        "serengeti_label": "Wasserloch",
+        "underwater_desc": "Unterwasserstation",
+        "underwater_label": "Tiefseelabor",
+        "wizard_desc": "Alchemielabor",
+        "wizard_label": "Zauberturm"
+      },
+      "ghostScene": {
+        "friendly_hauntings_only": "nur freundliches Spuken",
+        "kiro_ghost_haunt_animation": "Animation des Kiro-Geisterspuks",
+        "kiro_ghost_haunt_text_overlay": "Text-Overlay des Kiro-Geisterspuks",
+        "kiro_haunt": "Kiro-Spuk"
+      },
+      "missionControl": {
+        "missionControlScene": {
+          "lv_level_title": "Lv.{{level}} {{title}}",
+          "mission_control_scene": "Kontrollzentrum-Szene"
+        }
+      },
+      "neuralConstellationScene": {
+        "active": "aktiv",
+        "idle": "inaktiv",
+        "neural_constellation_animation": "Animation der neuronalen Konstellation",
+        "neural_constellation_text_overlay": "Text-Overlay der neuronalen Konstellation",
+        "neural_network": "Neuronales Netz"
+      },
+      "officeScene": {
+        "active": "Aktiv",
+        "agent_office": "Agentenbüro",
+        "done": "Fertig",
+        "headquarters": "Hauptquartier",
+        "no_tasks": "Keine Aufgaben",
+        "office_scene": "Büroszene",
+        "office_scene_labels": "Beschriftungen der Büroszene",
+        "to_do": "Zu erledigen"
+      },
+      "pandaOfficeScene": {
+        "panda_den": "🐼 Panda-Höhle",
+        "panda_office_scene": "Panda-Büroszene",
+        "panda_office_scene_labels": "Beschriftungen der Panda-Büroszene"
+      },
+      "underwaterLabScene": {
+        "deep_sea_lab": "Tiefseelabor",
+        "research_station": "Forschungsstation",
+        "underwater_lab_scene": "Unterwasserlabor-Szene",
+        "underwater_lab_scene_labels": "Beschriftungen der Unterwasserlabor-Szene"
+      },
+      "wateringHoleScene": {
+        "on_the_savanna": "{{n}}/{{total}} in der Savanne",
+        "watering_hole": "Wasserloch",
+        "watering_hole_scene": "Wasserloch-Szene",
+        "watering_hole_scene_labels": "Beschriftungen der Wasserloch-Szene"
+      },
+      "wizardTowerScene": {
+        "arcane_academy": "Arkane Akademie",
+        "casting": "zaubert",
+        "empty": "leer",
+        "i_see": "Aha!",
+        "resting": "ruht",
+        "wizard_tower_scene": "Zauberturm-Szene",
+        "wizard_tower_spell_text": "Zauberspruchtext des Zauberturms"
+      }
+    },
+    "worldsPage": {
+      "agent_worlds": "Agent Worlds",
+      "agents_active_one": "{{n}} aktiv",
+      "agents_active_other": "{{n}} aktiv",
+      "agents_present_one": "{{n}} Agent vorhanden",
+      "agents_present_other": "{{n}} Agenten vorhanden",
+      "focus_popout": "Ausgekoppeltes Fenster fokussieren",
+      "hide_controls": "Steuerung ausblenden",
+      "playing_in_popout_window": "Wird im ausgekoppelten Fenster abgespielt",
+      "pop_out_to_separate_window": "In ein separates Fenster auskoppeln",
+      "scene_button": "Szene {{label}}: {{desc}}",
+      "scene_label": "Szene",
+      "show_controls": "Steuerung anzeigen",
+      "slots_open_one": "{{n}} Slot frei",
+      "slots_open_other": "{{n}} Slots frei",
+      "summary": "{{present}} · {{active}} · {{open}}"
+    },
+    "worldsPopout": {
+      "hide_controls": "Steuerung ausblenden",
+      "scene_label": "Szene",
+      "show_controls": "Steuerung anzeigen"
+    }
+  }
+}
