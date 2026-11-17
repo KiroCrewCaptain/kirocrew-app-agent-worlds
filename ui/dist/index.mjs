@@ -2,7 +2,7 @@ import * as sdk from "@kirocrew/app-sdk";
 import { activeLocale, fmtNumber, useAppApi, useChatLauncher, useImeGuard, useLanguageGeneration } from "@kirocrew/app-sdk";
 import { ErrorNotice } from "@kirocrew/app-sdk/ui";
 import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import { AlertTriangle, Brain, Building2, Check, Circle, Ghost, MessageSquare, Pause, PictureInPicture2, Rocket, Sparkles, TreePine, Wand2, Waves, X } from "lucide-react";
+import { AlertTriangle, Brain, Building2, Check, ChevronDown, ChevronUp, Circle, Ghost, MessageSquare, Pause, PictureInPicture2, Rocket, Sparkles, TreePine, Wand2, Waves, X } from "lucide-react";
 import { Fragment, jsx, jsxs } from "react/jsx-runtime";
 // src/hostSdk.ts
 /**
@@ -1917,6 +1917,43 @@ function sliceCodePoints(s, start, end = s.length) {
 function snapOffPair(s, i, dir) {
 	return i > 0 && i < s.length && isHighSurrogate(s.charCodeAt(i - 1)) && isLowSurrogate(s.charCodeAt(i)) ? i + dir : i;
 }
+// src/utils/pollWhileVisible.ts
+/**
+* Repeat `tick` every `ms` while the page is on screen.
+*
+* A plain `setInterval` keeps reading the gateway from a tab nobody is looking
+* at: the Task Runner page asked for its runs every 3 s and a Worlds window
+* sent three reads every few seconds for as long as the tab stayed open. Here a
+* hidden page stops ticking. When it is shown again `tick` runs once at once,
+* so what the reader sees is current, and the cadence starts over from there.
+*
+* The first tick is the caller's: this only repeats. Returns the stop function,
+* which an effect can return as its cleanup.
+*/
+function pollWhileVisible(tick, ms) {
+	let timer = null;
+	const hidden = () => document.visibilityState === "hidden";
+	const stop = () => {
+		if (timer === null) return;
+		clearInterval(timer);
+		timer = null;
+	};
+	const sync = () => {
+		if (hidden()) {
+			stop();
+			return;
+		}
+		if (timer !== null) return;
+		tick();
+		timer = setInterval(tick, ms);
+	};
+	if (!hidden()) timer = setInterval(tick, ms);
+	document.addEventListener("visibilitychange", sync);
+	return () => {
+		stop();
+		document.removeEventListener("visibilitychange", sync);
+	};
+}
 // src/hooks/useAgentSync.ts
 var MAX_AGENTS = 8;
 var CRON_POLL_MS = 5e3;
@@ -1932,7 +1969,7 @@ function shortName(s, max = 45) {
 *
 * The sessions are the host's own (`useHostSessions`), titled and labelled as
 * the session list shows them. The crons and subagents are polled through the
-* scoped client.
+* scoped client, only while the page is on screen.
 */
 function useAgentSync(host) {
 	const api = useAppApi();
@@ -1955,14 +1992,16 @@ function useAgentSync(host) {
 	})), [host.sessions]);
 	useEffect(() => {
 		let cancelled = false;
-		let cronTimer;
-		let spawnTimer;
+		let cronBusy = false;
+		let spawnBusy = false;
 		let cronResult = [];
 		let spawnResult = [];
 		const update = () => {
 			if (!cancelled) setExtras([...cronResult, ...spawnResult]);
 		};
 		const pollCron = async () => {
+			if (cronBusy) return;
+			cronBusy = true;
 			try {
 				const cronData = await apiRef.current.get("/api/crons");
 				cronResult = (Array.isArray(cronData?.jobs) ? cronData.jobs : []).filter((c) => c.enabled || c.is_running === true).slice(0, 3).map((cr) => ({
@@ -1974,10 +2013,12 @@ function useAgentSync(host) {
 					detail: cr.schedule
 				}));
 			} catch {}
+			cronBusy = false;
 			update();
-			if (!cancelled) cronTimer = setTimeout(pollCron, CRON_POLL_MS);
 		};
 		const pollSpawn = async () => {
+			if (spawnBusy) return;
+			spawnBusy = true;
 			try {
 				const spawnData = await apiRef.current.get("/api/spawn");
 				spawnResult = (Array.isArray(spawnData?.agents) ? spawnData.agents : []).filter((s) => !s.done).slice(0, 3).map((sp) => ({
@@ -1989,15 +2030,21 @@ function useAgentSync(host) {
 					detail: sp.done ? "done" : "running"
 				}));
 			} catch {}
+			spawnBusy = false;
 			update();
-			if (!cancelled) spawnTimer = setTimeout(pollSpawn, SPAWN_POLL_MS);
 		};
 		pollCron();
 		pollSpawn();
+		const stopCron = pollWhileVisible(() => {
+			pollCron();
+		}, CRON_POLL_MS);
+		const stopSpawn = pollWhileVisible(() => {
+			pollSpawn();
+		}, SPAWN_POLL_MS);
 		return () => {
 			cancelled = true;
-			clearTimeout(cronTimer);
-			clearTimeout(spawnTimer);
+			stopCron();
+			stopSpawn();
 		};
 	}, []);
 	return {
@@ -2717,8 +2764,7 @@ function useSceneInteraction(canvasRef, agentsRef, W, H, theme, hitRadius = 10, 
 				});
 			}).catch(() => {});
 		};
-		const timer = setInterval(refresh, 2e3);
-		return () => clearInterval(timer);
+		return pollWhileVisible(refresh, 2e3);
 	}, [threadAgentId]);
 	useEffect(() => {
 		messagesEndRef.current?.scrollIntoView({ block: "nearest" });
@@ -9859,7 +9905,7 @@ function WorldsPage({ host }) {
 								fontSize: 16,
 								lineHeight: 1
 							},
-							children: collapsed ? "▼" : "▲"
+							children: collapsed ? /* @__PURE__ */ jsx(ChevronDown, { size: 16 }) : /* @__PURE__ */ jsx(ChevronUp, { size: 16 })
 						}), /* @__PURE__ */ jsx("button", {
 							onClick: openPopout,
 							title: i18nT("pages.worldsPage.pop_out_to_separate_window"),
@@ -10040,7 +10086,7 @@ function WorldsPopout({ host }) {
 						fontSize: 16,
 						lineHeight: 1
 					},
-					children: collapsed ? "▼" : "▲"
+					children: collapsed ? /* @__PURE__ */ jsx(ChevronDown, { size: 16 }) : /* @__PURE__ */ jsx(ChevronUp, { size: 16 })
 				}), SCENES.map((s) => {
 					const C = SCENE_COMPONENTS[s.key];
 					return /* @__PURE__ */ jsx("div", {

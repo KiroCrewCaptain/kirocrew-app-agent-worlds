@@ -7,7 +7,8 @@ scenes under `website/src/pages/scenes/`, the scene hooks under
 `website/src/hooks/` (`useAgentSync`, `useSceneInteraction`, `usePopoutSync`,
 `sceneCanvas`, `sceneStateCache`, `sceneText`), its store art under
 `website/public/app-assets/worlds/`, and the tests for all of them (KiroCrew
-`main` at `33979525d8`).
+`main` at `33979525d8`). The built-in's changes since are ported up to KiroCrew
+`main` `2e2503671f` (see [Synced with the wheel copy](#synced-with-the-wheel-copy)).
 
 The page reaches Kiro Crew only through the App SDK. The one host seam it needed
 that no app had was added for it: `useHostSessions`, App Kit level 8
@@ -77,3 +78,16 @@ pins that the page carries the host's sessions over unchanged. The
 interaction tests drive the page against a host double that answers the way
 `useHostSessions` does. New tests cover the entry (`entry.test.tsx`) and the
 pop-out address (`popoutRoute.test.ts`).
+
+## Synced with the wheel copy
+
+Every change to the built-in since `33979525d8`, up to KiroCrew `main` `2e2503671f`
+(its manifest, page, pop-out, scenes, scene hooks, store art, strings and their tests):
+
+| KiroCrew | Built-in change | Here |
+|---|---|---|
+| #37426 | the wheel copy's manifest declares `permissions.api` for the host paths its page calls | the port's basis: declared here from the start, and `tests/fixtures/builtin-app.json` is that manifest |
+| #37549 | the page stops reading the gateway from a hidden tab: the cron and subagent polls and the mini thread's 2-second refresh run only while the page is visible and tick once when it is shown again, and a cron or subagent read is skipped while the previous one is still out; the pop-out's session poll likewise | `ui/src/utils/pollWhileVisible.ts` (the built-in's `lib/pollWhileVisible.ts`), `ui/src/hooks/useAgentSync.ts`, `ui/src/hooks/useSceneInteraction.tsx`, `ui/tests/pollWhileVisible.test.ts`, `ui/tests/useAgentSync.poll.test.tsx`. The pop-out here reads the host's sessions, which needs no poll (What changed, above). |
+| #38097 | the collapse toggle of the page and the pop-out draws a lucide chevron instead of a triangle glyph | `ui/src/pages/WorldsPage.tsx`, `ui/src/pages/WorldsPopout.tsx`, the toggle cases |
+
+No string the page shows changed in that range, in any language.
