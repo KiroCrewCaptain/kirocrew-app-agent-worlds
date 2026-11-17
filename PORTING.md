@@ -44,8 +44,9 @@ app's declared `permissions.api`.
 
 The `version` started equal to the built-in's (`1.0.0`) and only moves up:
 adoption matches it against Kiro Crew's pin of one commit here, and the pin
-moves the built-in's version with it. `1.0.1` is the first release, the one the
-pin names.
+moves the built-in's version with it. `1.0.1` is the first release; `1.0.2`
+carries the wheel copy's changes up to KiroCrew `main` `2e2503671f` and is the one
+the pin names.
 
 ## What changed, and why
 
