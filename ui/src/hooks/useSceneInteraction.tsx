@@ -6,6 +6,7 @@ import type { AgentSource } from './useAgentSync'
 import { HostSessionsContext } from './hostSessionsContext'
 import { KIRO_GHOST_PIXELS } from './sceneText'
 import { sliceCodePoints } from '../utils/codePoints'
+import { pollWhileVisible } from '../utils/pollWhileVisible'
 
 import { i18nT } from '../i18n/t'
 /** Minimal agent shape for hit-testing - all scene agent types satisfy this */
@@ -238,8 +239,7 @@ export function useSceneInteraction(
         })
         .catch(() => {})
     }
-    const timer = setInterval(refresh, 2000)
-    return () => clearInterval(timer)
+    return pollWhileVisible(refresh, 2000)
   }, [threadAgentId])
 
   // Keep the mini thread pinned to the newest message

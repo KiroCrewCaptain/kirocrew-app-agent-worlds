@@ -1,5 +1,6 @@
 import { safeSetItem } from '../utils/safeStorage'
 import { useState, useEffect } from 'react'
+import { ChevronDown, ChevronUp } from 'lucide-react'
 import { useAgentSync } from '../hooks/useAgentSync'
 import { usePopoutSync } from '../hooks/usePopoutSync'
 import { SCENES, SCENE_STORAGE_KEY, SCENE_LAYOUT_SCALE, type SceneKey } from './scenes/config'
@@ -16,7 +17,7 @@ export default function WorldsPopout({ host }: { host: HostSessions }) {
     return SCENES.find(s => s.key === saved)?.key ?? 'office'
   })
   const [collapsed, setCollapsed] = useState(false)
-  // The toggle renders only a ▼/▲ glyph, so it needs an explicit accessible
+  // The toggle renders only a chevron icon, so it needs an explicit accessible
   // name: `title` alone is an unreliable accessible-name source across screen
   // readers. Shared with `title` so the two can never drift apart.
   const collapseLabel = collapsed
@@ -82,7 +83,7 @@ export default function WorldsPopout({ host }: { host: HostSessions }) {
               color: 'var(--text-muted, #999)', fontSize: 16, lineHeight: 1,
             }}
           >
-            {collapsed ? '▼' : '▲'}
+            {collapsed ? <ChevronDown size={16} /> : <ChevronUp size={16} />}
           </button>
 
           {SCENES.map(s => {

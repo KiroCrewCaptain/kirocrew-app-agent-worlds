@@ -90,9 +90,9 @@ describe('WorldsPopout', () => {
   it('has collapse/expand toggle', () => {
     renderWithHost(<WorldsPopout host={stubHost} />)
     const toggle = screen.getByTitle('Hide controls')
-    expect(toggle).toHaveTextContent('▲')
+    expect(toggle.querySelector('svg.lucide-chevron-up')).not.toBeNull()
     fireEvent.click(toggle)
-    expect(screen.getByTitle('Show controls')).toHaveTextContent('▼')
+    expect(screen.getByTitle('Show controls').querySelector('svg.lucide-chevron-down')).not.toBeNull()
   })
 
   it('passes agents to scenes', () => {
