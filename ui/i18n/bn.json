@@ -57,6 +57,8 @@
       "config": {
         "ghost_desc": "টুপি, চশমা আর কেপ পরা Kiro ভূত",
         "ghost_label": "Kiro ভূতুড়ে ডেরা",
+        "hanoi_desc": "হোয়ান কিয়েম হ্রদের পাশে পুরোনো শহর",
+        "hanoi_label": "হ্যানয়",
         "mission_desc": "NASA অপারেশন কেন্দ্র",
         "mission_label": "Mission Control",
         "neural_desc": "নক্ষত্রমণ্ডলের মানচিত্র",
@@ -77,6 +79,30 @@
         "kiro_ghost_haunt_animation": "Kiro ভূতের ভুতুড়ে অ্যানিমেশন",
         "kiro_ghost_haunt_text_overlay": "Kiro ভূতের ভুতুড়ে টেক্সট ওভারলে",
         "kiro_haunt": "Kiro ভূতুড়ে ডেরা"
+      },
+      "hanoiScene": {
+        "at_the_cafe": "{{n}}/{{total}} ক্যাফেতে",
+        "chat_bug_ask": "বাগ ঠিক হয়েছে?",
+        "chat_bug_reply": "সব শেষ!",
+        "chat_coffee_ask": "ডিম কফি?",
+        "chat_coffee_reply": "এক কাপ, প্লিজ!",
+        "chat_deploy_ask": "ডিপ্লয় হয়েছে?",
+        "chat_deploy_reply": "বিল্ড চলছে!",
+        "chat_latency_ask": "ল্যাটেন্সি বেশি?",
+        "chat_latency_reply": "স্কেল করছি!",
+        "chat_review_ask": "পিআর ঠিক আছে?",
+        "chat_review_reply": "দেখতে ভালো!",
+        "chat_tea_ask": "আইস টি?",
+        "chat_tea_reply": "দুই গ্লাস!",
+        "coding_at_the_cafe": "ক্যাফেতে কোডিং",
+        "egg_coffee_break": "এগ-কফি বিরতি",
+        "hanoi_old_quarter": "হ্যানয় পুরনো শহর",
+        "hanoi_old_quarter_animation": "হ্যানয় পুরনো শহরের অ্যানিমেশন",
+        "hanoi_old_quarter_text_overlay": "হ্যানয় পুরনো শহরের টেক্সট ওভারলে",
+        "hoan_kiem_lakeside": "হোয়ান কিয়েম হ্রদের ধারে",
+        "sign_egg_coffee": "CÀ PHÊ TRỨNG",
+        "sign_iced_tea": "TRÀ ĐÁ",
+        "sign_pho": "PHỞ BÒ"
       },
       "missionControl": {
         "missionControlScene": {

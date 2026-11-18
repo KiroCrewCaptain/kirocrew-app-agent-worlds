@@ -5,6 +5,7 @@ import OfficeScene from '../src/pages/scenes/OfficeScene'
 import NeuralConstellationScene from '../src/pages/scenes/NeuralConstellationScene'
 import WizardTowerScene from '../src/pages/scenes/WizardTowerScene'
 import UnderwaterLabScene from '../src/pages/scenes/UnderwaterLabScene'
+import HanoiScene from '../src/pages/scenes/HanoiScene'
 import type { AgentSource } from '../src/hooks/useAgentSync'
 
 // Canvas 2D context mock - jsdom doesn't implement it.
@@ -226,5 +227,33 @@ describe('WateringHoleScene', () => {
   it('renders both pixel canvas and text overlay canvas', () => {
     const { container } = renderWH({ agents: mockAgents })
     expect(container.querySelectorAll('canvas').length).toBe(2)
+  })
+})
+
+describe('HanoiScene', () => {
+  it('renders a canvas element', () => {
+    const { container } = renderScene(<HanoiScene agents={[]} />)
+    expect(container.querySelector('canvas')).toBeInTheDocument()
+  })
+
+  it('renders with agents provided', () => {
+    const { container } = renderScene(<HanoiScene agents={mockAgents} />)
+    expect(container.querySelector('canvas')).toBeInTheDocument()
+  })
+
+  it('renders when visible=false (kept mounted)', () => {
+    const { container } = renderScene(<HanoiScene agents={[]} visible={false} />)
+    expect(container.querySelector('canvas')).toBeInTheDocument()
+  })
+
+  it('canvas has pixelated image rendering style', () => {
+    const { container } = renderScene(<HanoiScene agents={[]} />)
+    const canvas = container.querySelector('canvas')!
+    expect(canvas.style.imageRendering).toBe('pixelated')
+  })
+
+  it('renders the pixel canvas and the text overlay', () => {
+    const { container } = renderScene(<HanoiScene agents={mockAgents} />)
+    expect(container.querySelectorAll('canvas')).toHaveLength(2)
   })
 })

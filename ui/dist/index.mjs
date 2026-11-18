@@ -2,7 +2,7 @@ import * as sdk from "@kirocrew/app-sdk";
 import { activeLocale, fmtNumber, useAppApi, useChatLauncher, useImeGuard, useLanguageGeneration } from "@kirocrew/app-sdk";
 import { ErrorNotice } from "@kirocrew/app-sdk/ui";
 import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import { AlertTriangle, Brain, Building2, Check, ChevronDown, ChevronUp, Circle, Ghost, MessageSquare, Pause, PictureInPicture2, Rocket, Sparkles, TreePine, Wand2, Waves, X } from "lucide-react";
+import { AlertTriangle, Brain, Building2, Check, ChevronDown, ChevronUp, Circle, Ghost, Landmark, MessageSquare, Pause, PictureInPicture2, Rocket, Sparkles, TreePine, Wand2, Waves, X } from "lucide-react";
 import { Fragment, jsx, jsxs } from "react/jsx-runtime";
 // src/hostSdk.ts
 /**
@@ -94,6 +94,8 @@ var CATALOGS = {
 				"config": {
 					"ghost_desc": "টুপি, চশমা আর কেপ পরা Kiro ভূত",
 					"ghost_label": "Kiro ভূতুড়ে ডেরা",
+					"hanoi_desc": "হোয়ান কিয়েম হ্রদের পাশে পুরোনো শহর",
+					"hanoi_label": "হ্যানয়",
 					"mission_desc": "NASA অপারেশন কেন্দ্র",
 					"mission_label": "Mission Control",
 					"neural_desc": "নক্ষত্রমণ্ডলের মানচিত্র",
@@ -114,6 +116,30 @@ var CATALOGS = {
 					"kiro_ghost_haunt_animation": "Kiro ভূতের ভুতুড়ে অ্যানিমেশন",
 					"kiro_ghost_haunt_text_overlay": "Kiro ভূতের ভুতুড়ে টেক্সট ওভারলে",
 					"kiro_haunt": "Kiro ভূতুড়ে ডেরা"
+				},
+				"hanoiScene": {
+					"at_the_cafe": "{{n}}/{{total}} ক্যাফেতে",
+					"chat_bug_ask": "বাগ ঠিক হয়েছে?",
+					"chat_bug_reply": "সব শেষ!",
+					"chat_coffee_ask": "ডিম কফি?",
+					"chat_coffee_reply": "এক কাপ, প্লিজ!",
+					"chat_deploy_ask": "ডিপ্লয় হয়েছে?",
+					"chat_deploy_reply": "বিল্ড চলছে!",
+					"chat_latency_ask": "ল্যাটেন্সি বেশি?",
+					"chat_latency_reply": "স্কেল করছি!",
+					"chat_review_ask": "পিআর ঠিক আছে?",
+					"chat_review_reply": "দেখতে ভালো!",
+					"chat_tea_ask": "আইস টি?",
+					"chat_tea_reply": "দুই গ্লাস!",
+					"coding_at_the_cafe": "ক্যাফেতে কোডিং",
+					"egg_coffee_break": "এগ-কফি বিরতি",
+					"hanoi_old_quarter": "হ্যানয় পুরনো শহর",
+					"hanoi_old_quarter_animation": "হ্যানয় পুরনো শহরের অ্যানিমেশন",
+					"hanoi_old_quarter_text_overlay": "হ্যানয় পুরনো শহরের টেক্সট ওভারলে",
+					"hoan_kiem_lakeside": "হোয়ান কিয়েম হ্রদের ধারে",
+					"sign_egg_coffee": "CÀ PHÊ TRỨNG",
+					"sign_iced_tea": "TRÀ ĐÁ",
+					"sign_pho": "PHỞ BÒ"
 				},
 				"missionControl": { "missionControlScene": {
 					"lv_level_title": "লেভেল {{level}} {{title}}",
@@ -242,6 +268,8 @@ var CATALOGS = {
 				"config": {
 					"ghost_desc": "Kiro-Geister mit Hüten, Brillen und Umhängen",
 					"ghost_label": "Kiro-Spuk",
+					"hanoi_desc": "Altstadt am Hoàn-Kiếm-See",
+					"hanoi_label": "Hanoi",
 					"mission_desc": "NASA-Kontrollzentrum",
 					"mission_label": "Mission Control",
 					"neural_desc": "Sternbildkarte",
@@ -262,6 +290,30 @@ var CATALOGS = {
 					"kiro_ghost_haunt_animation": "Animation des Kiro-Geisterspuks",
 					"kiro_ghost_haunt_text_overlay": "Text-Overlay des Kiro-Geisterspuks",
 					"kiro_haunt": "Kiro-Spuk"
+				},
+				"hanoiScene": {
+					"at_the_cafe": "{{n}}/{{total}} im Café",
+					"chat_bug_ask": "Bug behoben?",
+					"chat_bug_reply": "Alles erledigt!",
+					"chat_coffee_ask": "Eierkaffee?",
+					"chat_coffee_reply": "Eine Tasse, bitte!",
+					"chat_deploy_ask": "Schon deployt?",
+					"chat_deploy_reply": "Baut gerade!",
+					"chat_latency_ask": "Latenz hoch?",
+					"chat_latency_reply": "Skaliere hoch!",
+					"chat_review_ask": "PR in Ordnung?",
+					"chat_review_reply": "Sieht gut aus!",
+					"chat_tea_ask": "Eistee?",
+					"chat_tea_reply": "Zwei Gläser!",
+					"coding_at_the_cafe": "codet im Café",
+					"egg_coffee_break": "Eierkaffee-Pause",
+					"hanoi_old_quarter": "Altstadt von Hanoi",
+					"hanoi_old_quarter_animation": "Animation der Altstadt von Hanoi",
+					"hanoi_old_quarter_text_overlay": "Textüberlagerung der Altstadt von Hanoi",
+					"hoan_kiem_lakeside": "Am Hoàn-Kiếm-See",
+					"sign_egg_coffee": "CÀ PHÊ TRỨNG",
+					"sign_iced_tea": "TRÀ ĐÁ",
+					"sign_pho": "PHỞ BÒ"
 				},
 				"missionControl": { "missionControlScene": {
 					"lv_level_title": "Lv.{{level}} {{title}}",
@@ -390,6 +442,8 @@ var CATALOGS = {
 				"config": {
 					"ghost_desc": "Kiro ghosts in hats, glasses, and capes",
 					"ghost_label": "Kiro Haunt",
+					"hanoi_desc": "Old Quarter by Hoàn Kiếm Lake",
+					"hanoi_label": "Hà Nội",
 					"mission_desc": "NASA ops center",
 					"mission_label": "Mission Control",
 					"neural_desc": "Constellation map",
@@ -410,6 +464,30 @@ var CATALOGS = {
 					"kiro_ghost_haunt_animation": "Kiro ghost haunt animation",
 					"kiro_ghost_haunt_text_overlay": "Kiro ghost haunt text overlay",
 					"kiro_haunt": "Kiro Haunt"
+				},
+				"hanoiScene": {
+					"at_the_cafe": "{{n}}/{{total}} at the café",
+					"chat_bug_ask": "Bug fixed?",
+					"chat_bug_reply": "All done!",
+					"chat_coffee_ask": "Egg coffee?",
+					"chat_coffee_reply": "One cup, please!",
+					"chat_deploy_ask": "Deployed yet?",
+					"chat_deploy_reply": "Building now!",
+					"chat_latency_ask": "Latency high?",
+					"chat_latency_reply": "Scaling up!",
+					"chat_review_ask": "PR look OK?",
+					"chat_review_reply": "Looks good!",
+					"chat_tea_ask": "Iced tea?",
+					"chat_tea_reply": "Two glasses!",
+					"coding_at_the_cafe": "coding at the café",
+					"egg_coffee_break": "egg-coffee break",
+					"hanoi_old_quarter": "Hà Nội Old Quarter",
+					"hanoi_old_quarter_animation": "Hà Nội old quarter animation",
+					"hanoi_old_quarter_text_overlay": "Hà Nội old quarter text overlay",
+					"hoan_kiem_lakeside": "Hoàn Kiếm lakeside",
+					"sign_egg_coffee": "CÀ PHÊ TRỨNG",
+					"sign_iced_tea": "TRÀ ĐÁ",
+					"sign_pho": "PHỞ BÒ"
 				},
 				"missionControl": { "missionControlScene": {
 					"lv_level_title": "Lv.{{level}} {{title}}",
@@ -538,6 +616,8 @@ var CATALOGS = {
 				"config": {
 					"ghost_desc": "Fantasmas de Kiro con sombreros, gafas y capas",
 					"ghost_label": "Ronda de Kiro",
+					"hanoi_desc": "Barrio Antiguo junto al lago Hoàn Kiếm",
+					"hanoi_label": "Hanói",
 					"mission_desc": "Centro de operaciones de la NASA",
 					"mission_label": "Mission Control",
 					"neural_desc": "Mapa de constelaciones",
@@ -558,6 +638,30 @@ var CATALOGS = {
 					"kiro_ghost_haunt_animation": "Animación del fantasma de Kiro rondando",
 					"kiro_ghost_haunt_text_overlay": "Superposición de texto del fantasma de Kiro",
 					"kiro_haunt": "Ronda de Kiro"
+				},
+				"hanoiScene": {
+					"at_the_cafe": "{{n}}/{{total}} en el café",
+					"chat_bug_ask": "¿Bug arreglado?",
+					"chat_bug_reply": "¡Todo listo!",
+					"chat_coffee_ask": "¿Café con huevo?",
+					"chat_coffee_reply": "¡Una taza, por favor!",
+					"chat_deploy_ask": "¿Ya desplegado?",
+					"chat_deploy_reply": "¡Compilando!",
+					"chat_latency_ask": "¿Latencia alta?",
+					"chat_latency_reply": "¡Escalando!",
+					"chat_review_ask": "¿El PR está bien?",
+					"chat_review_reply": "¡Se ve bien!",
+					"chat_tea_ask": "¿Té helado?",
+					"chat_tea_reply": "¡Dos vasos!",
+					"coding_at_the_cafe": "programando en el café",
+					"egg_coffee_break": "pausa de café con huevo",
+					"hanoi_old_quarter": "Barrio Antiguo de Hanói",
+					"hanoi_old_quarter_animation": "animación del Barrio Antiguo de Hanói",
+					"hanoi_old_quarter_text_overlay": "capa de texto del Barrio Antiguo de Hanói",
+					"hoan_kiem_lakeside": "Orilla del lago Hoàn Kiếm",
+					"sign_egg_coffee": "CÀ PHÊ TRỨNG",
+					"sign_iced_tea": "TRÀ ĐÁ",
+					"sign_pho": "PHỞ BÒ"
 				},
 				"missionControl": { "missionControlScene": {
 					"lv_level_title": "Nv.{{level}} {{title}}",
@@ -689,6 +793,8 @@ var CATALOGS = {
 				"config": {
 					"ghost_desc": "Fantômes Kiro avec chapeaux, lunettes et capes",
 					"ghost_label": "Repaire hanté de Kiro",
+					"hanoi_desc": "Vieux quartier au bord du lac Hoàn Kiếm",
+					"hanoi_label": "Hanoï",
 					"mission_desc": "Centre des opérations de la NASA",
 					"mission_label": "Mission Control",
 					"neural_desc": "Carte des constellations",
@@ -709,6 +815,30 @@ var CATALOGS = {
 					"kiro_ghost_haunt_animation": "Animation du fantôme Kiro",
 					"kiro_ghost_haunt_text_overlay": "Superposition de texte du fantôme Kiro",
 					"kiro_haunt": "Repaire hanté de Kiro"
+				},
+				"hanoiScene": {
+					"at_the_cafe": "{{n}}/{{total}} au café",
+					"chat_bug_ask": "Bug corrigé ?",
+					"chat_bug_reply": "C'est fait !",
+					"chat_coffee_ask": "Café à l'œuf ?",
+					"chat_coffee_reply": "Une tasse, merci !",
+					"chat_deploy_ask": "Déjà déployé ?",
+					"chat_deploy_reply": "Compilation en cours !",
+					"chat_latency_ask": "Latence élevée ?",
+					"chat_latency_reply": "On augmente !",
+					"chat_review_ask": "La PR est bonne ?",
+					"chat_review_reply": "Ça me va !",
+					"chat_tea_ask": "Thé glacé ?",
+					"chat_tea_reply": "Deux verres !",
+					"coding_at_the_cafe": "code au café",
+					"egg_coffee_break": "pause café à l'œuf",
+					"hanoi_old_quarter": "Vieux quartier de Hanoï",
+					"hanoi_old_quarter_animation": "animation du Vieux quartier de Hanoï",
+					"hanoi_old_quarter_text_overlay": "calque de texte du Vieux quartier de Hanoï",
+					"hoan_kiem_lakeside": "Au bord du lac Hoàn Kiếm",
+					"sign_egg_coffee": "CÀ PHÊ TRỨNG",
+					"sign_iced_tea": "TRÀ ĐÁ",
+					"sign_pho": "PHỞ BÒ"
 				},
 				"missionControl": { "missionControlScene": {
 					"lv_level_title": "Niv.{{level}} {{title}}",
@@ -840,6 +970,8 @@ var CATALOGS = {
 				"config": {
 					"ghost_desc": "टोपी, चश्मा और लबादा पहने Kiro भूत",
 					"ghost_label": "Kiro भूत-अड्डा",
+					"hanoi_desc": "होआन कीम झील के पास पुराना शहर",
+					"hanoi_label": "हनोई",
 					"mission_desc": "NASA संचालन केंद्र",
 					"mission_label": "Mission Control",
 					"neural_desc": "तारामंडल का नक्शा",
@@ -860,6 +992,30 @@ var CATALOGS = {
 					"kiro_ghost_haunt_animation": "Kiro भूत एनिमेशन",
 					"kiro_ghost_haunt_text_overlay": "Kiro भूत टेक्स्ट ओवरले",
 					"kiro_haunt": "Kiro भूत-अड्डा"
+				},
+				"hanoiScene": {
+					"at_the_cafe": "{{n}}/{{total}} कैफ़े में",
+					"chat_bug_ask": "बग ठीक हुआ?",
+					"chat_bug_reply": "सब हो गया!",
+					"chat_coffee_ask": "एग कॉफ़ी?",
+					"chat_coffee_reply": "एक कप, प्लीज़!",
+					"chat_deploy_ask": "डिप्लॉय हो गया?",
+					"chat_deploy_reply": "बिल्ड चल रहा है!",
+					"chat_latency_ask": "लेटेंसी ज़्यादा?",
+					"chat_latency_reply": "स्केल कर रहे हैं!",
+					"chat_review_ask": "पीआर ठीक है?",
+					"chat_review_reply": "बढ़िया लग रहा है!",
+					"chat_tea_ask": "आइस्ड टी?",
+					"chat_tea_reply": "दो गिलास!",
+					"coding_at_the_cafe": "कैफ़े में कोडिंग",
+					"egg_coffee_break": "एग-कॉफ़ी ब्रेक",
+					"hanoi_old_quarter": "हनोई पुराना शहर",
+					"hanoi_old_quarter_animation": "हनोई पुराने शहर का एनिमेशन",
+					"hanoi_old_quarter_text_overlay": "हनोई पुराने शहर का टेक्स्ट ओवरले",
+					"hoan_kiem_lakeside": "होआन कीएम झील के किनारे",
+					"sign_egg_coffee": "CÀ PHÊ TRỨNG",
+					"sign_iced_tea": "TRÀ ĐÁ",
+					"sign_pho": "PHỞ BÒ"
 				},
 				"missionControl": { "missionControlScene": {
 					"lv_level_title": "स्तर {{level}} {{title}}",
@@ -988,6 +1144,8 @@ var CATALOGS = {
 				"config": {
 					"ghost_desc": "Fantasmi Kiro con cappelli, occhiali e mantelli",
 					"ghost_label": "Dimora di Kiro",
+					"hanoi_desc": "Quartiere Vecchio sul lago Hoàn Kiếm",
+					"hanoi_label": "Hanoi",
 					"mission_desc": "Centro operativo della NASA",
 					"mission_label": "Mission Control",
 					"neural_desc": "Mappa delle costellazioni",
@@ -1008,6 +1166,30 @@ var CATALOGS = {
 					"kiro_ghost_haunt_animation": "Animazione del fantasma Kiro",
 					"kiro_ghost_haunt_text_overlay": "Sovrapposizione di testo del fantasma Kiro",
 					"kiro_haunt": "Dimora di Kiro"
+				},
+				"hanoiScene": {
+					"at_the_cafe": "{{n}}/{{total}} al caffè",
+					"chat_bug_ask": "Bug risolto?",
+					"chat_bug_reply": "Tutto fatto!",
+					"chat_coffee_ask": "Caffè all'uovo?",
+					"chat_coffee_reply": "Una tazza, grazie!",
+					"chat_deploy_ask": "Già rilasciato?",
+					"chat_deploy_reply": "Sto compilando!",
+					"chat_latency_ask": "Latenza alta?",
+					"chat_latency_reply": "Sto scalando!",
+					"chat_review_ask": "La PR va bene?",
+					"chat_review_reply": "Mi sembra ok!",
+					"chat_tea_ask": "Tè freddo?",
+					"chat_tea_reply": "Due bicchieri!",
+					"coding_at_the_cafe": "a programmare al caffè",
+					"egg_coffee_break": "pausa caffè all'uovo",
+					"hanoi_old_quarter": "Quartiere antico di Hanoi",
+					"hanoi_old_quarter_animation": "animazione del Quartiere antico di Hanoi",
+					"hanoi_old_quarter_text_overlay": "sovrapposizione testo del Quartiere antico di Hanoi",
+					"hoan_kiem_lakeside": "Sul lago Hoàn Kiếm",
+					"sign_egg_coffee": "CÀ PHÊ TRỨNG",
+					"sign_iced_tea": "TRÀ ĐÁ",
+					"sign_pho": "PHỞ BÒ"
 				},
 				"missionControl": { "missionControlScene": {
 					"lv_level_title": "Liv.{{level}} {{title}}",
@@ -1139,6 +1321,8 @@ var CATALOGS = {
 				"config": {
 					"ghost_desc": "帽子、メガネ、マントを身につけた Kiro のゴーストたち",
 					"ghost_label": "Kiro ゴースト",
+					"hanoi_desc": "ホアンキエム湖畔の旧市街",
+					"hanoi_label": "ハノイ",
 					"mission_desc": "NASA の運用センター",
 					"mission_label": "Mission Control",
 					"neural_desc": "星座マップ",
@@ -1159,6 +1343,30 @@ var CATALOGS = {
 					"kiro_ghost_haunt_animation": "Kiro ゴーストの出没アニメーション",
 					"kiro_ghost_haunt_text_overlay": "Kiro ゴーストの出没テキストオーバーレイ",
 					"kiro_haunt": "Kiro ゴースト"
+				},
+				"hanoiScene": {
+					"at_the_cafe": "カフェに {{n}}/{{total}} 人",
+					"chat_bug_ask": "バグ直った？",
+					"chat_bug_reply": "完了！",
+					"chat_coffee_ask": "エッグコーヒー？",
+					"chat_coffee_reply": "一杯ください！",
+					"chat_deploy_ask": "もうデプロイした？",
+					"chat_deploy_reply": "ビルド中！",
+					"chat_latency_ask": "レイテンシ高い？",
+					"chat_latency_reply": "スケール中！",
+					"chat_review_ask": "プルリク大丈夫？",
+					"chat_review_reply": "良さそう！",
+					"chat_tea_ask": "アイスティー？",
+					"chat_tea_reply": "二杯！",
+					"coding_at_the_cafe": "カフェでコーディング",
+					"egg_coffee_break": "エッグコーヒー休憩",
+					"hanoi_old_quarter": "ハノイ旧市街",
+					"hanoi_old_quarter_animation": "ハノイ旧市街のアニメーション",
+					"hanoi_old_quarter_text_overlay": "ハノイ旧市街のテキストオーバーレイ",
+					"hoan_kiem_lakeside": "ホアンキエム湖畔",
+					"sign_egg_coffee": "CÀ PHÊ TRỨNG",
+					"sign_iced_tea": "TRÀ ĐÁ",
+					"sign_pho": "PHỞ BÒ"
 				},
 				"missionControl": { "missionControlScene": {
 					"lv_level_title": "Lv.{{level}} {{title}}",
@@ -1284,6 +1492,8 @@ var CATALOGS = {
 				"config": {
 					"ghost_desc": "모자, 안경, 망토를 걸친 Kiro 유령들",
 					"ghost_label": "Kiro 유령 출몰",
+					"hanoi_desc": "호안끼엠 호수 옆 구시가지",
+					"hanoi_label": "하노이",
 					"mission_desc": "NASA 운영 센터",
 					"mission_label": "Mission Control",
 					"neural_desc": "별자리 지도",
@@ -1304,6 +1514,30 @@ var CATALOGS = {
 					"kiro_ghost_haunt_animation": "Kiro 유령 출몰 애니메이션",
 					"kiro_ghost_haunt_text_overlay": "Kiro 유령 출몰 텍스트 오버레이",
 					"kiro_haunt": "Kiro 유령 출몰"
+				},
+				"hanoiScene": {
+					"at_the_cafe": "카페에 {{n}}/{{total}}명",
+					"chat_bug_ask": "버그 고쳤어?",
+					"chat_bug_reply": "다 됐어!",
+					"chat_coffee_ask": "에그 커피?",
+					"chat_coffee_reply": "한 잔 주세요!",
+					"chat_deploy_ask": "배포했어?",
+					"chat_deploy_reply": "빌드 중!",
+					"chat_latency_ask": "지연 시간 높아?",
+					"chat_latency_reply": "확장 중!",
+					"chat_review_ask": "풀 리퀘스트 괜찮아?",
+					"chat_review_reply": "좋아 보여!",
+					"chat_tea_ask": "아이스티?",
+					"chat_tea_reply": "두 잔!",
+					"coding_at_the_cafe": "카페에서 코딩",
+					"egg_coffee_break": "에그커피 휴식",
+					"hanoi_old_quarter": "하노이 구시가지",
+					"hanoi_old_quarter_animation": "하노이 구시가지 애니메이션",
+					"hanoi_old_quarter_text_overlay": "하노이 구시가지 텍스트 오버레이",
+					"hoan_kiem_lakeside": "호안끼엠 호숫가",
+					"sign_egg_coffee": "CÀ PHÊ TRỨNG",
+					"sign_iced_tea": "TRÀ ĐÁ",
+					"sign_pho": "PHỞ BÒ"
 				},
 				"missionControl": { "missionControlScene": {
 					"lv_level_title": "Lv.{{level}} {{title}}",
@@ -1429,6 +1663,8 @@ var CATALOGS = {
 				"config": {
 					"ghost_desc": "Fantasmas Kiro de chapéu, óculos e capa",
 					"ghost_label": "Assombração Kiro",
+					"hanoi_desc": "Bairro Antigo à beira do lago Hoàn Kiếm",
+					"hanoi_label": "Hanói",
 					"mission_desc": "Centro de operações da NASA",
 					"mission_label": "Mission Control",
 					"neural_desc": "Mapa de constelações",
@@ -1449,6 +1685,30 @@ var CATALOGS = {
 					"kiro_ghost_haunt_animation": "Animação da assombração do fantasma Kiro",
 					"kiro_ghost_haunt_text_overlay": "Sobreposição de texto do fantasma Kiro",
 					"kiro_haunt": "Assombração Kiro"
+				},
+				"hanoiScene": {
+					"at_the_cafe": "{{n}}/{{total}} no café",
+					"chat_bug_ask": "Bug corrigido?",
+					"chat_bug_reply": "Tudo pronto!",
+					"chat_coffee_ask": "Café com ovo?",
+					"chat_coffee_reply": "Uma xícara, por favor!",
+					"chat_deploy_ask": "Já fez o deploy?",
+					"chat_deploy_reply": "Compilando!",
+					"chat_latency_ask": "Latência alta?",
+					"chat_latency_reply": "Escalando!",
+					"chat_review_ask": "O PR está ok?",
+					"chat_review_reply": "Parece ótimo!",
+					"chat_tea_ask": "Chá gelado?",
+					"chat_tea_reply": "Dois copos!",
+					"coding_at_the_cafe": "programando no café",
+					"egg_coffee_break": "pausa de café com ovo",
+					"hanoi_old_quarter": "Bairro Antigo de Hanói",
+					"hanoi_old_quarter_animation": "animação do Bairro Antigo de Hanói",
+					"hanoi_old_quarter_text_overlay": "camada de texto do Bairro Antigo de Hanói",
+					"hoan_kiem_lakeside": "À beira do lago Hoàn Kiếm",
+					"sign_egg_coffee": "CÀ PHÊ TRỨNG",
+					"sign_iced_tea": "TRÀ ĐÁ",
+					"sign_pho": "PHỞ BÒ"
 				},
 				"missionControl": { "missionControlScene": {
 					"lv_level_title": "Nv.{{level}} {{title}}",
@@ -1580,6 +1840,8 @@ var CATALOGS = {
 				"config": {
 					"ghost_desc": "Призраки Kiro в шляпах, очках и плащах",
 					"ghost_label": "Призраки Kiro",
+					"hanoi_desc": "Старый квартал у озера Хоанкьем",
+					"hanoi_label": "Ханой",
 					"mission_desc": "Операционный центр NASA",
 					"mission_label": "Mission Control",
 					"neural_desc": "Карта созвездий",
@@ -1600,6 +1862,30 @@ var CATALOGS = {
 					"kiro_ghost_haunt_animation": "Анимация призрака Kiro",
 					"kiro_ghost_haunt_text_overlay": "Текстовый слой анимации призрака Kiro",
 					"kiro_haunt": "Призраки Kiro"
+				},
+				"hanoiScene": {
+					"at_the_cafe": "{{n}}/{{total}} в кафе",
+					"chat_bug_ask": "Баг исправлен?",
+					"chat_bug_reply": "Готово!",
+					"chat_coffee_ask": "Кофе с яйцом?",
+					"chat_coffee_reply": "Одну чашку!",
+					"chat_deploy_ask": "Уже задеплоил?",
+					"chat_deploy_reply": "Собираю!",
+					"chat_latency_ask": "Задержка высокая?",
+					"chat_latency_reply": "Масштабирую!",
+					"chat_review_ask": "Пул-реквест в порядке?",
+					"chat_review_reply": "Выглядит отлично!",
+					"chat_tea_ask": "Холодный чай?",
+					"chat_tea_reply": "Два стакана!",
+					"coding_at_the_cafe": "кодит в кафе",
+					"egg_coffee_break": "перерыв на яичный кофе",
+					"hanoi_old_quarter": "Старый квартал Ханоя",
+					"hanoi_old_quarter_animation": "анимация Старого квартала Ханоя",
+					"hanoi_old_quarter_text_overlay": "текстовый слой Старого квартала Ханоя",
+					"hoan_kiem_lakeside": "На берегу озера Хоанкьем",
+					"sign_egg_coffee": "CÀ PHÊ TRỨNG",
+					"sign_iced_tea": "TRÀ ĐÁ",
+					"sign_pho": "PHỞ BÒ"
 				},
 				"missionControl": { "missionControlScene": {
 					"lv_level_title": "Ур.{{level}} {{title}}",
@@ -1734,6 +2020,8 @@ var CATALOGS = {
 				"config": {
 					"ghost_desc": "戴着帽子、眼镜和披风的 Kiro 幽灵",
 					"ghost_label": "Kiro 出没",
+					"hanoi_desc": "还剑湖畔的老城区",
+					"hanoi_label": "河内",
 					"mission_desc": "NASA 指挥中心",
 					"mission_label": "Mission Control",
 					"neural_desc": "星座图",
@@ -1754,6 +2042,30 @@ var CATALOGS = {
 					"kiro_ghost_haunt_animation": "Kiro 幽灵出没动画",
 					"kiro_ghost_haunt_text_overlay": "Kiro 幽灵出没文字浮层",
 					"kiro_haunt": "Kiro 出没"
+				},
+				"hanoiScene": {
+					"at_the_cafe": "{{n}}/{{total}} 在咖啡馆",
+					"chat_bug_ask": "问题修好了？",
+					"chat_bug_reply": "搞定了！",
+					"chat_coffee_ask": "蛋咖啡？",
+					"chat_coffee_reply": "来一杯！",
+					"chat_deploy_ask": "部署了吗？",
+					"chat_deploy_reply": "正在构建！",
+					"chat_latency_ask": "延迟高吗？",
+					"chat_latency_reply": "正在扩容！",
+					"chat_review_ask": "合并请求没问题吧？",
+					"chat_review_reply": "看起来不错！",
+					"chat_tea_ask": "冰茶？",
+					"chat_tea_reply": "两杯！",
+					"coding_at_the_cafe": "在咖啡馆写代码",
+					"egg_coffee_break": "鸡蛋咖啡休息",
+					"hanoi_old_quarter": "河内老城区",
+					"hanoi_old_quarter_animation": "河内老城区动画",
+					"hanoi_old_quarter_text_overlay": "河内老城区文字层",
+					"hoan_kiem_lakeside": "还剑湖畔",
+					"sign_egg_coffee": "CÀ PHÊ TRỨNG",
+					"sign_iced_tea": "TRÀ ĐÁ",
+					"sign_pho": "PHỞ BÒ"
 				},
 				"missionControl": { "missionControlScene": {
 					"lv_level_title": "{{level}} 级 {{title}}",
@@ -2132,6 +2444,16 @@ var SCENES = [
 		icon: /* @__PURE__ */ jsx(Ghost, { className: "lucide-inline" }),
 		get desc() {
 			return i18nT("pages.scenes.config.ghost_desc");
+		}
+	},
+	{
+		key: "hanoi",
+		get label() {
+			return i18nT("pages.scenes.config.hanoi_label");
+		},
+		icon: /* @__PURE__ */ jsx(Landmark, { className: "lucide-inline" }),
+		get desc() {
+			return i18nT("pages.scenes.config.hanoi_desc");
 		}
 	}
 ];
@@ -3362,9 +3684,9 @@ var OFFICE_THEME$1 = {
 	active: "Grinding PRs",
 	idle: "Waiting for CR approval"
 };
-var W$6 = 440;
-var H$6 = 300;
-var S$7 = SCENE_SCALE;
+var W$7 = 440;
+var H$7 = 300;
+var S$8 = SCENE_SCALE;
 var DOOR$2 = {
 	x: 0,
 	y: 100,
@@ -3625,7 +3947,7 @@ function OfficeScene({ agents, visible = true }) {
 	const kanbanRef = useRef([]);
 	const [_agentCount, setAgentCount] = useState(0);
 	const visibleRef = useRef(visible);
-	const { canvasProps, tooltipEl } = useSceneInteraction(canvasRef, agentsRef, W$6, H$6, OFFICE_THEME$1, 10, void 0, agents);
+	const { canvasProps, tooltipEl } = useSceneInteraction(canvasRef, agentsRef, W$7, H$7, OFFICE_THEME$1, 10, void 0, agents);
 	useVisibleSync(visibleRef, visible);
 	useEffect(() => {
 		const capped = agents.slice(0, MAX_DESKS$1);
@@ -3683,10 +4005,10 @@ function OfficeScene({ agents, visible = true }) {
 		pruneAgents("office", newAgents.map((a) => a.id));
 	}, [agents]);
 	useEffect(() => {
-		const { X, T, d } = initSceneCanvases(canvasRef.current, textRef.current, W$6, H$6, S$7);
+		const { X, T, d } = initSceneCanvases(canvasRef.current, textRef.current, W$7, H$7, S$8);
 		const spawnParticle = () => {
 			if (particlesRef.current.length < 15) particlesRef.current.push({
-				x: Math.random() * W$6,
+				x: Math.random() * W$7,
 				y: 85 + Math.random() * 210,
 				vx: (Math.random() - .5) * .08,
 				vy: -.04 - Math.random() * .04,
@@ -3708,7 +4030,7 @@ function OfficeScene({ agents, visible = true }) {
 			d(x + w / 2, y, 1, h, COL$4.windowFrame);
 			d(x, y + h / 2, w, 1, COL$4.windowFrame);
 			X.fillStyle = "rgba(100,150,200,0.025)";
-			X.fillRect((x + 5) * S$7, 82 * S$7, (w - 10) * S$7, 25 * S$7);
+			X.fillRect((x + 5) * S$8, 82 * S$8, (w - 10) * S$8, 25 * S$8);
 		};
 		const drawDoor = (t) => {
 			const { x, y, w, h } = DOOR$2;
@@ -3717,10 +4039,10 @@ function OfficeScene({ agents, visible = true }) {
 			d(x + w - 3, y + h / 2, 1.5, 1.5, COL$4.doorKnob);
 			T.fillStyle = "#999";
 			T.font = sceneFont("label");
-			T.fillText("IN", (x + 2) * S$7, (y - 2) * S$7);
+			T.fillText("IN", (x + 2) * S$8, (y - 2) * S$8);
 			if (agentsRef.current.some((a) => a.activity === "entering") && t >> 3 & 1) {
 				X.fillStyle = "rgba(255,200,50,0.08)";
-				X.fillRect(x * S$7, y * S$7, w * S$7, h * S$7);
+				X.fillRect(x * S$8, y * S$8, w * S$8, h * S$8);
 			}
 		};
 		const drawCeilingLights = (t) => {
@@ -3733,11 +4055,11 @@ function OfficeScene({ agents, visible = true }) {
 				d(lx - 4, 80, 8, 2, COL$4.lightFixture);
 				d(lx - 2, 78, 4, 2, COL$4.lightFixture);
 				const flicker = 1 + Math.sin(t * .025 + i * 1.3) * .12;
-				const grad = X.createRadialGradient(lx * S$7, 82 * S$7, 0, lx * S$7, 82 * S$7, 45 * S$7 * flicker);
+				const grad = X.createRadialGradient(lx * S$8, 82 * S$8, 0, lx * S$8, 82 * S$8, 45 * S$8 * flicker);
 				grad.addColorStop(0, "rgba(255,220,150,0.07)");
 				grad.addColorStop(1, "rgba(255,220,150,0)");
 				X.fillStyle = grad;
-				X.fillRect((lx - 45) * S$7, 80 * S$7, 90 * S$7, 50 * S$7);
+				X.fillRect((lx - 45) * S$8, 80 * S$8, 90 * S$8, 50 * S$8);
 			});
 		};
 		const drawClock = (t) => {
@@ -3753,16 +4075,16 @@ function OfficeScene({ agents, visible = true }) {
 			const ha = (hr % 12 / 12 + mn / 720) * Math.PI * 2 - Math.PI / 2;
 			const ma = mn / 60 * Math.PI * 2 - Math.PI / 2;
 			X.strokeStyle = "#f90";
-			X.lineWidth = S$7;
+			X.lineWidth = S$8;
 			X.beginPath();
-			X.moveTo(x * S$7, y * S$7);
-			X.lineTo((x + Math.cos(ha) * 3.5) * S$7, (y + Math.sin(ha) * 3.5) * S$7);
+			X.moveTo(x * S$8, y * S$8);
+			X.lineTo((x + Math.cos(ha) * 3.5) * S$8, (y + Math.sin(ha) * 3.5) * S$8);
 			X.stroke();
 			X.strokeStyle = "#ccc";
-			X.lineWidth = S$7;
+			X.lineWidth = S$8;
 			X.beginPath();
-			X.moveTo(x * S$7, y * S$7);
-			X.lineTo((x + Math.cos(ma) * 5) * S$7, (y + Math.sin(ma) * 5) * S$7);
+			X.moveTo(x * S$8, y * S$8);
+			X.lineTo((x + Math.cos(ma) * 5) * S$8, (y + Math.sin(ma) * 5) * S$8);
 			X.stroke();
 			if (t >> 4 & 1) d(x - .5, y - .5, 1, 1, "#f00");
 		};
@@ -3780,7 +4102,7 @@ function OfficeScene({ agents, visible = true }) {
 				if (i > 0) d(x + cw * i, y, .5, h, "#bbb");
 				T.fillStyle = "#888";
 				T.font = sceneFont("label");
-				T.fillText(label, (x + cw * i + 1) * S$7, (y + 4) * S$7);
+				T.fillText(label, (x + cw * i + 1) * S$8, (y + 4) * S$8);
 			});
 			const colors = [
 				"#ffe066",
@@ -3795,7 +4117,7 @@ function OfficeScene({ agents, visible = true }) {
 				d(nx, ny, cw - 2, 7, colors[i % colors.length]);
 				T.fillStyle = "#333";
 				T.font = sceneFont("detail");
-				T.fillText(sliceCodePoints(task, 0, 8), (nx + 1) * S$7, (ny + 4.5) * S$7);
+				T.fillText(sliceCodePoints(task, 0, 8), (nx + 1) * S$8, (ny + 4.5) * S$8);
 			});
 		};
 		const drawCoffeeMachine = (t) => {
@@ -3812,7 +4134,7 @@ function OfficeScene({ agents, visible = true }) {
 				const sx = x + 4 + Math.sin(t * .025 + i * 2) * 1.5;
 				if (sy > y - 2) {
 					X.fillStyle = `rgba(255,255,255,${.12 - i * .03})`;
-					X.fillRect(sx * S$7, sy * S$7, 2 * S$7, 1 * S$7);
+					X.fillRect(sx * S$8, sy * S$8, 2 * S$8, 1 * S$8);
 				}
 			}
 		};
@@ -3829,15 +4151,15 @@ function OfficeScene({ agents, visible = true }) {
 		const drawRug = () => {
 			X.fillStyle = COL$4.rug;
 			X.beginPath();
-			X.ellipse(220 * S$7, 175 * S$7, 40 * S$7, 14 * S$7, 0, 0, Math.PI * 2);
+			X.ellipse(220 * S$8, 175 * S$8, 40 * S$8, 14 * S$8, 0, 0, Math.PI * 2);
 			X.fill();
 			X.fillStyle = COL$4.rugPattern;
 			X.beginPath();
-			X.ellipse(220 * S$7, 175 * S$7, 34 * S$7, 10 * S$7, 0, 0, Math.PI * 2);
+			X.ellipse(220 * S$8, 175 * S$8, 34 * S$8, 10 * S$8, 0, 0, Math.PI * 2);
 			X.fill();
 			X.fillStyle = COL$4.rug;
 			X.beginPath();
-			X.ellipse(220 * S$7, 175 * S$7, 28 * S$7, 7 * S$7, 0, 0, Math.PI * 2);
+			X.ellipse(220 * S$8, 175 * S$8, 28 * S$8, 7 * S$8, 0, 0, Math.PI * 2);
 			X.fill();
 		};
 		const drawBookshelves = () => {
@@ -3876,11 +4198,11 @@ function OfficeScene({ agents, visible = true }) {
 		const drawLogo = () => {
 			T.fillStyle = "#f90";
 			T.font = sceneFont("title", "bold");
-			T.fillText(i18nT("pages.scenes.officeScene.agent_office"), (W$6 / 2 - 26) * S$7, 32 * S$7);
-			d(W$6 / 2 - 28, 34, 56, 1, "#f90");
+			T.fillText(i18nT("pages.scenes.officeScene.agent_office"), (W$7 / 2 - 26) * S$8, 32 * S$8);
+			d(W$7 / 2 - 28, 34, 56, 1, "#f90");
 			T.fillStyle = "#c70";
 			T.font = sceneFont("detail");
-			T.fillText(i18nT("pages.scenes.officeScene.headquarters"), (W$6 / 2 - 16) * S$7, 40 * S$7);
+			T.fillText(i18nT("pages.scenes.officeScene.headquarters"), (W$7 / 2 - 16) * S$8, 40 * S$8);
 		};
 		const drawDesk = (desk, t) => {
 			const { x: dx, y: dy, accent, items, occupied } = desk;
@@ -3903,7 +4225,7 @@ function OfficeScene({ agents, visible = true }) {
 				}
 				if (t >> 3 & 1) d(dx + 11 + (t >> 2) % 5, dy + 6 + (t >> 4) % 4 * 1.8, 1, 1, COL$4.screenCursor);
 				X.fillStyle = "rgba(50,255,50,0.025)";
-				X.fillRect((dx + 8) * S$7, (dy + 13) * S$7, 12 * S$7, 4 * S$7);
+				X.fillRect((dx + 8) * S$8, (dy + 13) * S$8, 12 * S$8, 4 * S$8);
 			} else if (t >> 5 & 1) d(dx + 14, dy + 9, 1, 1, "#333");
 			d(dx + 10, dy + 22, 8, 3, COL$4.chair);
 			d(dx + 10, dy + 25, 2, 4, COL$4.chair);
@@ -3917,7 +4239,7 @@ function OfficeScene({ agents, visible = true }) {
 						d(ix + 3, iy + .5, 1, 2, COL$4.mug);
 						if (occupied && t >> 4 & 1) {
 							X.fillStyle = "rgba(255,255,255,0.1)";
-							X.fillRect((ix + 1) * S$7, (iy - 1.5) * S$7, S$7, S$7);
+							X.fillRect((ix + 1) * S$8, (iy - 1.5) * S$8, S$8, S$8);
 						}
 						break;
 					case "photo":
@@ -3939,12 +4261,12 @@ function OfficeScene({ agents, visible = true }) {
 						d(ix + 3, iy + 1, 1, 2, COL$4.headphones);
 				}
 			});
-			if (!occupied) drawLabel(T, "empty", (dx + 15) * S$7, (dy + 1) * S$7, {
+			if (!occupied) drawLabel(T, "empty", (dx + 15) * S$8, (dy + 1) * S$8, {
 				role: "label",
 				color: "#555",
 				bgColor: "#333",
 				align: "center",
-				scale: S$7
+				scale: S$8
 			});
 		};
 		const drawAgent = (a, t) => {
@@ -3952,7 +4274,7 @@ function OfficeScene({ agents, visible = true }) {
 			const mv = Math.abs(a.x - a.tx) > 1.5 || Math.abs(a.y - a.ty) > 1.5;
 			const bob = mv ? Math.sin(t * .12 + a.x) | 0 : 0;
 			X.fillStyle = "rgba(0,0,0,0.12)";
-			X.fillRect((bx + 1) * S$7, (by + 10) * S$7, 6 * S$7, 2 * S$7);
+			X.fillRect((bx + 1) * S$8, (by + 10) * S$8, 6 * S$8, 2 * S$8);
 			d(bx, by + bob, 8, 8, a.color);
 			d(bx + 1, by - 6 + bob, 6, 6, "#fdd");
 			const hairColor = [
@@ -3990,44 +4312,44 @@ function OfficeScene({ agents, visible = true }) {
 			}
 			if (a.activity === "coffee") d(bx + (a.dir > 0 ? 9 : -3), by + 3 + bob, 2, 3, COL$4.coffeeMug);
 			const kindEmoji = a.kind === "cron" ? "⏰" : a.kind === "spawn" ? "🔀" : "💬";
-			X.font = 2 * S$7 + "px monospace";
-			X.fillText(kindEmoji, (bx + 8) * S$7, (by - 5 + bob) * S$7);
-			drawLabel(T, a.running ? "active" : "idle", (bx + 4) * S$7, (by - 10 + bob) * S$7, {
+			X.font = 2 * S$8 + "px monospace";
+			X.fillText(kindEmoji, (bx + 8) * S$8, (by - 5 + bob) * S$8);
+			drawLabel(T, a.running ? "active" : "idle", (bx + 4) * S$8, (by - 10 + bob) * S$8, {
 				role: "status",
 				color: a.running ? "#4f4" : "#888",
 				bgColor: "rgba(0,0,0,0.5)",
 				align: "center",
-				scale: S$7
+				scale: S$8
 			});
 			if (a.lastMessage && Date.now() - a.msgAt < 7e3) {
 				const msgAge = Date.now() - a.msgAt;
 				const msgAlpha = msgAge > 6e3 ? (SPEECH_BUBBLE_MS - msgAge) / 1e3 : 1;
-				drawSpeechBubble(T, a.lastMessage, (bx + 4) * S$7, (by - 14 + bob) * S$7, {
-					scale: S$7,
+				drawSpeechBubble(T, a.lastMessage, (bx + 4) * S$8, (by - 14 + bob) * S$8, {
+					scale: S$8,
 					alpha: msgAlpha
 				});
 			}
-			const nameLines = drawLabel(T, a.name, (bx + 4) * S$7, (by + 14) * S$7, {
+			const nameLines = drawLabel(T, a.name, (bx + 4) * S$8, (by + 14) * S$8, {
 				role: "name",
 				weight: "bold",
 				color: "#fff",
 				align: "center",
-				scale: S$7,
-				maxWidth: 64 * S$7
+				scale: S$8,
+				maxWidth: 64 * S$8
 			});
-			if (a.detail) drawLabel(T, a.detail, (bx - 2) * S$7, (by + 18) * S$7 + (nameLines - 1) * sceneLineHeight("name"), {
+			if (a.detail) drawLabel(T, a.detail, (bx - 2) * S$8, (by + 18) * S$8 + (nameLines - 1) * sceneLineHeight("name"), {
 				role: "detail",
 				color: "#999",
-				scale: S$7
+				scale: S$8
 			});
 			if (a.deskIdx >= 0 && a.activity !== "entering") {
 				const dk = desksRef.current[a.deskIdx];
-				drawLabel(T, sliceCodePoints(a.name, 0, 8), (dk.x + 15) * S$7, (dk.y + 1) * S$7, {
+				drawLabel(T, sliceCodePoints(a.name, 0, 8), (dk.x + 15) * S$8, (dk.y + 1) * S$8, {
 					role: "label",
 					color: "#fff",
 					bgColor: a.color,
 					align: "center",
-					scale: S$7
+					scale: S$8
 				});
 			}
 			if (collabRef.current && (collabRef.current[0] === a || collabRef.current[1] === a)) d(bx + 2, by - 16 + bob, 3, 2, "#f90");
@@ -4043,13 +4365,13 @@ function OfficeScene({ agents, visible = true }) {
 			d(side < 0 ? sx + tw : sx, sy + bh, 2, 2, "#fff");
 			T.fillStyle = "#222";
 			T.font = sceneFont("spell");
-			T.fillText(text, (sx + 2) * S$7, (sy + 5.5) * S$7);
+			T.fillText(text, (sx + 2) * S$8, (sy + 5.5) * S$8);
 		};
 		const drawParticles = () => {
 			particlesRef.current.forEach((p) => {
 				const alpha = Math.max(0, .25 * (1 - p.life / p.maxLife));
 				X.fillStyle = `rgba(255,240,200,${alpha})`;
-				X.fillRect(p.x * S$7, p.y * S$7, S$7, S$7);
+				X.fillRect(p.x * S$8, p.y * S$8, S$8, S$8);
 			});
 		};
 		const drawAgentCounter = () => {
@@ -4057,7 +4379,7 @@ function OfficeScene({ agents, visible = true }) {
 			const total = MAX_DESKS$1;
 			T.fillStyle = "#999";
 			T.font = sceneFont("status");
-			T.fillText(`${count}/${total} agents`, 4 * S$7, 296 * S$7);
+			T.fillText(`${count}/${total} agents`, 4 * S$8, 296 * S$8);
 		};
 		const update = (t) => {
 			const agents = agentsRef.current;
@@ -4159,13 +4481,13 @@ function OfficeScene({ agents, visible = true }) {
 		};
 		const draw = (t) => {
 			const agents = agentsRef.current;
-			T.clearRect(0, 0, W$6 * S$7, H$6 * S$7);
-			d(0, 0, W$6, H$6, COL$4.wall);
-			for (let i = 0; i < W$6; i += 16) for (let j = 80; j < H$6; j += 16) {
+			T.clearRect(0, 0, W$7 * S$8, H$7 * S$8);
+			d(0, 0, W$7, H$7, COL$4.wall);
+			for (let i = 0; i < W$7; i += 16) for (let j = 80; j < H$7; j += 16) {
 				X.fillStyle = i / 16 + j / 16 & 1 ? COL$4.floorAlt : COL$4.floor;
-				X.fillRect(i * S$7, j * S$7, 16 * S$7, 16 * S$7);
+				X.fillRect(i * S$8, j * S$8, 16 * S$8, 16 * S$8);
 			}
-			d(0, 78, W$6, 3, COL$4.wallTrim);
+			d(0, 78, W$7, 3, COL$4.wallTrim);
 			drawWindow(t);
 			drawLogo();
 			drawBookshelves();
@@ -4182,11 +4504,11 @@ function OfficeScene({ agents, visible = true }) {
 			if (collabRef.current) {
 				const [a, b] = collabRef.current;
 				X.strokeStyle = "#f90";
-				X.lineWidth = S$7;
-				X.setLineDash([4 * S$7, 4 * S$7]);
+				X.lineWidth = S$8;
+				X.setLineDash([4 * S$8, 4 * S$8]);
 				X.beginPath();
-				X.moveTo((a.x + 4) * S$7, (a.y + 4) * S$7);
-				X.lineTo((b.x + 4) * S$7, (b.y + 4) * S$7);
+				X.moveTo((a.x + 4) * S$8, (a.y + 4) * S$8);
+				X.lineTo((b.x + 4) * S$8, (b.y + 4) * S$8);
 				X.stroke();
 				X.setLineDash([]);
 				drawSpeech(a, speechRef.current.a, a.x < b.x ? -1 : 1);
@@ -4195,7 +4517,7 @@ function OfficeScene({ agents, visible = true }) {
 			drawAgentCounter();
 		};
 		canvasRef.current.onclick = (e) => {
-			const mx = e.offsetX / S$7, my = e.offsetY / S$7;
+			const mx = e.offsetX / S$8, my = e.offsetY / S$8;
 			agentsRef.current.forEach((a) => {
 				if (mx > a.x - 4 && mx < a.x + 12 && my > a.y - 14 && my < a.y + 14) {
 					a.running = !a.running;
@@ -4209,7 +4531,7 @@ function OfficeScene({ agents, visible = true }) {
 		};
 	}, []);
 	return /* @__PURE__ */ jsxs("div", {
-		style: SCENE_CONTAINER_STYLE(W$6, H$6),
+		style: SCENE_CONTAINER_STYLE(W$7, H$7),
 		children: [
 			/* @__PURE__ */ jsx("canvas", {
 				ref: canvasRef,
@@ -4239,9 +4561,9 @@ var OFFICE_THEME = {
 var PANDA_WHITE = "#f5f5f5";
 var PANDA_BLACK = "#222";
 var PANDA_PINK = "#f4a5b0";
-var W$5 = 440;
-var H$5 = 300;
-var S$6 = 3;
+var W$6 = 440;
+var H$6 = 300;
+var S$7 = 3;
 var DOOR$1 = {
 	x: 0,
 	y: 100,
@@ -4564,7 +4886,7 @@ function PandaOfficeScene({ agents, visible = true }) {
 	const kanbanRef = useRef([]);
 	const [_agentCount, setAgentCount] = useState(0);
 	const visibleRef = useRef(visible);
-	const { canvasProps, tooltipEl } = useSceneInteraction(canvasRef, agentsRef, W$5, H$5, OFFICE_THEME, 10, void 0, agents);
+	const { canvasProps, tooltipEl } = useSceneInteraction(canvasRef, agentsRef, W$6, H$6, OFFICE_THEME, 10, void 0, agents);
 	useVisibleSync(visibleRef, visible);
 	useEffect(() => {
 		const capped = agents.slice(0, MAX_DESKS);
@@ -4622,10 +4944,10 @@ function PandaOfficeScene({ agents, visible = true }) {
 		pruneAgents("panda-office", newAgents.map((a) => a.id));
 	}, [agents]);
 	useEffect(() => {
-		const { X, T, d } = initSceneCanvases(canvasRef.current, textRef.current, W$5, H$5, S$6);
+		const { X, T, d } = initSceneCanvases(canvasRef.current, textRef.current, W$6, H$6, S$7);
 		const spawnParticle = () => {
 			if (particlesRef.current.length < 15) particlesRef.current.push({
-				x: Math.random() * W$5,
+				x: Math.random() * W$6,
 				y: 85 + Math.random() * 210,
 				vx: (Math.random() - .5) * .08,
 				vy: -.04 - Math.random() * .04,
@@ -4649,7 +4971,7 @@ function PandaOfficeScene({ agents, visible = true }) {
 				if (Math.sin(t * .05 + i * 2.1) > .4) {
 					d(fx, fy, 1, 1, "#afa");
 					X.fillStyle = "rgba(150,255,150,0.08)";
-					X.fillRect((fx - 2) * S$6, (fy - 2) * S$6, 15, 15);
+					X.fillRect((fx - 2) * S$7, (fy - 2) * S$7, 15, 15);
 				}
 			}
 			d(x + w / 2, y, 1, h, COL$3.bambooDark);
@@ -4662,10 +4984,10 @@ function PandaOfficeScene({ agents, visible = true }) {
 			d(x + w - 3, y + h / 2, 1.5, 1.5, COL$3.doorKnob);
 			T.fillStyle = "#999";
 			T.font = sceneFont("label");
-			T.fillText("IN", (x + 2) * S$6, (y - 2) * S$6);
+			T.fillText("IN", (x + 2) * S$7, (y - 2) * S$7);
 			if (agentsRef.current.some((a) => a.activity === "entering") && t >> 3 & 1) {
 				X.fillStyle = "rgba(255,200,50,0.08)";
-				X.fillRect(x * S$6, y * S$6, w * S$6, h * S$6);
+				X.fillRect(x * S$7, y * S$7, w * S$7, h * S$7);
 			}
 		};
 		const drawCeilingLights = (t) => {
@@ -4678,11 +5000,11 @@ function PandaOfficeScene({ agents, visible = true }) {
 				d(lx - 4, 80, 8, 2, COL$3.lightFixture);
 				d(lx - 2, 78, 4, 2, COL$3.lightFixture);
 				const flicker = 1 + Math.sin(t * .025 + i * 1.3) * .12;
-				const grad = X.createRadialGradient(lx * S$6, 246, 0, lx * S$6, 246, 135 * flicker);
+				const grad = X.createRadialGradient(lx * S$7, 246, 0, lx * S$7, 246, 135 * flicker);
 				grad.addColorStop(0, "rgba(255,220,150,0.07)");
 				grad.addColorStop(1, "rgba(255,220,150,0)");
 				X.fillStyle = grad;
-				X.fillRect((lx - 45) * S$6, 240, 270, 150);
+				X.fillRect((lx - 45) * S$7, 240, 270, 150);
 			});
 		};
 		const drawClock = (t) => {
@@ -4698,16 +5020,16 @@ function PandaOfficeScene({ agents, visible = true }) {
 			const ha = (hr % 12 / 12 + mn / 720) * Math.PI * 2 - Math.PI / 2;
 			const ma = mn / 60 * Math.PI * 2 - Math.PI / 2;
 			X.strokeStyle = "#f90";
-			X.lineWidth = S$6;
+			X.lineWidth = S$7;
 			X.beginPath();
-			X.moveTo(x * S$6, y * S$6);
-			X.lineTo((x + Math.cos(ha) * 3.5) * S$6, (y + Math.sin(ha) * 3.5) * S$6);
+			X.moveTo(x * S$7, y * S$7);
+			X.lineTo((x + Math.cos(ha) * 3.5) * S$7, (y + Math.sin(ha) * 3.5) * S$7);
 			X.stroke();
 			X.strokeStyle = "#ccc";
-			X.lineWidth = S$6;
+			X.lineWidth = S$7;
 			X.beginPath();
-			X.moveTo(x * S$6, y * S$6);
-			X.lineTo((x + Math.cos(ma) * 5) * S$6, (y + Math.sin(ma) * 5) * S$6);
+			X.moveTo(x * S$7, y * S$7);
+			X.lineTo((x + Math.cos(ma) * 5) * S$7, (y + Math.sin(ma) * 5) * S$7);
 			X.stroke();
 			if (t >> 4 & 1) d(x - .5, y - .5, 1, 1, "#f00");
 		};
@@ -4725,7 +5047,7 @@ function PandaOfficeScene({ agents, visible = true }) {
 				if (i > 0) d(x + cw * i, y, .5, h, "#bbb");
 				T.fillStyle = "#888";
 				T.font = sceneFont("label");
-				T.fillText(label, (x + cw * i + 1) * S$6, (y + 4) * S$6);
+				T.fillText(label, (x + cw * i + 1) * S$7, (y + 4) * S$7);
 			});
 			const colors = [
 				"#ffe066",
@@ -4740,7 +5062,7 @@ function PandaOfficeScene({ agents, visible = true }) {
 				d(nx, ny, cw - 2, 7, colors[i % colors.length]);
 				T.fillStyle = "#333";
 				T.font = sceneFont("detail");
-				T.fillText(sliceCodePoints(task, 0, 8), (nx + 1) * S$6, (ny + 4.5) * S$6);
+				T.fillText(sliceCodePoints(task, 0, 8), (nx + 1) * S$7, (ny + 4.5) * S$7);
 			});
 		};
 		const drawCoffeeMachine = (t) => {
@@ -4757,7 +5079,7 @@ function PandaOfficeScene({ agents, visible = true }) {
 				const sx = x + 4 + Math.sin(t * .025 + i * 2) * 1.5;
 				if (sy > y - 2) {
 					X.fillStyle = `rgba(255,255,255,${.12 - i * .03})`;
-					X.fillRect(sx * S$6, sy * S$6, 6, 3);
+					X.fillRect(sx * S$7, sy * S$7, 6, 3);
 				}
 			}
 		};
@@ -4779,12 +5101,12 @@ function PandaOfficeScene({ agents, visible = true }) {
 			d(px + 1, py + 1, 24, 1, "#888");
 			d(px - 1, py + 26, 4, 2, COL$3.pullBarDark);
 			d(px + 23, py + 26, 4, 2, COL$3.pullBarDark);
-			drawLabel(T, "pull-ups", (px + 13) * S$6, (py - 3) * S$6, {
+			drawLabel(T, "pull-ups", (px + 13) * S$7, (py - 3) * S$7, {
 				role: "label",
 				color: "#888",
 				bgColor: "rgba(0,0,0,0.4)",
 				align: "center",
-				scale: S$6
+				scale: S$7
 			});
 		};
 		const drawChessTable = (_t) => {
@@ -4828,8 +5150,8 @@ function PandaOfficeScene({ agents, visible = true }) {
 		const drawLogo = () => {
 			T.fillStyle = "#8fbc5f";
 			T.font = sceneFont("title", "bold");
-			T.fillText(i18nT("pages.scenes.pandaOfficeScene.panda_den"), (W$5 / 2 - 28) * S$6, 96);
-			d(W$5 / 2 - 30, 34, 60, 1, "#6b8e23");
+			T.fillText(i18nT("pages.scenes.pandaOfficeScene.panda_den"), (W$6 / 2 - 28) * S$7, 96);
+			d(W$6 / 2 - 30, 34, 60, 1, "#6b8e23");
 		};
 		const drawDesk = (desk, t) => {
 			const { x: dx, y: dy, accent, items, occupied } = desk;
@@ -4852,7 +5174,7 @@ function PandaOfficeScene({ agents, visible = true }) {
 				}
 				if (t >> 3 & 1) d(dx + 11 + (t >> 2) % 5, dy + 6 + (t >> 4) % 4 * 1.8, 1, 1, COL$3.screenCursor);
 				X.fillStyle = "rgba(50,255,50,0.025)";
-				X.fillRect((dx + 8) * S$6, (dy + 13) * S$6, 36, 12);
+				X.fillRect((dx + 8) * S$7, (dy + 13) * S$7, 36, 12);
 			} else if (t >> 5 & 1) d(dx + 14, dy + 9, 1, 1, "#333");
 			d(dx + 10, dy + 22, 8, 3, COL$3.chair);
 			d(dx + 10, dy + 25, 2, 4, COL$3.chair);
@@ -4866,7 +5188,7 @@ function PandaOfficeScene({ agents, visible = true }) {
 						d(ix + 3, iy + .5, 1, 2, COL$3.mug);
 						if (occupied && t >> 4 & 1) {
 							X.fillStyle = "rgba(255,255,255,0.1)";
-							X.fillRect((ix + 1) * S$6, (iy - 1.5) * S$6, S$6, S$6);
+							X.fillRect((ix + 1) * S$7, (iy - 1.5) * S$7, S$7, S$7);
 						}
 						break;
 					case "photo":
@@ -4888,12 +5210,12 @@ function PandaOfficeScene({ agents, visible = true }) {
 						d(ix + 3, iy + 1, 1, 2, COL$3.headphones);
 				}
 			});
-			if (!occupied) drawLabel(T, "empty", (dx + 15) * S$6, (dy + 1) * S$6, {
+			if (!occupied) drawLabel(T, "empty", (dx + 15) * S$7, (dy + 1) * S$7, {
 				role: "label",
 				color: "#555",
 				bgColor: "#333",
 				align: "center",
-				scale: S$6
+				scale: S$7
 			});
 		};
 		const agentBob = (a, t) => {
@@ -4904,7 +5226,7 @@ function PandaOfficeScene({ agents, visible = true }) {
 			const mv = Math.abs(a.x - a.tx) > 1.5 || Math.abs(a.y - a.ty) > 1.5;
 			const bob = agentBob(a, t);
 			X.fillStyle = "rgba(0,0,0,0.12)";
-			X.fillRect((bx + 1) * S$6, (by + 10) * S$6, 18, 6);
+			X.fillRect((bx + 1) * S$7, (by + 10) * S$7, 18, 6);
 			d(bx, by + bob, 8, 8, PANDA_WHITE);
 			d(bx, by + bob, 8, 2, PANDA_BLACK);
 			d(bx + 3, by + 2 + bob, 2, 1, a.color);
@@ -4945,43 +5267,43 @@ function PandaOfficeScene({ agents, visible = true }) {
 			}
 			const kindEmoji = a.kind === "cron" ? "⏰" : a.kind === "spawn" ? "🔀" : "💬";
 			X.font = "6px monospace";
-			X.fillText(kindEmoji, (bx + 8) * S$6, (by - 6 + bob) * S$6);
-			drawLabel(T, a.running ? "active" : "idle", (bx + 4) * S$6, (by - 11 + bob) * S$6, {
+			X.fillText(kindEmoji, (bx + 8) * S$7, (by - 6 + bob) * S$7);
+			drawLabel(T, a.running ? "active" : "idle", (bx + 4) * S$7, (by - 11 + bob) * S$7, {
 				role: "status",
 				color: a.running ? "#4f4" : "#888",
 				bgColor: "rgba(0,0,0,0.5)",
 				align: "center",
-				scale: S$6
+				scale: S$7
 			});
 			if (a.lastMessage && Date.now() - a.msgAt < 7e3) {
 				const msgAge = Date.now() - a.msgAt;
 				const msgAlpha = msgAge > 6e3 ? (SPEECH_BUBBLE_MS - msgAge) / 1e3 : 1;
-				drawSpeechBubble(T, a.lastMessage, (bx + 4) * S$6, (by - 15 + bob) * S$6, {
-					scale: S$6,
+				drawSpeechBubble(T, a.lastMessage, (bx + 4) * S$7, (by - 15 + bob) * S$7, {
+					scale: S$7,
 					alpha: msgAlpha
 				});
 			}
-			const nameLines = drawLabel(T, a.name, (bx + 4) * S$6, (by + 14) * S$6, {
+			const nameLines = drawLabel(T, a.name, (bx + 4) * S$7, (by + 14) * S$7, {
 				role: "name",
 				weight: "bold",
 				color: "#fff",
 				align: "center",
-				scale: S$6,
+				scale: S$7,
 				maxWidth: 192
 			});
-			if (a.detail) drawLabel(T, a.detail, (bx - 2) * S$6, (by + 18) * S$6 + (nameLines - 1) * sceneLineHeight("name"), {
+			if (a.detail) drawLabel(T, a.detail, (bx - 2) * S$7, (by + 18) * S$7 + (nameLines - 1) * sceneLineHeight("name"), {
 				role: "detail",
 				color: "#999",
-				scale: S$6
+				scale: S$7
 			});
 			if (a.deskIdx >= 0 && a.activity !== "entering") {
 				const dk = desksRef.current[a.deskIdx];
-				drawLabel(T, sliceCodePoints(a.name, 0, 8), (dk.x + 15) * S$6, (dk.y + 1) * S$6, {
+				drawLabel(T, sliceCodePoints(a.name, 0, 8), (dk.x + 15) * S$7, (dk.y + 1) * S$7, {
 					role: "label",
 					color: "#fff",
 					bgColor: a.color,
 					align: "center",
-					scale: S$6
+					scale: S$7
 				});
 			}
 			if (collabRef.current && (collabRef.current[0] === a || collabRef.current[1] === a)) d(bx + 2, by - 16 + bob, 3, 2, "#f90");
@@ -4997,13 +5319,13 @@ function PandaOfficeScene({ agents, visible = true }) {
 			d(side < 0 ? sx + tw : sx, sy + bh, 2, 2, "#fff");
 			T.fillStyle = "#222";
 			T.font = sceneFont("spell");
-			T.fillText(text, (sx + 2) * S$6, (sy + 5.5) * S$6);
+			T.fillText(text, (sx + 2) * S$7, (sy + 5.5) * S$7);
 		};
 		const drawParticles = () => {
 			particlesRef.current.forEach((p) => {
 				const alpha = Math.max(0, .25 * (1 - p.life / p.maxLife));
 				X.fillStyle = `rgba(255,240,200,${alpha})`;
-				X.fillRect(p.x * S$6, p.y * S$6, S$6, S$6);
+				X.fillRect(p.x * S$7, p.y * S$7, S$7, S$7);
 			});
 		};
 		const drawAgentCounter = () => {
@@ -5011,7 +5333,7 @@ function PandaOfficeScene({ agents, visible = true }) {
 			const total = MAX_DESKS;
 			T.fillStyle = "#999";
 			T.font = sceneFont("status");
-			T.fillText(`${count}/${total} agents`, 12, 296 * S$6);
+			T.fillText(`${count}/${total} agents`, 12, 296 * S$7);
 		};
 		const timeouts = [];
 		const update = (t) => {
@@ -5120,20 +5442,20 @@ function PandaOfficeScene({ agents, visible = true }) {
 		};
 		const draw = (t) => {
 			const agents = agentsRef.current;
-			T.clearRect(0, 0, W$5 * S$6, H$5 * S$6);
-			d(0, 0, W$5, 80, "#0d1a08");
-			for (let i = 0; i < W$5; i += 6) {
+			T.clearRect(0, 0, W$6 * S$7, H$6 * S$7);
+			d(0, 0, W$6, 80, "#0d1a08");
+			for (let i = 0; i < W$6; i += 6) {
 				const shade = i / 6 & 1 ? "#4a7a1a" : "#3a6a14";
 				const highlight = i / 6 & 1 ? "#5a8a2a" : "#4a7a1a";
 				d(i, 0, 5, 80, shade);
 				d(i + 2, 0, 1, 80, highlight);
 				for (let j = 8 + i % 12; j < 80; j += 15) d(i - .5, j, 6, 1, "#2a5a0a");
 			}
-			for (let i = 0; i < W$5; i += 16) for (let j = 80; j < H$5; j += 16) {
+			for (let i = 0; i < W$6; i += 16) for (let j = 80; j < H$6; j += 16) {
 				X.fillStyle = i / 16 + j / 16 & 1 ? COL$3.floorAlt : COL$3.floor;
-				X.fillRect(i * S$6, j * S$6, 48, 48);
+				X.fillRect(i * S$7, j * S$7, 48, 48);
 			}
-			d(0, 78, W$5, 3, COL$3.wallTrim);
+			d(0, 78, W$6, 3, COL$3.wallTrim);
 			drawWindow(t);
 			drawLogo();
 			drawBookshelves();
@@ -5152,11 +5474,11 @@ function PandaOfficeScene({ agents, visible = true }) {
 			if (collabRef.current) {
 				const [a, b] = collabRef.current;
 				X.strokeStyle = "#f90";
-				X.lineWidth = S$6;
+				X.lineWidth = S$7;
 				X.setLineDash([12, 12]);
 				X.beginPath();
-				X.moveTo((a.x + 4) * S$6, (a.y + 4) * S$6);
-				X.lineTo((b.x + 4) * S$6, (b.y + 4) * S$6);
+				X.moveTo((a.x + 4) * S$7, (a.y + 4) * S$7);
+				X.lineTo((b.x + 4) * S$7, (b.y + 4) * S$7);
 				X.stroke();
 				X.setLineDash([]);
 				drawSpeech(a, speechRef.current.a, a.x < b.x ? -1 : 1);
@@ -5171,7 +5493,7 @@ function PandaOfficeScene({ agents, visible = true }) {
 		};
 	}, []);
 	return /* @__PURE__ */ jsxs("div", {
-		style: SCENE_CONTAINER_STYLE(W$5, H$5),
+		style: SCENE_CONTAINER_STYLE(W$6, H$6),
 		children: [
 			/* @__PURE__ */ jsx("canvas", {
 				ref: canvasRef,
@@ -5198,9 +5520,9 @@ var NEURAL_THEME = {
 	active: "Processing neural pathways",
 	idle: "Awaiting signal"
 };
-var W$4 = 480;
-var H$4 = 320;
-var S$5 = SCENE_SCALE;
+var W$5 = 480;
+var H$5 = 320;
+var S$6 = SCENE_SCALE;
 var NODE_COLORS = [
 	"#ff6b6b",
 	"#4ecdc4",
@@ -5212,8 +5534,8 @@ var NODE_COLORS = [
 	"#e17055"
 ];
 var CENTER = {
-	x: W$4 / 2,
-	y: H$4 / 2
+	x: W$5 / 2,
+	y: H$5 / 2
 };
 function NeuralConstellationScene({ agents, visible = true }) {
 	const canvasRef = useRef(null);
@@ -5227,7 +5549,7 @@ function NeuralConstellationScene({ agents, visible = true }) {
 	const nebulaeRef = useRef([]);
 	const wavesRef = useRef([]);
 	const shootingRef = useRef([]);
-	const { canvasProps, tooltipEl } = useSceneInteraction(canvasRef, nodesRef, W$4, H$4, NEURAL_THEME, 10, void 0, agents);
+	const { canvasProps, tooltipEl } = useSceneInteraction(canvasRef, nodesRef, W$5, H$5, NEURAL_THEME, 10, void 0, agents);
 	useEffect(() => {
 		const stars = [];
 		const starColors = [
@@ -5238,8 +5560,8 @@ function NeuralConstellationScene({ agents, visible = true }) {
 			"#d4c8ff"
 		];
 		for (let i = 0; i < 120; i++) stars.push({
-			x: Math.random() * W$4,
-			y: Math.random() * H$4,
+			x: Math.random() * W$5,
+			y: Math.random() * H$5,
 			size: Math.random() < .15 ? 2 : Math.random() < .4 ? 1.2 : .6,
 			twinkle: Math.random() * Math.PI * 2,
 			speed: .008 + Math.random() * .025,
@@ -5319,19 +5641,19 @@ function NeuralConstellationScene({ agents, visible = true }) {
 		synapsesRef.current = synapses;
 	}, [agents]);
 	useEffect(() => {
-		const { X, T, d } = initSceneCanvases(canvasRef.current, textRef.current, W$4, H$4, S$5);
+		const { X, T, d } = initSceneCanvases(canvasRef.current, textRef.current, W$5, H$5, S$6);
 		const glowCache = /* @__PURE__ */ new Map();
 		const getGlowSprite = (color, maxR) => {
 			const key = color + "|" + maxR;
 			if (glowCache.has(key)) return glowCache.get(key);
-			const size = Math.ceil(maxR * 2 * 1.9 * S$5);
+			const size = Math.ceil(maxR * 2 * 1.9 * S$6);
 			const c = document.createElement("canvas");
 			c.width = size;
 			c.height = size;
 			const ctx = c.getContext("2d");
 			const cx = size / 2;
 			for (let layer = 3; layer >= 0; layer--) {
-				const lr = maxR * (1 + layer * .3) * S$5;
+				const lr = maxR * (1 + layer * .3) * S$6;
 				const alpha = .06 - layer * .012;
 				const grad = ctx.createRadialGradient(cx, cx, 0, cx, cx, lr);
 				grad.addColorStop(0, color + Math.round(alpha * 255).toString(16).padStart(2, "0"));
@@ -5342,14 +5664,14 @@ function NeuralConstellationScene({ agents, visible = true }) {
 			glowCache.set(key, c);
 			return c;
 		};
-		const hubGlowSize = Math.ceil(180.48 * S$5);
+		const hubGlowSize = Math.ceil(180.48 * S$6);
 		const hubGlowCanvas = document.createElement("canvas");
 		hubGlowCanvas.width = hubGlowSize;
 		hubGlowCanvas.height = hubGlowSize;
 		const hubCtx = hubGlowCanvas.getContext("2d");
 		const hc = hubGlowSize / 2;
 		for (let layer = 4; layer >= 0; layer--) {
-			const lr = 16 * (1.5 + layer * .8) * S$5;
+			const lr = 16 * (1.5 + layer * .8) * S$6;
 			const alpha = .04 - layer * .007;
 			const grad = hubCtx.createRadialGradient(hc, hc, 0, hc, hc, lr);
 			grad.addColorStop(0, `rgba(255,153,0,${alpha})`);
@@ -5358,14 +5680,14 @@ function NeuralConstellationScene({ agents, visible = true }) {
 			hubCtx.fillRect(0, 0, hubGlowSize, hubGlowSize);
 		}
 		const nebulaCanvas = document.createElement("canvas");
-		nebulaCanvas.width = W$4 * S$5;
-		nebulaCanvas.height = H$4 * S$5;
+		nebulaCanvas.width = W$5 * S$6;
+		nebulaCanvas.height = H$5 * S$6;
 		const nebulaCtx = nebulaCanvas.getContext("2d");
 		let nebulaFrame = -1;
 		const renderNebulae = (t) => {
 			if (Math.floor(t / 60) === nebulaFrame) return;
 			nebulaFrame = Math.floor(t / 60);
-			nebulaCtx.clearRect(0, 0, W$4 * S$5, H$4 * S$5);
+			nebulaCtx.clearRect(0, 0, W$5 * S$6, H$5 * S$6);
 			nebulaeRef.current.forEach((n) => {
 				const nx = n.x + Math.sin(t * n.phase + n.drift) * 8;
 				const ny = n.y + Math.cos(t * n.phase * .7 + n.drift) * 5;
@@ -5373,12 +5695,12 @@ function NeuralConstellationScene({ agents, visible = true }) {
 				for (let layer = 3; layer >= 0; layer--) {
 					const lr = breathe * (1 + layer * .4);
 					const alpha = .02 - layer * .004;
-					const grad = nebulaCtx.createRadialGradient(nx * S$5, ny * S$5, 0, nx * S$5, ny * S$5, lr * S$5);
+					const grad = nebulaCtx.createRadialGradient(nx * S$6, ny * S$6, 0, nx * S$6, ny * S$6, lr * S$6);
 					grad.addColorStop(0, n.color + alpha + ")");
 					grad.addColorStop(.6, n.color + alpha * .5 + ")");
 					grad.addColorStop(1, "transparent");
 					nebulaCtx.fillStyle = grad;
-					nebulaCtx.fillRect((nx - lr) * S$5, (ny - lr) * S$5, lr * 2 * S$5, lr * 2 * S$5);
+					nebulaCtx.fillRect((nx - lr) * S$6, (ny - lr) * S$6, lr * 2 * S$6, lr * 2 * S$6);
 				}
 			});
 		};
@@ -5391,11 +5713,11 @@ function NeuralConstellationScene({ agents, visible = true }) {
 				const alpha = .25 + Math.sin(t * star.speed + star.twinkle) * .35;
 				X.globalAlpha = Math.max(.05, alpha);
 				X.fillStyle = star.color;
-				X.fillRect(star.x * S$5, star.y * S$5, star.size * S$5, star.size * S$5);
+				X.fillRect(star.x * S$6, star.y * S$6, star.size * S$6, star.size * S$6);
 				if (star.size > 1.5 && alpha > .4) {
 					X.globalAlpha = alpha * .3;
-					X.fillRect((star.x - 1) * S$5, star.y * S$5, (star.size + 2) * S$5, star.size * .5 * S$5);
-					X.fillRect(star.x * S$5, (star.y - 1) * S$5, star.size * .5 * S$5, (star.size + 2) * S$5);
+					X.fillRect((star.x - 1) * S$6, star.y * S$6, (star.size + 2) * S$6, star.size * .5 * S$6);
+					X.fillRect(star.x * S$6, (star.y - 1) * S$6, star.size * .5 * S$6, (star.size + 2) * S$6);
 				}
 			});
 			X.globalAlpha = 1;
@@ -5405,7 +5727,7 @@ function NeuralConstellationScene({ agents, visible = true }) {
 				const fromLeft = Math.random() < .5;
 				shootingRef.current.push({
 					x: fromLeft ? -5 : 485,
-					y: Math.random() * H$4 * .4,
+					y: Math.random() * H$5 * .4,
 					vx: (fromLeft ? 1 : -1) * (2 + Math.random() * 2),
 					vy: .5 + Math.random() * 1,
 					life: 0,
@@ -5420,10 +5742,10 @@ function NeuralConstellationScene({ agents, visible = true }) {
 				for (let i = 0; i < 6; i++) {
 					const ta = alpha * (1 - i * .15);
 					X.fillStyle = `rgba(255,255,200,${Math.max(0, ta)})`;
-					X.fillRect((ss.x - ss.vx * i * .5) * S$5, (ss.y - ss.vy * i * .5) * S$5, 2 * S$5, 1 * S$5);
+					X.fillRect((ss.x - ss.vx * i * .5) * S$6, (ss.y - ss.vy * i * .5) * S$6, 2 * S$6, 1 * S$6);
 				}
 				X.fillStyle = `rgba(255,255,255,${alpha})`;
-				X.fillRect(ss.x * S$5, ss.y * S$5, 2 * S$5, 2 * S$5);
+				X.fillRect(ss.x * S$6, ss.y * S$6, 2 * S$6, 2 * S$6);
 			});
 			shootingRef.current = shootingRef.current.filter((ss) => ss.life < ss.maxLife);
 		};
@@ -5436,13 +5758,13 @@ function NeuralConstellationScene({ agents, visible = true }) {
 				const anyActive = a.running || b.running;
 				const dx = b.x - a.x, dy = b.y - a.y;
 				const dist = Math.sqrt(dx * dx + dy * dy);
-				X.setLineDash(anyActive ? [4 * S$5, 3 * S$5] : [2 * S$5, 6 * S$5]);
+				X.setLineDash(anyActive ? [4 * S$6, 3 * S$6] : [2 * S$6, 6 * S$6]);
 				X.lineDashOffset = -t * (bothActive ? .8 : .3);
 				X.strokeStyle = bothActive ? a.color + "88" : `rgba(100,180,255,${bothActive ? .4 : anyActive ? .15 : .04})`;
-				X.lineWidth = (bothActive ? 2 : .8) * S$5;
+				X.lineWidth = (bothActive ? 2 : .8) * S$6;
 				X.beginPath();
-				X.moveTo(a.x * S$5, a.y * S$5);
-				X.lineTo(b.x * S$5, b.y * S$5);
+				X.moveTo(a.x * S$6, a.y * S$6);
+				X.lineTo(b.x * S$6, b.y * S$6);
 				X.stroke();
 				X.setLineDash([]);
 				if (bothActive && dist > 20) {
@@ -5450,10 +5772,10 @@ function NeuralConstellationScene({ agents, visible = true }) {
 					const perpX = -dy / dist, perpY = dx / dist;
 					const arcOff = Math.sin(t * .08 + syn.arcPhase) * 8;
 					X.strokeStyle = a.color + "44";
-					X.lineWidth = S$5;
+					X.lineWidth = S$6;
 					X.beginPath();
-					X.moveTo(a.x * S$5, a.y * S$5);
-					X.quadraticCurveTo((midX + perpX * arcOff) * S$5, (midY + perpY * arcOff) * S$5, b.x * S$5, b.y * S$5);
+					X.moveTo(a.x * S$6, a.y * S$6);
+					X.quadraticCurveTo((midX + perpX * arcOff) * S$6, (midY + perpY * arcOff) * S$6, b.x * S$6, b.y * S$6);
 					X.stroke();
 				}
 				if (anyActive && t % 120 === 0 && Math.random() < .15) packetsRef.current.push({
@@ -5483,18 +5805,18 @@ function NeuralConstellationScene({ agents, visible = true }) {
 					X.fillStyle = p.color;
 					X.globalAlpha = ta;
 					const sz = 1 + i / p.trail.length;
-					X.fillRect((pt.x - sz / 2) * S$5, (pt.y - sz / 2) * S$5, sz * S$5, sz * S$5);
+					X.fillRect((pt.x - sz / 2) * S$6, (pt.y - sz / 2) * S$6, sz * S$6, sz * S$6);
 				});
 				const alpha = 1 - Math.abs(p.progress - .5) * 1.2;
 				X.globalAlpha = Math.max(0, alpha);
 				X.fillStyle = "#fff";
-				X.fillRect((px - 1) * S$5, (py - 1) * S$5, 2 * S$5, 2 * S$5);
-				const grad = X.createRadialGradient(px * S$5, py * S$5, 0, px * S$5, py * S$5, 5 * S$5);
+				X.fillRect((px - 1) * S$6, (py - 1) * S$6, 2 * S$6, 2 * S$6);
+				const grad = X.createRadialGradient(px * S$6, py * S$6, 0, px * S$6, py * S$6, 5 * S$6);
 				grad.addColorStop(0, p.color);
 				grad.addColorStop(1, "transparent");
 				X.fillStyle = grad;
 				X.globalAlpha = Math.max(0, alpha * .4);
-				X.fillRect((px - 5) * S$5, (py - 5) * S$5, 10 * S$5, 10 * S$5);
+				X.fillRect((px - 5) * S$6, (py - 5) * S$6, 10 * S$6, 10 * S$6);
 				X.globalAlpha = 1;
 			});
 			packetsRef.current = packetsRef.current.filter((p) => p.progress < 1);
@@ -5503,9 +5825,9 @@ function NeuralConstellationScene({ agents, visible = true }) {
 			wavesRef.current.forEach((w) => {
 				const alpha = Math.max(0, .5 * (1 - w.radius / w.maxRadius));
 				X.beginPath();
-				X.arc(w.x * S$5, w.y * S$5, w.radius * S$5, 0, Math.PI * 2);
+				X.arc(w.x * S$6, w.y * S$6, w.radius * S$6, 0, Math.PI * 2);
 				X.strokeStyle = w.color;
-				X.lineWidth = 1.5 * S$5;
+				X.lineWidth = 1.5 * S$6;
 				X.globalAlpha = alpha;
 				X.stroke();
 				X.globalAlpha = 1;
@@ -5518,79 +5840,79 @@ function NeuralConstellationScene({ agents, visible = true }) {
 				const maxR = radius * 1.18 * 5.6;
 				const sprite = getGlowSprite(color, maxR);
 				const spriteExtent = maxR * 1.9;
-				X.drawImage(sprite, (x - spriteExtent) * S$5, (y - spriteExtent) * S$5, spriteExtent * 2 * S$5, spriteExtent * 2 * S$5);
+				X.drawImage(sprite, (x - spriteExtent) * S$6, (y - spriteExtent) * S$6, spriteExtent * 2 * S$6, spriteExtent * 2 * S$6);
 			}
 			if (running) {
 				node.ringAngle += node.ringSpeed;
 				const ringR = r + 5;
-				X.setLineDash([3 * S$5, 4 * S$5]);
+				X.setLineDash([3 * S$6, 4 * S$6]);
 				X.lineDashOffset = -node.ringAngle * 20;
 				X.beginPath();
-				X.arc(x * S$5, y * S$5, ringR * S$5, 0, Math.PI * 2);
+				X.arc(x * S$6, y * S$6, ringR * S$6, 0, Math.PI * 2);
 				X.strokeStyle = color + "50";
-				X.lineWidth = S$5;
+				X.lineWidth = S$6;
 				X.stroke();
 				X.setLineDash([]);
 				const dotX = x + Math.cos(node.ringAngle) * ringR;
 				const dotY = y + Math.sin(node.ringAngle) * ringR;
 				X.fillStyle = "#fff";
 				X.beginPath();
-				X.arc(dotX * S$5, dotY * S$5, 1.5 * S$5, 0, Math.PI * 2);
+				X.arc(dotX * S$6, dotY * S$6, 1.5 * S$6, 0, Math.PI * 2);
 				X.fill();
 				const dot2X = x + Math.cos(node.ringAngle + Math.PI) * ringR;
 				const dot2Y = y + Math.sin(node.ringAngle + Math.PI) * ringR;
 				X.fillStyle = color;
 				X.beginPath();
-				X.arc(dot2X * S$5, dot2Y * S$5, 1 * S$5, 0, Math.PI * 2);
+				X.arc(dot2X * S$6, dot2Y * S$6, 1 * S$6, 0, Math.PI * 2);
 				X.fill();
 			}
-			const coreGrad = X.createRadialGradient((x - r * .3) * S$5, (y - r * .3) * S$5, 0, x * S$5, y * S$5, r * S$5);
+			const coreGrad = X.createRadialGradient((x - r * .3) * S$6, (y - r * .3) * S$6, 0, x * S$6, y * S$6, r * S$6);
 			coreGrad.addColorStop(0, running ? "#fff" : color + "80");
 			coreGrad.addColorStop(.4, running ? color : color + "40");
 			coreGrad.addColorStop(1, running ? color + "cc" : color + "20");
 			X.beginPath();
-			X.arc(x * S$5, y * S$5, r * S$5, 0, Math.PI * 2);
+			X.arc(x * S$6, y * S$6, r * S$6, 0, Math.PI * 2);
 			X.fillStyle = coreGrad;
 			X.fill();
 			if (running) {
 				const a1 = t * .05 + node.pulse;
 				const a2 = t * .05 + node.pulse + Math.PI;
 				X.beginPath();
-				X.arc(x * S$5, y * S$5, (r + 3) * S$5, a1, a1 + Math.PI * .6);
+				X.arc(x * S$6, y * S$6, (r + 3) * S$6, a1, a1 + Math.PI * .6);
 				X.strokeStyle = "#fff8";
-				X.lineWidth = 2 * S$5;
+				X.lineWidth = 2 * S$6;
 				X.stroke();
 				X.beginPath();
-				X.arc(x * S$5, y * S$5, (r + 3) * S$5, a2, a2 + Math.PI * .4);
+				X.arc(x * S$6, y * S$6, (r + 3) * S$6, a2, a2 + Math.PI * .4);
 				X.strokeStyle = color + "aa";
-				X.lineWidth = 1.5 * S$5;
+				X.lineWidth = 1.5 * S$6;
 				X.stroke();
 			}
 			const kindChar = kind === "cron" ? "⏰" : kind === "spawn" ? "🔀" : "💬";
-			X.font = 2.5 * S$5 + "px monospace";
+			X.font = 2.5 * S$6 + "px monospace";
 			X.textAlign = "center";
-			X.fillText(kindChar, x * S$5, (y + 1.5) * S$5);
+			X.fillText(kindChar, x * S$6, (y + 1.5) * S$6);
 			if (running) {
 				T.shadowColor = color;
-				T.shadowBlur = 6 * S$5;
+				T.shadowBlur = 6 * S$6;
 			}
 			T.fillStyle = running ? "#fff" : "#778";
 			T.font = sceneFont("name", "bold");
 			T.textAlign = "center";
-			T.fillText(name, x * S$5, (y + r + 7) * S$5);
+			T.fillText(name, x * S$6, (y + r + 7) * S$6);
 			T.shadowBlur = 0;
 			X.fillStyle = running ? "#4f4" : "#556";
 			X.beginPath();
-			X.arc((x - 8) * S$5, (y + r + 11) * S$5, 1.5 * S$5, 0, Math.PI * 2);
+			X.arc((x - 8) * S$6, (y + r + 11) * S$6, 1.5 * S$6, 0, Math.PI * 2);
 			X.fill();
 			T.fillStyle = running ? "#4f4" : "#556";
 			T.font = sceneFont("status");
 			T.textAlign = "center";
-			T.fillText(running ? i18nT("pages.scenes.neuralConstellationScene.active") : i18nT("pages.scenes.neuralConstellationScene.idle"), (x - 5) * S$5, (y + r + 12) * S$5);
+			T.fillText(running ? i18nT("pages.scenes.neuralConstellationScene.active") : i18nT("pages.scenes.neuralConstellationScene.idle"), (x - 5) * S$6, (y + r + 12) * S$6);
 			if (detail) {
 				T.fillStyle = "#667";
 				T.font = sceneFont("detail");
-				T.fillText(detail, x * S$5, (y + r + 16) * S$5);
+				T.fillText(detail, x * S$6, (y + r + 16) * S$6);
 			}
 			T.textAlign = "start";
 		};
@@ -5599,30 +5921,30 @@ function NeuralConstellationScene({ agents, visible = true }) {
 			const r = 16 * pulse;
 			const activeCount = nodesRef.current.filter((n) => n.running).length;
 			const scaledGlowSize = hubGlowSize * pulse;
-			X.drawImage(hubGlowCanvas, CENTER.x * S$5 - scaledGlowSize / 2, CENTER.y * S$5 - scaledGlowSize / 2, scaledGlowSize, scaledGlowSize);
-			const coreGrad = X.createRadialGradient((CENTER.x - 3) * S$5, (CENTER.y - 3) * S$5, 0, CENTER.x * S$5, CENTER.y * S$5, r * S$5);
+			X.drawImage(hubGlowCanvas, CENTER.x * S$6 - scaledGlowSize / 2, CENTER.y * S$6 - scaledGlowSize / 2, scaledGlowSize, scaledGlowSize);
+			const coreGrad = X.createRadialGradient((CENTER.x - 3) * S$6, (CENTER.y - 3) * S$6, 0, CENTER.x * S$6, CENTER.y * S$6, r * S$6);
 			coreGrad.addColorStop(0, "#fff4");
 			coreGrad.addColorStop(.3, "#f90");
 			coreGrad.addColorStop(1, "#c60");
 			X.beginPath();
-			X.arc(CENTER.x * S$5, CENTER.y * S$5, r * S$5, 0, Math.PI * 2);
+			X.arc(CENTER.x * S$6, CENTER.y * S$6, r * S$6, 0, Math.PI * 2);
 			X.fillStyle = "#0a0a1a";
 			X.fill();
 			X.strokeStyle = "#f90";
-			X.lineWidth = 2 * S$5;
+			X.lineWidth = 2 * S$6;
 			X.stroke();
 			X.beginPath();
-			X.arc(CENTER.x * S$5, CENTER.y * S$5, (r - 3) * S$5, 0, Math.PI * 2);
+			X.arc(CENTER.x * S$6, CENTER.y * S$6, (r - 3) * S$6, 0, Math.PI * 2);
 			X.strokeStyle = "#f904";
-			X.lineWidth = S$5;
+			X.lineWidth = S$6;
 			X.stroke();
 			for (let i = 0; i < 3; i++) {
 				const a = t * (.015 + i * .005) + i * Math.PI * .67;
 				const arcR = r + 4 + i * 3;
 				X.beginPath();
-				X.arc(CENTER.x * S$5, CENTER.y * S$5, arcR * S$5, a, a + .8 + i * .2);
+				X.arc(CENTER.x * S$6, CENTER.y * S$6, arcR * S$6, a, a + .8 + i * .2);
 				X.strokeStyle = i === 0 ? "#f908" : i === 1 ? "#fa06" : "#f904";
-				X.lineWidth = (2 - i * .5) * S$5;
+				X.lineWidth = (2 - i * .5) * S$6;
 				X.stroke();
 			}
 			const dataRingR = r + 12;
@@ -5633,25 +5955,25 @@ function NeuralConstellationScene({ agents, visible = true }) {
 				const dotAlpha = .2 + Math.sin(t * .04 + i) * .15;
 				X.fillStyle = `rgba(255,200,100,${dotAlpha})`;
 				X.beginPath();
-				X.arc(dx * S$5, dy * S$5, 1 * S$5, 0, Math.PI * 2);
+				X.arc(dx * S$6, dy * S$6, 1 * S$6, 0, Math.PI * 2);
 				X.fill();
 			}
 			T.shadowColor = "#f90";
-			T.shadowBlur = 4 * S$5;
+			T.shadowBlur = 4 * S$6;
 			T.fillStyle = "#f90";
 			T.font = sceneFont("title", "bold");
 			T.textAlign = "center";
-			T.fillText(i18nT("pages.scenes.neuralConstellationScene.neural_network"), CENTER.x * S$5, (CENTER.y + 1.5) * S$5);
+			T.fillText(i18nT("pages.scenes.neuralConstellationScene.neural_network"), CENTER.x * S$6, (CENTER.y + 1.5) * S$6);
 			T.shadowBlur = 0;
 			T.fillStyle = "#998";
 			T.font = sceneFont("title");
-			T.fillText(`${activeCount} active · ${nodesRef.current.length} nodes`, CENTER.x * S$5, (CENTER.y + 6) * S$5);
+			T.fillText(`${activeCount} active · ${nodesRef.current.length} nodes`, CENTER.x * S$6, (CENTER.y + 6) * S$6);
 			T.textAlign = "start";
 		};
 		const drawCounter = () => {
 			T.fillStyle = "#445";
 			T.font = sceneFont("label");
-			T.fillText(`neural network · ${nodesRef.current.length} nodes`, 4 * S$5, 316 * S$5);
+			T.fillText(`neural network · ${nodesRef.current.length} nodes`, 4 * S$6, 316 * S$6);
 		};
 		const update = (t) => {
 			nodesRef.current.forEach((node) => {
@@ -5686,14 +6008,14 @@ function NeuralConstellationScene({ agents, visible = true }) {
 			wavesRef.current = wavesRef.current.filter((w) => w.radius < w.maxRadius);
 		};
 		const draw = (t) => {
-			T.clearRect(0, 0, W$4 * S$5, H$4 * S$5);
-			d(0, 0, W$4, H$4, "#06060f");
-			const bgGrad = X.createRadialGradient(CENTER.x * S$5, CENTER.y * S$5, 0, CENTER.x * S$5, CENTER.y * S$5, 220 * S$5);
+			T.clearRect(0, 0, W$5 * S$6, H$5 * S$6);
+			d(0, 0, W$5, H$5, "#06060f");
+			const bgGrad = X.createRadialGradient(CENTER.x * S$6, CENTER.y * S$6, 0, CENTER.x * S$6, CENTER.y * S$6, 220 * S$6);
 			bgGrad.addColorStop(0, "rgba(15,20,45,0.5)");
 			bgGrad.addColorStop(.5, "rgba(10,10,25,0.3)");
 			bgGrad.addColorStop(1, "transparent");
 			X.fillStyle = bgGrad;
-			X.fillRect(0, 0, W$4 * S$5, H$4 * S$5);
+			X.fillRect(0, 0, W$5 * S$6, H$5 * S$6);
 			drawNebulae(t);
 			drawStars(t);
 			drawShootingStars(t);
@@ -5708,7 +6030,7 @@ function NeuralConstellationScene({ agents, visible = true }) {
 	}, []);
 	useVisibleSync(visibleRef, visible);
 	return /* @__PURE__ */ jsxs("div", {
-		style: SCENE_CONTAINER_STYLE(W$4, H$4),
+		style: SCENE_CONTAINER_STYLE(W$5, H$5),
 		children: [
 			/* @__PURE__ */ jsx("canvas", {
 				ref: canvasRef,
@@ -5735,9 +6057,9 @@ var WIZARD_THEME = {
 	active: "Casting spells",
 	idle: "Studying grimoire"
 };
-var W$3 = 480;
-var H$3 = 340;
-var S$4 = SCENE_SCALE;
+var W$4 = 480;
+var H$4 = 340;
+var S$5 = SCENE_SCALE;
 var MAX_BENCHES = 8;
 var ROBE_COLORS = [
 	"#8e44ad",
@@ -5854,7 +6176,7 @@ function WizardTowerScene({ agents, visible = true }) {
 	const particlesRef = useRef([]);
 	const spellRef = useRef(null);
 	const visibleRef = useRef(visible);
-	const { canvasProps, tooltipEl } = useSceneInteraction(canvasRef, wizardsRef, W$3, H$3, WIZARD_THEME, 10, void 0, agents);
+	const { canvasProps, tooltipEl } = useSceneInteraction(canvasRef, wizardsRef, W$4, H$4, WIZARD_THEME, 10, void 0, agents);
 	useEffect(() => {
 		const existing = wizardsRef.current;
 		const newWizards = [];
@@ -5901,7 +6223,7 @@ function WizardTowerScene({ agents, visible = true }) {
 		pruneAgents("wizard", newWizards.map((w) => w.id));
 	}, [agents]);
 	useEffect(() => {
-		const { X, T, d } = initSceneCanvases(canvasRef.current, textRef.current, W$3, H$3, S$4);
+		const { X, T, d } = initSceneCanvases(canvasRef.current, textRef.current, W$4, H$4, S$5);
 		const spawnMagic = (mx, my, color, count = 3) => {
 			for (let i = 0; i < count; i++) particlesRef.current.push({
 				x: mx,
@@ -5915,15 +6237,15 @@ function WizardTowerScene({ agents, visible = true }) {
 			});
 		};
 		const drawWalls = () => {
-			d(0, 0, W$3, 90, COL$2.stone);
-			for (let i = 0; i < W$3; i += 20) for (let j = 0; j < 90; j += 12) {
+			d(0, 0, W$4, 90, COL$2.stone);
+			for (let i = 0; i < W$4; i += 20) for (let j = 0; j < 90; j += 12) {
 				const off = j / 12 & 1 ? 10 : 0;
 				d(i + off, j, 19, 11, (i + j) % 40 < 20 ? COL$2.stoneDark : COL$2.stoneLight);
 				d(i + off, j + 11, 19, 1, COL$2.stoneDark);
 				d(i + off + 19, j, 1, 12, COL$2.stoneDark);
 			}
-			for (let i = 0; i < W$3; i += 16) for (let j = 90; j < H$3; j += 16) d(i, j, 16, 16, i / 16 + j / 16 & 1 ? COL$2.floorAlt : COL$2.floor);
-			d(0, 88, W$3, 3, COL$2.woodDark);
+			for (let i = 0; i < W$4; i += 16) for (let j = 90; j < H$4; j += 16) d(i, j, 16, 16, i / 16 + j / 16 & 1 ? COL$2.floorAlt : COL$2.floor);
+			d(0, 88, W$4, 3, COL$2.woodDark);
 		};
 		const drawArchwayDoor = (t) => {
 			const { x, y, w, h } = DOOR_POS;
@@ -5932,11 +6254,11 @@ function WizardTowerScene({ agents, visible = true }) {
 			for (let i = 0; i < 5; i++) d(x + 2 + i, y + 1 - Math.abs(i - 2), w - 4 - i * 2, 1, COL$2.stoneLight);
 			if (wizardsRef.current.some((w) => w.activity === "entering") && t >> 3 & 1) {
 				X.fillStyle = "rgba(155,89,182,0.1)";
-				X.fillRect(x * S$4, y * S$4, w * S$4, h * S$4);
+				X.fillRect(x * S$5, y * S$5, w * S$5, h * S$5);
 			}
 			X.fillStyle = COL$2.rune;
-			X.font = 2 * S$4 + "px monospace";
-			X.fillText("⚡", (x + 3) * S$4, (y - 2) * S$4);
+			X.font = 2 * S$5 + "px monospace";
+			X.fillText("⚡", (x + 3) * S$5, (y - 2) * S$5);
 		};
 		const drawWorkbench = (bx, by, occupied, idx, t) => {
 			d(bx, by + 16, 40, 3, COL$2.woodLight);
@@ -5950,7 +6272,7 @@ function WizardTowerScene({ agents, visible = true }) {
 				if (t % 12 < 6) d(bx + 4 + t % 5, by + 8, 2, 2, COL$2.potionBubble);
 				if (t % 18 < 9) d(bx + 7 + t % 3, by + 7, 1, 1, COL$2.potionBubble);
 				X.fillStyle = COL$2.potionGlow;
-				X.fillRect((bx + 1) * S$4, (by + 14) * S$4, 12 * S$4, 6 * S$4);
+				X.fillRect((bx + 1) * S$5, (by + 14) * S$5, 12 * S$5, 6 * S$5);
 				const flicker = t >> 2 & 1;
 				d(bx + 3, by + 16, 3, 1, COL$2.fire);
 				d(bx + 7, by + 16, 2, 1, COL$2.fireRed);
@@ -5962,8 +6284,8 @@ function WizardTowerScene({ agents, visible = true }) {
 				for (let i = 0; i < 3; i++) d(bx + 24, by + 11 + i * 1.5, 4 + i % 2 * 2, .5, COL$2.scroll);
 				if ((t + idx * 40) % 80 < 40) {
 					X.fillStyle = COL$2.rune;
-					X.font = 2.5 * S$4 + "px monospace";
-					X.fillText("✦", (bx + 26) * S$4, (by + 7) * S$4);
+					X.font = 2.5 * S$5 + "px monospace";
+					X.fillText("✦", (bx + 26) * S$5, (by + 7) * S$5);
 				}
 			}
 			const cx = bx + 16, cy = by + 8;
@@ -5972,50 +6294,50 @@ function WizardTowerScene({ agents, visible = true }) {
 				const fh = 2 + (t >> 3 & 1);
 				d(cx, cy - fh + 2, 2, fh, COL$2.candleFlame);
 				d(cx + .5, cy - fh + 1, 1, 1, "#fff");
-				const grad = X.createRadialGradient((cx + 1) * S$4, cy * S$4, 0, (cx + 1) * S$4, cy * S$4, 12 * S$4);
+				const grad = X.createRadialGradient((cx + 1) * S$5, cy * S$5, 0, (cx + 1) * S$5, cy * S$5, 12 * S$5);
 				grad.addColorStop(0, "rgba(255,200,50,0.08)");
 				grad.addColorStop(1, "transparent");
 				X.fillStyle = grad;
-				X.fillRect((cx - 12) * S$4, (cy - 12) * S$4, 26 * S$4, 26 * S$4);
+				X.fillRect((cx - 12) * S$5, (cy - 12) * S$5, 26 * S$5, 26 * S$5);
 			}
-			if (!occupied) drawLabel(T, i18nT("pages.scenes.wizardTowerScene.empty"), (bx + 20) * S$4, (by + 4) * S$4, {
+			if (!occupied) drawLabel(T, i18nT("pages.scenes.wizardTowerScene.empty"), (bx + 20) * S$5, (by + 4) * S$5, {
 				role: "label",
 				color: "#555",
 				bgColor: "#2a2030",
 				align: "center",
-				scale: S$4
+				scale: S$5
 			});
 		};
 		const drawSummoningCircle = (t) => {
 			const { x, y } = CIRCLE_POS;
 			X.strokeStyle = COL$2.rune;
-			X.lineWidth = 1.5 * S$4;
+			X.lineWidth = 1.5 * S$5;
 			X.beginPath();
-			X.arc(x * S$4, y * S$4, 28 * S$4, 0, Math.PI * 2);
+			X.arc(x * S$5, y * S$5, 28 * S$5, 0, Math.PI * 2);
 			X.stroke();
 			X.beginPath();
-			X.arc(x * S$4, y * S$4, 20 * S$4, 0, Math.PI * 2);
+			X.arc(x * S$5, y * S$5, 20 * S$5, 0, Math.PI * 2);
 			X.stroke();
 			for (let i = 0; i < 6; i++) {
 				const a = i / 6 * Math.PI * 2 + t * .01;
 				const rx = x + Math.cos(a) * 24, ry = y + Math.sin(a) * 24;
 				X.fillStyle = COL$2.rune;
-				X.font = 2 * S$4 + "px monospace";
-				X.fillText("✧", rx * S$4, ry * S$4);
+				X.font = 2 * S$5 + "px monospace";
+				X.fillText("✧", rx * S$5, ry * S$5);
 			}
-			const grad = X.createRadialGradient(x * S$4, y * S$4, 0, x * S$4, y * S$4, 30 * S$4);
+			const grad = X.createRadialGradient(x * S$5, y * S$5, 0, x * S$5, y * S$5, 30 * S$5);
 			grad.addColorStop(0, COL$2.runeGlow);
 			grad.addColorStop(1, "transparent");
 			X.fillStyle = grad;
-			X.fillRect((x - 30) * S$4, (y - 30) * S$4, 60 * S$4, 60 * S$4);
+			X.fillRect((x - 30) * S$5, (y - 30) * S$5, 60 * S$5, 60 * S$5);
 			X.strokeStyle = "rgba(255,153,0,0.15)";
-			X.lineWidth = S$4;
+			X.lineWidth = S$5;
 			for (let i = 0; i < 5; i++) {
 				const a1 = i / 5 * Math.PI * 2 - Math.PI / 2 + t * .005;
 				const a2 = (i + 2) / 5 * Math.PI * 2 - Math.PI / 2 + t * .005;
 				X.beginPath();
-				X.moveTo((x + Math.cos(a1) * 18) * S$4, (y + Math.sin(a1) * 18) * S$4);
-				X.lineTo((x + Math.cos(a2) * 18) * S$4, (y + Math.sin(a2) * 18) * S$4);
+				X.moveTo((x + Math.cos(a1) * 18) * S$5, (y + Math.sin(a1) * 18) * S$5);
+				X.lineTo((x + Math.cos(a2) * 18) * S$5, (y + Math.sin(a2) * 18) * S$5);
 				X.stroke();
 			}
 		};
@@ -6036,7 +6358,7 @@ function WizardTowerScene({ agents, visible = true }) {
 				d(px + 1, py - 1, 2, 1, "#777");
 				if (Math.sin(t * .02 + i * 1.5) > .5) {
 					X.fillStyle = potionColors[i % potionColors.length] + "15";
-					X.fillRect((px - 1) * S$4, (py - 1) * S$4, 6 * S$4, 10 * S$4);
+					X.fillRect((px - 1) * S$5, (py - 1) * S$5, 6 * S$5, 10 * S$5);
 				}
 			}
 			const bookColors = [
@@ -6063,36 +6385,36 @@ function WizardTowerScene({ agents, visible = true }) {
 			}
 			d(wx + 11, wy, 2, 30, "#444");
 			X.fillStyle = COL$2.moonlight;
-			X.fillRect((wx + 5) * S$4, (wy + 30) * S$4, 14 * S$4, 40 * S$4);
+			X.fillRect((wx + 5) * S$5, (wy + 30) * S$5, 14 * S$5, 40 * S$5);
 		};
 		const drawCrystalBall = (cx, cy, t) => {
 			d(cx + 2, cy + 8, 6, 3, COL$2.woodDark);
 			d(cx + 3, cy + 6, 4, 2, COL$2.wood);
 			X.beginPath();
-			X.arc((cx + 5) * S$4, (cy + 3) * S$4, 5 * S$4, 0, Math.PI * 2);
+			X.arc((cx + 5) * S$5, (cy + 3) * S$5, 5 * S$5, 0, Math.PI * 2);
 			X.fillStyle = "#2a1a3a";
 			X.fill();
 			X.strokeStyle = COL$2.crystal;
-			X.lineWidth = S$4;
+			X.lineWidth = S$5;
 			X.stroke();
 			const sa = t * .03;
 			X.beginPath();
-			X.arc((cx + 5) * S$4, (cy + 3) * S$4, 3 * S$4, sa, sa + 2);
+			X.arc((cx + 5) * S$5, (cy + 3) * S$5, 3 * S$5, sa, sa + 2);
 			X.strokeStyle = COL$2.crystal + "60";
-			X.lineWidth = S$4;
+			X.lineWidth = S$5;
 			X.stroke();
-			const grad = X.createRadialGradient((cx + 5) * S$4, (cy + 3) * S$4, 0, (cx + 5) * S$4, (cy + 3) * S$4, 8 * S$4);
+			const grad = X.createRadialGradient((cx + 5) * S$5, (cy + 3) * S$5, 0, (cx + 5) * S$5, (cy + 3) * S$5, 8 * S$5);
 			grad.addColorStop(0, COL$2.crystalGlow);
 			grad.addColorStop(1, "transparent");
 			X.fillStyle = grad;
-			X.fillRect((cx - 3) * S$4, (cy - 5) * S$4, 16 * S$4, 16 * S$4);
+			X.fillRect((cx - 3) * S$5, (cy - 5) * S$5, 16 * S$5, 16 * S$5);
 		};
 		const drawWizard = (w, t) => {
 			const bx = w.x | 0, by = w.y | 0;
 			const mv = Math.abs(w.x - w.tx) > 1.5 || Math.abs(w.y - w.ty) > 1.5;
 			const bob = mv ? Math.sin(t * .12 + w.x) | 0 : 0;
 			X.fillStyle = "rgba(0,0,0,0.15)";
-			X.fillRect((bx + 1) * S$4, (by + 11) * S$4, 6 * S$4, 2 * S$4);
+			X.fillRect((bx + 1) * S$5, (by + 11) * S$5, 6 * S$5, 2 * S$5);
 			d(bx, by + bob, 8, 10, w.color);
 			d(bx - 1, by + 6 + bob, 10, 4, w.color);
 			d(bx + 1, by - 5 + bob, 6, 5, "#fdd");
@@ -6102,8 +6424,8 @@ function WizardTowerScene({ agents, visible = true }) {
 			d(bx + 3, by - 15 + bob, 2, 2, w.robeColor);
 			if (w.running) {
 				X.fillStyle = "#ff0";
-				X.font = 1.5 * S$4 + "px monospace";
-				X.fillText("★", (bx + 3) * S$4, (by - 11 + bob) * S$4);
+				X.font = 1.5 * S$5 + "px monospace";
+				X.fillText("★", (bx + 3) * S$5, (by - 11 + bob) * S$5);
 			}
 			if (!(t % 100 < 3)) {
 				d(bx + 2, by - 3 + bob, 1, 1, "#333");
@@ -6134,45 +6456,45 @@ function WizardTowerScene({ agents, visible = true }) {
 				}
 			}
 			const kindEmoji = w.kind === "cron" ? "⏳" : w.kind === "spawn" ? "🔮" : "📜";
-			X.font = 2 * S$4 + "px monospace";
-			X.fillText(kindEmoji, (bx + 8) * S$4, (by - 14 + bob) * S$4);
+			X.font = 2 * S$5 + "px monospace";
+			X.fillText(kindEmoji, (bx + 8) * S$5, (by - 14 + bob) * S$5);
 			if (w.benchIdx >= 0 && w.activity !== "entering") {
 				const bp = BENCH_POSITIONS[w.benchIdx];
-				drawLabel(T, sliceCodePoints(w.name, 0, 8), (bp.x + 20) * S$4, (bp.y - 4) * S$4, {
+				drawLabel(T, sliceCodePoints(w.name, 0, 8), (bp.x + 20) * S$5, (bp.y - 4) * S$5, {
 					role: "label",
 					color: "#fff",
 					bgColor: w.color,
 					align: "center",
-					scale: S$4
+					scale: S$5
 				});
 			}
-			drawLabel(T, w.running ? i18nT("pages.scenes.wizardTowerScene.casting") : i18nT("pages.scenes.wizardTowerScene.resting"), (bx + 4) * S$4, (by - 18 + bob) * S$4, {
+			drawLabel(T, w.running ? i18nT("pages.scenes.wizardTowerScene.casting") : i18nT("pages.scenes.wizardTowerScene.resting"), (bx + 4) * S$5, (by - 18 + bob) * S$5, {
 				role: "status",
 				color: w.running ? "#4f4" : "#888",
 				bgColor: "rgba(0,0,0,0.5)",
 				align: "center",
-				scale: S$4
+				scale: S$5
 			});
 			if (w.lastMessage && Date.now() - w.msgAt < 7e3) {
 				const msgAge = Date.now() - w.msgAt;
 				const msgAlpha = msgAge > 6e3 ? (SPEECH_BUBBLE_MS - msgAge) / 1e3 : 1;
-				drawSpeechBubble(T, w.lastMessage, (bx + 4) * S$4, (by - 22 + bob) * S$4, {
-					scale: S$4,
+				drawSpeechBubble(T, w.lastMessage, (bx + 4) * S$5, (by - 22 + bob) * S$5, {
+					scale: S$5,
 					alpha: msgAlpha
 				});
 			}
-			const nameLines = drawLabel(T, w.name, (bx + 4) * S$4, (by + 16) * S$4, {
+			const nameLines = drawLabel(T, w.name, (bx + 4) * S$5, (by + 16) * S$5, {
 				role: "name",
 				weight: "bold",
 				color: "#fff",
 				align: "center",
-				scale: S$4,
-				maxWidth: 64 * S$4
+				scale: S$5,
+				maxWidth: 64 * S$5
 			});
-			if (w.detail) drawLabel(T, w.detail, (bx - 2) * S$4, (by + 20) * S$4 + (nameLines - 1) * sceneLineHeight("name"), {
+			if (w.detail) drawLabel(T, w.detail, (bx - 2) * S$5, (by + 20) * S$5 + (nameLines - 1) * sceneLineHeight("name"), {
 				role: "detail",
 				color: "#999",
-				scale: S$4
+				scale: S$5
 			});
 		};
 		const drawParticles = () => {
@@ -6180,7 +6502,7 @@ function WizardTowerScene({ agents, visible = true }) {
 				const alpha = Math.max(0, .6 * (1 - p.life / p.maxLife));
 				X.fillStyle = p.color;
 				X.globalAlpha = alpha;
-				X.fillRect(p.x * S$4, p.y * S$4, p.size * S$4, p.size * S$4);
+				X.fillRect(p.x * S$5, p.y * S$5, p.size * S$5, p.size * S$5);
 				X.globalAlpha = 1;
 			});
 		};
@@ -6193,18 +6515,18 @@ function WizardTowerScene({ agents, visible = true }) {
 			T.fillStyle = `rgba(255,200,50,${alpha})`;
 			T.font = sceneFont("spell", "bold");
 			T.textAlign = "center";
-			T.fillText(sp.text, sp.x * S$4, sp.y * S$4);
+			T.fillText(sp.text, sp.x * S$5, sp.y * S$5);
 			T.textAlign = "start";
 		};
 		const drawTitle = () => {
 			T.fillStyle = "#f90";
 			T.font = sceneFont("title", "bold");
 			T.textAlign = "center";
-			T.fillText(i18nT("pages.scenes.wizardTowerScene.arcane_academy"), W$3 / 2 * S$4, 20 * S$4);
+			T.fillText(i18nT("pages.scenes.wizardTowerScene.arcane_academy"), W$4 / 2 * S$5, 20 * S$5);
 			T.textAlign = "start";
 			T.fillStyle = "#666";
 			T.font = sceneFont("status");
-			T.fillText(`${wizardsRef.current.length}/${MAX_BENCHES} wizards`, 4 * S$4, 336 * S$4);
+			T.fillText(`${wizardsRef.current.length}/${MAX_BENCHES} wizards`, 4 * S$5, 336 * S$5);
 		};
 		const update = (t) => {
 			particlesRef.current.forEach((p) => {
@@ -6287,10 +6609,10 @@ function WizardTowerScene({ agents, visible = true }) {
 					w.ty = 80;
 				}
 			}
-			if (t % 10 === 0) spawnMagic(Math.random() * W$3, 85 + Math.random() * 250, "#9b59b640", 1);
+			if (t % 10 === 0) spawnMagic(Math.random() * W$4, 85 + Math.random() * 250, "#9b59b640", 1);
 		};
 		const draw = (t) => {
-			T.clearRect(0, 0, W$3 * S$4, H$3 * S$4);
+			T.clearRect(0, 0, W$4 * S$5, H$4 * S$5);
 			drawWalls();
 			drawArchwayDoor(t);
 			drawWindow(80, 20, t);
@@ -6313,7 +6635,7 @@ function WizardTowerScene({ agents, visible = true }) {
 	}, []);
 	useVisibleSync(visibleRef, visible);
 	return /* @__PURE__ */ jsxs("div", {
-		style: SCENE_CONTAINER_STYLE(W$3, H$3),
+		style: SCENE_CONTAINER_STYLE(W$4, H$4),
 		children: [
 			/* @__PURE__ */ jsx("canvas", {
 				ref: canvasRef,
@@ -6340,9 +6662,9 @@ var UNDERWATER_THEME = {
 	active: "Exploring the deep",
 	idle: "Surfacing for air"
 };
-var W$2 = 480;
-var H$2 = 340;
-var S$3 = SCENE_SCALE;
+var W$3 = 480;
+var H$3 = 340;
+var S$4 = SCENE_SCALE;
 var MAX_DOMES = 8;
 var SUIT_COLORS = [
 	"#e74c3c",
@@ -6454,11 +6776,11 @@ function UnderwaterLabScene({ agents, visible = true }) {
 	const jellyRef = useRef([]);
 	const sonarMsgRef = useRef("");
 	const visibleRef = useRef(visible);
-	const { canvasProps, tooltipEl } = useSceneInteraction(canvasRef, diversRef, W$2, H$2, UNDERWATER_THEME, 10, void 0, agents);
+	const { canvasProps, tooltipEl } = useSceneInteraction(canvasRef, diversRef, W$3, H$3, UNDERWATER_THEME, 10, void 0, agents);
 	useEffect(() => {
 		const fish = [];
 		for (let i = 0; i < 8; i++) fish.push({
-			x: Math.random() * W$2,
+			x: Math.random() * W$3,
 			y: 30 + Math.random() * 280,
 			vx: (Math.random() < .5 ? 1 : -1) * (.15 + Math.random() * .25),
 			color: [
@@ -6476,7 +6798,7 @@ function UnderwaterLabScene({ agents, visible = true }) {
 		const jellies = [];
 		for (let i = 0; i < 4; i++) jellies.push({
 			x: 50 + Math.random() * 380,
-			y: Math.random() * H$2,
+			y: Math.random() * H$3,
 			vy: -.08 - Math.random() * .06,
 			phase: Math.random() * Math.PI * 2,
 			color: [
@@ -6529,7 +6851,7 @@ function UnderwaterLabScene({ agents, visible = true }) {
 		pruneAgents("underwater", newDivers.map((d) => d.id));
 	}, [agents]);
 	useEffect(() => {
-		const { X, T, d } = initSceneCanvases(canvasRef.current, textRef.current, W$2, H$2, S$3);
+		const { X, T, d } = initSceneCanvases(canvasRef.current, textRef.current, W$3, H$3, S$4);
 		const spawnBubble = (bx, by) => {
 			if (bubblesRef.current.length < 40) bubblesRef.current.push({
 				x: bx,
@@ -6541,30 +6863,30 @@ function UnderwaterLabScene({ agents, visible = true }) {
 			});
 		};
 		const drawOcean = (t) => {
-			const grad = X.createLinearGradient(0, 0, 0, H$2 * S$3);
+			const grad = X.createLinearGradient(0, 0, 0, H$3 * S$4);
 			grad.addColorStop(0, COL$1.midWater);
 			grad.addColorStop(.4, COL$1.deepWater);
 			grad.addColorStop(1, "#060e1a");
 			X.fillStyle = grad;
-			X.fillRect(0, 0, W$2 * S$3, H$2 * S$3);
+			X.fillRect(0, 0, W$3 * S$4, H$3 * S$4);
 			for (let i = 0; i < 5; i++) {
 				const rx = 60 + i * 90 + Math.sin(t * .005 + i) * 15;
-				const grad2 = X.createLinearGradient(rx * S$3, 0, (rx + 20) * S$3, H$2 * S$3);
+				const grad2 = X.createLinearGradient(rx * S$4, 0, (rx + 20) * S$4, H$3 * S$4);
 				grad2.addColorStop(0, "rgba(70,170,255,0.04)");
 				grad2.addColorStop(.5, "rgba(70,170,255,0.015)");
 				grad2.addColorStop(1, "transparent");
 				X.fillStyle = grad2;
 				X.beginPath();
-				X.moveTo((rx - 5) * S$3, 0);
-				X.lineTo((rx + 25) * S$3, 0);
-				X.lineTo((rx + 40) * S$3, H$2 * S$3);
-				X.lineTo((rx - 20) * S$3, H$2 * S$3);
+				X.moveTo((rx - 5) * S$4, 0);
+				X.lineTo((rx + 25) * S$4, 0);
+				X.lineTo((rx + 40) * S$4, H$3 * S$4);
+				X.lineTo((rx - 20) * S$4, H$3 * S$4);
 				X.fill();
 			}
 		};
 		const drawSeafloor = (t) => {
-			d(0, 310, W$2, 30, COL$1.sand);
-			for (let i = 0; i < W$2; i += 12) {
+			d(0, 310, W$3, 30, COL$1.sand);
+			for (let i = 0; i < W$3; i += 12) {
 				d(i, 310, 12, 1, COL$1.sandLight);
 				d(i + 6, 312, 8, 1, COL$1.sandDark);
 			}
@@ -6616,14 +6938,14 @@ function UnderwaterLabScene({ agents, visible = true }) {
 		const drawDome = (dx, dy, occupied, idx, t) => {
 			const r = 22;
 			X.beginPath();
-			X.arc((dx + 20) * S$3, (dy + 15) * S$3, r * S$3, Math.PI, 0);
-			X.lineTo((dx + 42) * S$3, (dy + 30) * S$3);
-			X.lineTo((dx - 2) * S$3, (dy + 30) * S$3);
+			X.arc((dx + 20) * S$4, (dy + 15) * S$4, r * S$4, Math.PI, 0);
+			X.lineTo((dx + 42) * S$4, (dy + 30) * S$4);
+			X.lineTo((dx - 2) * S$4, (dy + 30) * S$4);
 			X.closePath();
 			X.fillStyle = COL$1.glass;
 			X.fill();
 			X.strokeStyle = COL$1.glassEdge;
-			X.lineWidth = S$3;
+			X.lineWidth = S$4;
 			X.stroke();
 			d(dx - 4, dy + 28, 48, 4, COL$1.metal);
 			d(dx - 4, dy + 32, 48, 2, COL$1.metalDark);
@@ -6639,23 +6961,23 @@ function UnderwaterLabScene({ agents, visible = true }) {
 				}
 				if (t >> 3 & 1) d(dx + 14 + (t >> 2) % 6, dy + 12 + (t >> 4) % 4 * 2, 1, 1, "#fff");
 				X.fillStyle = COL$1.screenGlow;
-				X.fillRect((dx + 10) * S$3, (dy + 20) * S$3, 20 * S$3, 6 * S$3);
+				X.fillRect((dx + 10) * S$4, (dy + 20) * S$4, 20 * S$4, 6 * S$4);
 			}
 			if (occupied) {
 				const flicker = .6 + Math.sin(t * .04 + idx) * .2;
-				const grad = X.createRadialGradient((dx + 20) * S$3, (dy + 5) * S$3, 0, (dx + 20) * S$3, (dy + 5) * S$3, 15 * S$3);
+				const grad = X.createRadialGradient((dx + 20) * S$4, (dy + 5) * S$4, 0, (dx + 20) * S$4, (dy + 5) * S$4, 15 * S$4);
 				grad.addColorStop(0, `rgba(70,170,255,${.1 * flicker})`);
 				grad.addColorStop(1, "transparent");
 				X.fillStyle = grad;
-				X.fillRect((dx + 5) * S$3, (dy - 10) * S$3, 30 * S$3, 30 * S$3);
+				X.fillRect((dx + 5) * S$4, (dy - 10) * S$4, 30 * S$4, 30 * S$4);
 			}
 			if (occupied && t % 20 === idx * 2) spawnBubble(dx + 10 + Math.random() * 20, dy - 5);
-			if (!occupied) drawLabel(T, "vacant", (dx + 20) * S$3, (dy + 5) * S$3, {
+			if (!occupied) drawLabel(T, "vacant", (dx + 20) * S$4, (dy + 5) * S$4, {
 				role: "label",
 				color: "#556",
 				bgColor: COL$1.metalDark,
 				align: "center",
-				scale: S$3
+				scale: S$4
 			});
 		};
 		const drawConnectingTubes = () => {
@@ -6665,20 +6987,20 @@ function UnderwaterLabScene({ agents, visible = true }) {
 					const a = DOME_POSITIONS[base + i], b = DOME_POSITIONS[base + i + 1];
 					const ty = a.y + 26;
 					X.fillStyle = COL$1.tube;
-					X.fillRect((a.x + 42) * S$3, ty * S$3, (b.x - a.x - 42) * S$3, 6 * S$3);
+					X.fillRect((a.x + 42) * S$4, ty * S$4, (b.x - a.x - 42) * S$4, 6 * S$4);
 					X.strokeStyle = COL$1.tubeEdge;
-					X.lineWidth = S$3;
-					X.strokeRect((a.x + 42) * S$3, ty * S$3, (b.x - a.x - 42) * S$3, 6 * S$3);
+					X.lineWidth = S$4;
+					X.strokeRect((a.x + 42) * S$4, ty * S$4, (b.x - a.x - 42) * S$4, 6 * S$4);
 				}
 			}
 			for (let i = 0; i < 4; i++) {
 				const top = DOME_POSITIONS[i], bot = DOME_POSITIONS[i + 4];
 				const tx = top.x + 18;
 				X.fillStyle = COL$1.tube;
-				X.fillRect(tx * S$3, (top.y + 34) * S$3, 6 * S$3, (bot.y - top.y - 34) * S$3);
+				X.fillRect(tx * S$4, (top.y + 34) * S$4, 6 * S$4, (bot.y - top.y - 34) * S$4);
 				X.strokeStyle = COL$1.tubeEdge;
-				X.lineWidth = S$3;
-				X.strokeRect(tx * S$3, (top.y + 34) * S$3, 6 * S$3, (bot.y - top.y - 34) * S$3);
+				X.lineWidth = S$4;
+				X.strokeRect(tx * S$4, (top.y + 34) * S$4, 6 * S$4, (bot.y - top.y - 34) * S$4);
 			}
 		};
 		const drawAirlock = (t) => {
@@ -6686,21 +7008,21 @@ function UnderwaterLabScene({ agents, visible = true }) {
 			d(x, y, w, h, COL$1.metalDark);
 			d(x + 2, y + 3, w - 4, h - 6, COL$1.metal);
 			X.beginPath();
-			X.arc((x + 7) * S$3, (y + h / 2) * S$3, 5 * S$3, 0, Math.PI * 2);
+			X.arc((x + 7) * S$4, (y + h / 2) * S$4, 5 * S$4, 0, Math.PI * 2);
 			X.strokeStyle = COL$1.metalLight;
-			X.lineWidth = S$3;
+			X.lineWidth = S$4;
 			X.stroke();
 			if (diversRef.current.some((d) => d.activity === "entering")) {
 				const blink = t >> 3 & 1;
 				d(x + 5, y - 3, 4, 3, blink ? COL$1.warning : COL$1.metalDark);
 				if (blink) {
 					X.fillStyle = COL$1.warningGlow;
-					X.fillRect(x * S$3, (y - 5) * S$3, w * S$3, 8 * S$3);
+					X.fillRect(x * S$4, (y - 5) * S$4, w * S$4, 8 * S$4);
 				}
 			}
 			T.fillStyle = "#556";
 			T.font = sceneFont("label");
-			T.fillText("LOCK", (x + 2) * S$3, (y - 1) * S$3);
+			T.fillText("LOCK", (x + 2) * S$4, (y - 1) * S$4);
 		};
 		const drawSonarStation = (t) => {
 			const { x, y } = SONAR_POS;
@@ -6708,18 +7030,18 @@ function UnderwaterLabScene({ agents, visible = true }) {
 			d(x - 16, y - 13, 32, 20, "#0a1a0a");
 			const sweepAngle = t * .03 % (Math.PI * 2);
 			X.strokeStyle = "#0f03";
-			X.lineWidth = S$3;
+			X.lineWidth = S$4;
 			X.beginPath();
-			X.arc(x * S$3, (y - 3) * S$3, 14 * S$3, 0, Math.PI * 2);
+			X.arc(x * S$4, (y - 3) * S$4, 14 * S$4, 0, Math.PI * 2);
 			X.stroke();
 			X.beginPath();
-			X.arc(x * S$3, (y - 3) * S$3, 8 * S$3, 0, Math.PI * 2);
+			X.arc(x * S$4, (y - 3) * S$4, 8 * S$4, 0, Math.PI * 2);
 			X.stroke();
 			X.strokeStyle = "#3f8";
-			X.lineWidth = 1.5 * S$3;
+			X.lineWidth = 1.5 * S$4;
 			X.beginPath();
-			X.moveTo(x * S$3, (y - 3) * S$3);
-			X.lineTo((x + Math.cos(sweepAngle) * 14) * S$3, (y - 3 + Math.sin(sweepAngle) * 14) * S$3);
+			X.moveTo(x * S$4, (y - 3) * S$4);
+			X.lineTo((x + Math.cos(sweepAngle) * 14) * S$4, (y - 3 + Math.sin(sweepAngle) * 14) * S$4);
 			X.stroke();
 			diversRef.current.forEach((dv, i) => {
 				if (!dv.running) return;
@@ -6730,11 +7052,11 @@ function UnderwaterLabScene({ agents, visible = true }) {
 			if (sonarMsgRef.current) {
 				T.fillStyle = COL$1.screenText;
 				T.font = sceneFont("label");
-				T.fillText(sonarMsgRef.current, (x - 14) * S$3, (y + 10) * S$3);
+				T.fillText(sonarMsgRef.current, (x - 14) * S$4, (y + 10) * S$4);
 			}
 			T.fillStyle = "#556";
 			T.font = sceneFont("label");
-			T.fillText("SONAR", (x - 8) * S$3, (y + 18) * S$3);
+			T.fillText("SONAR", (x - 8) * S$4, (y + 18) * S$4);
 		};
 		const drawFish = (_t) => {
 			fishRef.current.forEach((f) => {
@@ -6759,37 +7081,37 @@ function UnderwaterLabScene({ agents, visible = true }) {
 				}
 				const pulse = Math.sin(t * .04 + j.phase) * .3;
 				X.beginPath();
-				X.arc(j.x * S$3, j.y * S$3, (j.size + pulse) * S$3, Math.PI, 0);
+				X.arc(j.x * S$4, j.y * S$4, (j.size + pulse) * S$4, Math.PI, 0);
 				X.fillStyle = j.color;
 				X.fill();
 				for (let i = 0; i < 3; i++) {
 					const tx = j.x - j.size + 1 + i * j.size;
 					const sway = Math.sin(t * .02 + i + j.phase) * 2;
 					X.strokeStyle = j.color;
-					X.lineWidth = S$3 * .5;
+					X.lineWidth = S$4 * .5;
 					X.beginPath();
-					X.moveTo(tx * S$3, (j.y + 1) * S$3);
-					X.quadraticCurveTo((tx + sway) * S$3, (j.y + j.size + 3) * S$3, (tx + sway * .5) * S$3, (j.y + j.size * 2) * S$3);
+					X.moveTo(tx * S$4, (j.y + 1) * S$4);
+					X.quadraticCurveTo((tx + sway) * S$4, (j.y + j.size + 3) * S$4, (tx + sway * .5) * S$4, (j.y + j.size * 2) * S$4);
 					X.stroke();
 				}
-				const grad = X.createRadialGradient(j.x * S$3, j.y * S$3, 0, j.x * S$3, j.y * S$3, (j.size + 4) * S$3);
+				const grad = X.createRadialGradient(j.x * S$4, j.y * S$4, 0, j.x * S$4, j.y * S$4, (j.size + 4) * S$4);
 				grad.addColorStop(0, j.color);
 				grad.addColorStop(1, "transparent");
 				X.fillStyle = grad;
 				X.globalAlpha = .15;
-				X.fillRect((j.x - j.size - 4) * S$3, (j.y - j.size - 4) * S$3, (j.size * 2 + 8) * S$3, (j.size * 3 + 8) * S$3);
+				X.fillRect((j.x - j.size - 4) * S$4, (j.y - j.size - 4) * S$4, (j.size * 2 + 8) * S$4, (j.size * 3 + 8) * S$4);
 				X.globalAlpha = 1;
 			});
 		};
 		const drawBubbles = () => {
 			bubblesRef.current.forEach((b) => {
 				X.beginPath();
-				X.arc(b.x * S$3, b.y * S$3, b.r * S$3, 0, Math.PI * 2);
+				X.arc(b.x * S$4, b.y * S$4, b.r * S$4, 0, Math.PI * 2);
 				X.strokeStyle = COL$1.bubbleColor;
-				X.lineWidth = S$3 * .5;
+				X.lineWidth = S$4 * .5;
 				X.stroke();
 				X.fillStyle = "rgba(200,240,255,0.15)";
-				X.fillRect((b.x - b.r * .3) * S$3, (b.y - b.r * .3) * S$3, b.r * .5 * S$3, b.r * .5 * S$3);
+				X.fillRect((b.x - b.r * .3) * S$4, (b.y - b.r * .3) * S$4, b.r * .5 * S$4, b.r * .5 * S$4);
 			});
 		};
 		const drawDiver = (dv, t) => {
@@ -6801,11 +7123,11 @@ function UnderwaterLabScene({ agents, visible = true }) {
 				const kick = Math.sin(t * .15 + dv.swimPhase);
 				const bodyBob = Math.sin(t * .06 + dv.swimPhase) * 1.2;
 				X.fillStyle = "rgba(70,170,255,0.06)";
-				X.fillRect((bx - 2) * S$3, (by + 4 + bodyBob) * S$3, 16 * S$3, 4 * S$3);
+				X.fillRect((bx - 2) * S$4, (by + 4 + bodyBob) * S$4, 16 * S$4, 4 * S$4);
 				d(bx, by + bodyBob, 12, 6, dv.color);
 				const hx = dir > 0 ? bx + 10 : bx - 5;
 				X.beginPath();
-				X.arc((hx + 2.5) * S$3, (by + 3 + bodyBob) * S$3, 4 * S$3, 0, Math.PI * 2);
+				X.arc((hx + 2.5) * S$4, (by + 3 + bodyBob) * S$4, 4 * S$4, 0, Math.PI * 2);
 				X.fillStyle = dv.suitColor;
 				X.fill();
 				const vx = dir > 0 ? hx + 1 : hx - 1;
@@ -6817,10 +7139,10 @@ function UnderwaterLabScene({ agents, visible = true }) {
 				d(tankX, by + 3 + bodyBob, 3, 4, COL$1.metalDark);
 				d(tankX + 1, by - 2 + bodyBob, 1, 1, COL$1.metalLight);
 				X.strokeStyle = COL$1.metalLight;
-				X.lineWidth = S$3 * .8;
+				X.lineWidth = S$4 * .8;
 				X.beginPath();
-				X.moveTo((tankX + 1.5) * S$3, (by + bodyBob) * S$3);
-				X.quadraticCurveTo((bx + 6) * S$3, (by - 2 + bodyBob) * S$3, (hx + 2.5) * S$3, (by + 1 + bodyBob) * S$3);
+				X.moveTo((tankX + 1.5) * S$4, (by + bodyBob) * S$4);
+				X.quadraticCurveTo((bx + 6) * S$4, (by - 2 + bodyBob) * S$4, (hx + 2.5) * S$4, (by + 1 + bodyBob) * S$4);
 				X.stroke();
 				const armSwing = Math.sin(t * .12 + dv.swimPhase) * 2;
 				const armX = dir > 0 ? hx + 3 : hx - 2;
@@ -6837,13 +7159,13 @@ function UnderwaterLabScene({ agents, visible = true }) {
 				if (t % 10 === 0) spawnBubble(hx + 1 + Math.random() * 3, by - 3 + bodyBob);
 				const wakeX = dir > 0 ? bx - 4 : bx + 14;
 				X.fillStyle = "rgba(150,220,255,0.08)";
-				X.fillRect((wakeX - 2) * S$3, (by + 1 + bodyBob) * S$3, 6 * S$3, 4 * S$3);
+				X.fillRect((wakeX - 2) * S$4, (by + 1 + bodyBob) * S$4, 6 * S$4, 4 * S$4);
 			} else {
 				X.fillStyle = "rgba(0,0,0,0.1)";
-				X.fillRect((bx + 1) * S$3, (by + 11) * S$3, 6 * S$3, 2 * S$3);
+				X.fillRect((bx + 1) * S$4, (by + 11) * S$4, 6 * S$4, 2 * S$4);
 				d(bx, by, 8, 9, dv.color);
 				X.beginPath();
-				X.arc((bx + 4) * S$3, (by - 3) * S$3, 4.5 * S$3, 0, Math.PI * 2);
+				X.arc((bx + 4) * S$4, (by - 3) * S$4, 4.5 * S$4, 0, Math.PI * 2);
 				X.fillStyle = dv.suitColor;
 				X.fill();
 				d(bx + 1, by - 5, 6, 4, "#1a3050");
@@ -6866,33 +7188,33 @@ function UnderwaterLabScene({ agents, visible = true }) {
 				if (t % 40 === 0) spawnBubble(bx + 4, by - 7);
 			}
 			const kindEmoji = dv.kind === "cron" ? "⏱️" : dv.kind === "spawn" ? "🐙" : "🫧";
-			X.font = 2 * S$3 + "px monospace";
-			X.fillText(kindEmoji, (bx + 9) * S$3, (by - 5 + swim) * S$3);
-			drawLabel(T, dv.running ? "online" : "standby", (bx + 4) * S$3, (by - 11 + swim) * S$3, {
+			X.font = 2 * S$4 + "px monospace";
+			X.fillText(kindEmoji, (bx + 9) * S$4, (by - 5 + swim) * S$4);
+			drawLabel(T, dv.running ? "online" : "standby", (bx + 4) * S$4, (by - 11 + swim) * S$4, {
 				role: "status",
 				color: dv.running ? "#4ff" : "#668",
 				bgColor: "rgba(0,0,0,0.5)",
 				align: "center",
-				scale: S$3
+				scale: S$4
 			});
 			T.fillStyle = "#cef";
 			T.font = sceneFont("name", "bold");
 			T.textAlign = "center";
-			T.fillText(dv.name, (bx + 4) * S$3, (by + 16) * S$3);
+			T.fillText(dv.name, (bx + 4) * S$4, (by + 16) * S$4);
 			T.textAlign = "start";
 			if (dv.detail) {
 				T.fillStyle = "#668";
 				T.font = sceneFont("detail");
-				T.fillText(dv.detail, (bx - 4) * S$3, (by + 20) * S$3);
+				T.fillText(dv.detail, (bx - 4) * S$4, (by + 20) * S$4);
 			}
 			if (dv.domeIdx >= 0 && dv.activity !== "entering") {
 				const dp = DOME_POSITIONS[dv.domeIdx];
-				drawLabel(T, sliceCodePoints(dv.name, 0, 8), (dp.x + 20) * S$3, (dp.y + 5) * S$3, {
+				drawLabel(T, sliceCodePoints(dv.name, 0, 8), (dp.x + 20) * S$4, (dp.y + 5) * S$4, {
 					role: "label",
 					color: "#fff",
 					bgColor: dv.color,
 					align: "center",
-					scale: S$3
+					scale: S$4
 				});
 			}
 		};
@@ -6900,14 +7222,14 @@ function UnderwaterLabScene({ agents, visible = true }) {
 			T.fillStyle = COL$1.light;
 			T.font = sceneFont("title", "bold");
 			T.textAlign = "center";
-			T.fillText(i18nT("pages.scenes.underwaterLabScene.deep_sea_lab"), W$2 / 2 * S$3, 20 * S$3);
+			T.fillText(i18nT("pages.scenes.underwaterLabScene.deep_sea_lab"), W$3 / 2 * S$4, 20 * S$4);
 			T.fillStyle = "#446";
 			T.font = sceneFont("status");
-			T.fillText(i18nT("pages.scenes.underwaterLabScene.research_station"), W$2 / 2 * S$3, 30 * S$3);
+			T.fillText(i18nT("pages.scenes.underwaterLabScene.research_station"), W$3 / 2 * S$4, 30 * S$4);
 			T.textAlign = "start";
 			T.fillStyle = "#446";
 			T.font = sceneFont("label");
-			T.fillText(`${diversRef.current.length}/${MAX_DOMES} divers`, 4 * S$3, 336 * S$3);
+			T.fillText(`${diversRef.current.length}/${MAX_DOMES} divers`, 4 * S$4, 336 * S$4);
 		};
 		const update = (t) => {
 			bubblesRef.current.forEach((b) => {
@@ -6968,10 +7290,10 @@ function UnderwaterLabScene({ agents, visible = true }) {
 				b.tx = dpA.x + 20;
 				b.ty = dpA.y + 25;
 			}
-			if (t % 15 === 0) spawnBubble(Math.random() * W$2, 315);
+			if (t % 15 === 0) spawnBubble(Math.random() * W$3, 315);
 		};
 		const draw = (t) => {
-			T.clearRect(0, 0, W$2 * S$3, H$2 * S$3);
+			T.clearRect(0, 0, W$3 * S$4, H$3 * S$4);
 			drawOcean(t);
 			drawSeafloor(t);
 			drawConnectingTubes();
@@ -6992,7 +7314,7 @@ function UnderwaterLabScene({ agents, visible = true }) {
 	}, []);
 	useVisibleSync(visibleRef, visible);
 	return /* @__PURE__ */ jsxs("div", {
-		style: SCENE_CONTAINER_STYLE(W$2, H$2),
+		style: SCENE_CONTAINER_STYLE(W$3, H$3),
 		children: [
 			/* @__PURE__ */ jsx("canvas", {
 				ref: canvasRef,
@@ -7015,7 +7337,7 @@ function UnderwaterLabScene({ agents, visible = true }) {
 	});
 }
 // src/pages/scenes/mission-control/parts.ts
-var S$2 = SCENE_SCALE;
+var S$3 = SCENE_SCALE;
 var DOOR = {
 	x: 0,
 	y: 210,
@@ -7560,7 +7882,7 @@ function drawParticles(_d, X, pool) {
 		const alpha = Math.max(0, .5 * (1 - p.life / p.maxLife));
 		X.fillStyle = p.color;
 		X.globalAlpha = alpha;
-		X.fillRect(p.x * S$2, p.y * S$2, p.size * S$2, p.size * S$2);
+		X.fillRect(p.x * S$3, p.y * S$3, p.size * S$3, p.size * S$3);
 	}
 	X.globalAlpha = 1;
 }
@@ -7875,7 +8197,7 @@ function MissionControlScene({ agents, visible = true }) {
 	}, [visible]);
 	const dp = useCallback((X, x, y, w, h, c) => {
 		X.fillStyle = c;
-		X.fillRect(x * S$2, y * S$2, w * S$2, h * S$2);
+		X.fillRect(x * S$3, y * S$3, w * S$3, h * S$3);
 	}, []);
 	useEffect(() => {
 		const capped = agents.slice(0, 8);
@@ -7951,8 +8273,8 @@ function MissionControlScene({ agents, visible = true }) {
 	useEffect(() => {
 		const cv = canvasRef.current;
 		const X = cv.getContext("2d");
-		cv.width = 480 * S$2;
-		cv.height = 320 * S$2;
+		cv.width = 480 * S$3;
+		cv.height = 320 * S$3;
 		X.imageSmoothingEnabled = false;
 		const d = dp.bind(null, X);
 		let raf = 0;
@@ -8017,7 +8339,7 @@ function MissionControlScene({ agents, visible = true }) {
 				const scrollX = 380 - t * .3 % scrollTotal;
 				X.save();
 				X.beginPath();
-				X.rect(bx * S$2, 18 * S$2, bw * S$2, 14 * S$2);
+				X.rect(bx * S$3, 18 * S$3, bw * S$3, 14 * S$3);
 				X.clip();
 				drawText(d, statusText, scrollX, 22, C.screenText, 1);
 				X.restore();
@@ -8417,7 +8739,7 @@ function MissionControlScene({ agents, visible = true }) {
 			particlesRef.current = updateParticles(particlesRef.current);
 			drawParticles(d, X, particlesRef.current);
 			X.fillStyle = "rgba(0,0,0,0.03)";
-			for (let sy = 0; sy < 320 * S$2; sy += 3) X.fillRect(0, sy, 480 * S$2, 1);
+			for (let sy = 0; sy < 320 * S$3; sy += 3) X.fillRect(0, sy, 480 * S$3, 1);
 			raf = requestAnimationFrame(draw);
 		};
 		raf = requestAnimationFrame(draw);
@@ -8456,9 +8778,9 @@ var SERENGETI_THEME = {
 	active: "On the move",
 	idle: "Resting"
 };
-var W$1 = 480;
-var H$1 = 340;
-var S$1 = SCENE_SCALE;
+var W$2 = 480;
+var H$2 = 340;
+var S$2 = SCENE_SCALE;
 var MAX_ANIMALS = 8;
 var HORIZON_Y = 130;
 /** Watering hole - oval at the front-center of the savanna. */
@@ -8628,7 +8950,7 @@ function WateringHoleScene({ agents, visible = true }) {
 	const animalsRef = useRef([]);
 	const ripplesRef = useRef([]);
 	const visibleRef = useRef(visible);
-	const { canvasProps, tooltipEl } = useSceneInteraction(canvasRef, animalsRef, W$1, H$1, SERENGETI_THEME, 10, void 0, agents);
+	const { canvasProps, tooltipEl } = useSceneInteraction(canvasRef, animalsRef, W$2, H$2, SERENGETI_THEME, 10, void 0, agents);
 	useEffect(() => {
 		const existing = animalsRef.current;
 		const next = [];
@@ -8688,22 +9010,22 @@ function WateringHoleScene({ agents, visible = true }) {
 	useEffect(() => {
 		const C = canvasRef.current;
 		const TC = textRef.current;
-		const { X, T, d } = initSceneCanvases(C, TC, W$1, H$1, S$1);
+		const { X, T, d } = initSceneCanvases(C, TC, W$2, H$2, S$2);
 		const ripples = ripplesRef.current;
 		const drawBackground = () => {
-			const g = X.createLinearGradient(0, 0, 0, HORIZON_Y * S$1);
+			const g = X.createLinearGradient(0, 0, 0, HORIZON_Y * S$2);
 			g.addColorStop(0, COL.skyTop);
 			g.addColorStop(.55, COL.skyMid);
 			g.addColorStop(1, COL.skyLow);
 			X.fillStyle = g;
-			X.fillRect(0, 0, W$1 * S$1, HORIZON_Y * S$1);
+			X.fillRect(0, 0, W$2 * S$2, HORIZON_Y * S$2);
 			X.fillStyle = COL.sun;
 			X.beginPath();
-			X.arc(420 * S$1, 50 * S$1, 20 * S$1, 0, Math.PI * 2);
+			X.arc(420 * S$2, 50 * S$2, 20 * S$2, 0, Math.PI * 2);
 			X.fill();
 			X.fillStyle = COL.sunCore;
 			X.beginPath();
-			X.arc(420 * S$1, 50 * S$1, 12 * S$1, 0, Math.PI * 2);
+			X.arc(420 * S$2, 50 * S$2, 12 * S$2, 0, Math.PI * 2);
 			X.fill();
 			X.fillStyle = COL.cloud;
 			const cloud = (cx, cy) => {
@@ -8715,7 +9037,7 @@ function WateringHoleScene({ agents, visible = true }) {
 					[2, 2]
 				].forEach(([dx, dy]) => {
 					X.beginPath();
-					X.arc((cx + dx) * S$1, (cy + dy) * S$1, 5 * S$1, 0, Math.PI * 2);
+					X.arc((cx + dx) * S$2, (cy + dy) * S$2, 5 * S$2, 0, Math.PI * 2);
 					X.fill();
 				});
 			};
@@ -8723,7 +9045,7 @@ function WateringHoleScene({ agents, visible = true }) {
 			cloud(280, 60);
 			X.fillStyle = COL.mountainFar;
 			X.beginPath();
-			X.moveTo(0, HORIZON_Y * S$1);
+			X.moveTo(0, HORIZON_Y * S$2);
 			[
 				[40, 105],
 				[85, 118],
@@ -8735,14 +9057,14 @@ function WateringHoleScene({ agents, visible = true }) {
 				[355, 118],
 				[400, 105],
 				[440, 115],
-				[W$1, 110]
-			].forEach(([px, py]) => X.lineTo(px * S$1, py * S$1));
-			X.lineTo(W$1 * S$1, HORIZON_Y * S$1);
+				[W$2, 110]
+			].forEach(([px, py]) => X.lineTo(px * S$2, py * S$2));
+			X.lineTo(W$2 * S$2, HORIZON_Y * S$2);
 			X.closePath();
 			X.fill();
 			X.fillStyle = COL.mountainNear;
 			X.beginPath();
-			X.moveTo(0, HORIZON_Y * S$1);
+			X.moveTo(0, HORIZON_Y * S$2);
 			[
 				[60, 122],
 				[120, 116],
@@ -8750,14 +9072,14 @@ function WateringHoleScene({ agents, visible = true }) {
 				[280, 118],
 				[360, 122],
 				[440, 117],
-				[W$1, 124]
-			].forEach(([px, py]) => X.lineTo(px * S$1, py * S$1));
-			X.lineTo(W$1 * S$1, HORIZON_Y * S$1);
+				[W$2, 124]
+			].forEach(([px, py]) => X.lineTo(px * S$2, py * S$2));
+			X.lineTo(W$2 * S$2, HORIZON_Y * S$2);
 			X.closePath();
 			X.fill();
-			d(0, HORIZON_Y, W$1, 30, COL.grassLight);
-			d(0, 160, W$1, 60, COL.grassMid);
-			d(0, 220, W$1, 120, COL.grassDark);
+			d(0, HORIZON_Y, W$2, 30, COL.grassLight);
+			d(0, 160, W$2, 60, COL.grassMid);
+			d(0, 220, W$2, 120, COL.grassDark);
 			[
 				[40, 175],
 				[110, 200],
@@ -8809,7 +9131,7 @@ function WateringHoleScene({ agents, visible = true }) {
 			const drawEllipse = (cx, cy, rx, ry, color) => {
 				X.fillStyle = color;
 				X.beginPath();
-				X.ellipse(cx * S$1, cy * S$1, rx * S$1, ry * S$1, 0, 0, Math.PI * 2);
+				X.ellipse(cx * S$2, cy * S$2, rx * S$2, ry * S$2, 0, 0, Math.PI * 2);
 				X.fill();
 			};
 			drawEllipse(HOLE.cx, HOLE.cy, HOLE.rx + 6, HOLE.ry + 4, COL.dirt);
@@ -8817,8 +9139,8 @@ function WateringHoleScene({ agents, visible = true }) {
 			drawEllipse(HOLE.cx, HOLE.cy, HOLE.rx, HOLE.ry, COL.water);
 			drawEllipse(HOLE.cx, HOLE.cy + 4, HOLE.rx - 14, HOLE.ry - 6, COL.waterDeep);
 			X.fillStyle = COL.waterShine;
-			X.fillRect((HOLE.cx - 30) * S$1, (HOLE.cy - 4) * S$1, 18 * S$1, S$1);
-			X.fillRect((HOLE.cx + 6) * S$1, (HOLE.cy - 8) * S$1, 12 * S$1, S$1);
+			X.fillRect((HOLE.cx - 30) * S$2, (HOLE.cy - 4) * S$2, 18 * S$2, S$2);
+			X.fillRect((HOLE.cx + 6) * S$2, (HOLE.cy - 8) * S$2, 12 * S$2, S$2);
 		};
 		/** Acacia tree (umbrella canopy + trunk). */
 		const drawTree = (tx, ty, size) => {
@@ -8831,22 +9153,22 @@ function WateringHoleScene({ agents, visible = true }) {
 			d(trunkX, ty, 1, trunkH, COL.treeBark);
 			X.fillStyle = COL.treeLeavesAlt;
 			X.beginPath();
-			X.ellipse(tx * S$1, ty * S$1, canopyW / 2 * S$1, canopyH / 2 * S$1, 0, 0, Math.PI * 2);
+			X.ellipse(tx * S$2, ty * S$2, canopyW / 2 * S$2, canopyH / 2 * S$2, 0, 0, Math.PI * 2);
 			X.fill();
 			X.fillStyle = COL.treeLeaves;
 			X.beginPath();
-			X.ellipse(tx * S$1, (ty - 2) * S$1, (canopyW / 2 - 3) * S$1, (canopyH / 2 - 2) * S$1, 0, 0, Math.PI * 2);
+			X.ellipse(tx * S$2, (ty - 2) * S$2, (canopyW / 2 - 3) * S$2, (canopyH / 2 - 2) * S$2, 0, 0, Math.PI * 2);
 			X.fill();
 			X.fillStyle = COL.treeLeavesHighlight;
 			X.beginPath();
-			X.ellipse((tx - 8) * S$1, (ty - 4) * S$1, canopyW / 6 * S$1, canopyH / 4 * S$1, 0, 0, Math.PI * 2);
+			X.ellipse((tx - 8) * S$2, (ty - 4) * S$2, canopyW / 6 * S$2, canopyH / 4 * S$2, 0, 0, Math.PI * 2);
 			X.fill();
 		};
 		/** Animals - pixel art primitives drawn fresh each frame. */
 		const drawShadow = (cx, by, w) => {
 			X.fillStyle = COL.shadow;
 			X.beginPath();
-			X.ellipse(cx * S$1, by * S$1, w / 2 * S$1, 2 * S$1, 0, 0, Math.PI * 2);
+			X.ellipse(cx * S$2, by * S$2, w / 2 * S$2, 2 * S$2, 0, 0, Math.PI * 2);
 			X.fill();
 		};
 		/**
@@ -9108,38 +9430,38 @@ function WateringHoleScene({ agents, visible = true }) {
 			else if (a.animal === "warthog") drawWarthog(a, t);
 			else drawElephant(a, t);
 			const labelY = a.animal === "giraffe" ? a.activity === "tree" ? a.y - 14 : a.y - 8 : a.y - 4;
-			drawLabel(T, a.running ? "●" : "○", (a.x + 9) * S$1, labelY * S$1, {
+			drawLabel(T, a.running ? "●" : "○", (a.x + 9) * S$2, labelY * S$2, {
 				role: "status",
 				color: a.running ? "#7fbb3d" : "#aaa",
 				align: "center",
-				scale: S$1
+				scale: S$2
 			});
 			if (a.lastMessage && Date.now() - a.msgAt < 7e3) {
 				const msgAge = Date.now() - a.msgAt;
 				const msgAlpha = msgAge > 6e3 ? (SPEECH_BUBBLE_MS - msgAge) / 1e3 : 1;
-				drawSpeechBubble(T, a.lastMessage, (a.x + 9) * S$1, (labelY - 4) * S$1, {
-					scale: S$1,
+				drawSpeechBubble(T, a.lastMessage, (a.x + 9) * S$2, (labelY - 4) * S$2, {
+					scale: S$2,
 					alpha: msgAlpha
 				});
 			}
 			const nameY = a.y + 32;
-			const nameLines = drawLabel(T, a.name, (a.x + 9) * S$1, nameY * S$1, {
+			const nameLines = drawLabel(T, a.name, (a.x + 9) * S$2, nameY * S$2, {
 				role: "name",
 				weight: "bold",
 				color: "#fff",
 				align: "center",
-				scale: S$1,
-				maxWidth: 64 * S$1
+				scale: S$2,
+				maxWidth: 64 * S$2
 			});
-			if (a.detail) drawLabel(T, a.detail, (a.x + 9) * S$1, (nameY + 6) * S$1 + (nameLines - 1) * sceneLineHeight("name"), {
+			if (a.detail) drawLabel(T, a.detail, (a.x + 9) * S$2, (nameY + 6) * S$2 + (nameLines - 1) * sceneLineHeight("name"), {
 				role: "detail",
 				color: "#dcd2b8",
 				align: "center",
-				scale: S$1
+				scale: S$2
 			});
 		};
 		const draw = (t) => {
-			T.clearRect(0, 0, W$1 * S$1, H$1 * S$1);
+			T.clearRect(0, 0, W$2 * S$2, H$2 * S$2);
 			drawBackground();
 			drawTree(TREES[2].x, TREES[2].y, TREES[2].size);
 			drawTree(TREES[0].x, TREES[0].y, TREES[0].size);
@@ -9147,23 +9469,23 @@ function WateringHoleScene({ agents, visible = true }) {
 			ripplesRef.current.forEach((r) => {
 				const alpha = Math.max(0, 1 - r.life / 40);
 				X.strokeStyle = `rgba(207, 230, 244, ${alpha.toFixed(2)})`;
-				X.lineWidth = S$1;
+				X.lineWidth = S$2;
 				X.beginPath();
-				X.ellipse(r.x * S$1, r.y * S$1, r.r * S$1, r.r * .4 * S$1, 0, 0, Math.PI * 2);
+				X.ellipse(r.x * S$2, r.y * S$2, r.r * S$2, r.r * .4 * S$2, 0, 0, Math.PI * 2);
 				X.stroke();
 			});
 			[...animalsRef.current].sort((a, b) => a.y - b.y).forEach((a) => drawAnimal(a, t));
 			T.fillStyle = "#5e3a1d";
 			T.font = sceneFont("title", "bold");
 			T.textAlign = "center";
-			T.fillText(i18nT("pages.scenes.wateringHoleScene.watering_hole"), W$1 / 2 * S$1, 22 * S$1);
+			T.fillText(i18nT("pages.scenes.wateringHoleScene.watering_hole"), W$2 / 2 * S$2, 22 * S$2);
 			T.textAlign = "start";
 			T.fillStyle = "#5e3a1d";
 			T.font = sceneFont("status");
 			T.fillText(i18nT("pages.scenes.wateringHoleScene.on_the_savanna", {
 				n: animalsRef.current.length,
 				total: MAX_ANIMALS
-			}), 6 * S$1, 336 * S$1);
+			}), 6 * S$2, 336 * S$2);
 		};
 		const stop = runSceneLoop(visibleRef, tickRef, update, draw);
 		return () => {
@@ -9172,7 +9494,7 @@ function WateringHoleScene({ agents, visible = true }) {
 		};
 	}, []);
 	return /* @__PURE__ */ jsxs("div", {
-		style: SCENE_CONTAINER_STYLE(W$1, H$1),
+		style: SCENE_CONTAINER_STYLE(W$2, H$2),
 		children: [
 			/* @__PURE__ */ jsx("canvas", {
 				ref: canvasRef,
@@ -9199,12 +9521,12 @@ var GHOST_THEME = {
 	active: "Haunting the codebase",
 	idle: "Drifting through walls"
 };
-var W = 440;
-var H = 300;
-var S = SCENE_SCALE;
+var W$1 = 440;
+var H$1 = 300;
+var S$1 = SCENE_SCALE;
 var GHOST_COLOR = "#e8ecf4";
 var EYE_COLOR = "#14141e";
-var OUTFITS = [
+var OUTFITS$1 = [
 	{
 		hat: "none",
 		glasses: "round",
@@ -9299,12 +9621,12 @@ function GhostScene({ agents, visible = true }) {
 	const wispsRef = useRef([]);
 	const shootingRef = useRef([]);
 	const firefliesRef = useRef([]);
-	const { canvasProps, tooltipEl } = useSceneInteraction(canvasRef, ghostsRef, W, H, GHOST_THEME, 14, void 0, agents);
+	const { canvasProps, tooltipEl } = useSceneInteraction(canvasRef, ghostsRef, W$1, H$1, GHOST_THEME, 14, void 0, agents);
 	useEffect(() => {
 		const stars = [];
 		for (let i = 0; i < 70; i++) stars.push({
-			x: Math.random() * W,
-			y: Math.random() * H * .55,
+			x: Math.random() * W$1,
+			y: Math.random() * H$1 * .55,
 			size: Math.random() < .2 ? 1.5 : .8,
 			twinkle: Math.random() * Math.PI * 2,
 			speed: .01 + Math.random() * .03
@@ -9312,8 +9634,8 @@ function GhostScene({ agents, visible = true }) {
 		starsRef.current = stars;
 		const wisps = [];
 		for (let i = 0; i < 10; i++) wisps.push({
-			x: Math.random() * W,
-			y: H * .6 + Math.random() * H * .35,
+			x: Math.random() * W$1,
+			y: H$1 * .6 + Math.random() * H$1 * .35,
 			drift: Math.random() * Math.PI * 2,
 			speed: .004 + Math.random() * .008,
 			alpha: .04 + Math.random() * .06
@@ -9321,8 +9643,8 @@ function GhostScene({ agents, visible = true }) {
 		wispsRef.current = wisps;
 		const fireflies = [];
 		for (let i = 0; i < 12; i++) fireflies.push({
-			x: Math.random() * W,
-			y: H * .45 + Math.random() * H * .45,
+			x: Math.random() * W$1,
+			y: H$1 * .45 + Math.random() * H$1 * .45,
 			drift: Math.random() * Math.PI * 2,
 			speed: .006 + Math.random() * .012,
 			blink: Math.random() * Math.PI * 2
@@ -9364,7 +9686,7 @@ function GhostScene({ agents, visible = true }) {
 					blinkTimer: 120 + Math.random() * 300,
 					enterProgress: known ? 1 : 0,
 					dir: 1,
-					outfit: OUTFITS[i % OUTFITS.length],
+					outfit: OUTFITS$1[i % OUTFITS$1.length],
 					lastMessage: src.lastMessage || "",
 					msgAt: 0
 				});
@@ -9375,7 +9697,7 @@ function GhostScene({ agents, visible = true }) {
 		pruneAgents("ghost", newGhosts.map((g) => g.id));
 	}, [agents]);
 	useEffect(() => {
-		const { X, T, d } = initSceneCanvases(canvasRef.current, textRef.current, W, H, S);
+		const { X, T, d } = initSceneCanvases(canvasRef.current, textRef.current, W$1, H$1, S$1);
 		/** Kiro ghost bitmap, 24×28 - shared trace from the reference art (eye holes filled; eyes drawn as overlay) */
 		const GHOST_PIXELS = KIRO_GHOST_PIXELS;
 		/** Draw one Kiro ghost, 24×28, anchored at top-left (gx, gy) */
@@ -9395,7 +9717,7 @@ function GhostScene({ agents, visible = true }) {
 					const on = cx < row.length && row[cx] === "#";
 					if (on && run < 0) run = cx;
 					else if (!on && run >= 0) {
-						X.fillRect((gx + run) * S, (gy + ry) * S, (cx - run) * S, 1 * S);
+						X.fillRect((gx + run) * S$1, (gy + ry) * S$1, (cx - run) * S$1, 1 * S$1);
 						run = -1;
 					}
 				}
@@ -9461,24 +9783,24 @@ function GhostScene({ agents, visible = true }) {
 			}
 		};
 		const drawBackground = (t) => {
-			const grad = X.createLinearGradient(0, 0, 0, H * S);
+			const grad = X.createLinearGradient(0, 0, 0, H$1 * S$1);
 			grad.addColorStop(0, "#171232");
 			grad.addColorStop(.6, "#251c48");
 			grad.addColorStop(1, "#332757");
 			X.fillStyle = grad;
-			X.fillRect(0, 0, W * S, H * S);
+			X.fillRect(0, 0, W$1 * S$1, H$1 * S$1);
 			starsRef.current.forEach((star) => {
 				const alpha = .25 + Math.sin(t * star.speed + star.twinkle) * .32;
 				X.globalAlpha = Math.max(.06, alpha);
 				X.fillStyle = "#dbe2f7";
-				X.fillRect(star.x * S, star.y * S, star.size * S, star.size * S);
+				X.fillRect(star.x * S$1, star.y * S$1, star.size * S$1, star.size * S$1);
 			});
 			X.globalAlpha = 1;
 			if (t % 140 === 0 && Math.random() < .5 && shootingRef.current.length < 3) {
 				const fromLeft = Math.random() < .5;
 				shootingRef.current.push({
 					x: fromLeft ? -5 : 445,
-					y: 10 + Math.random() * H * .35,
+					y: 10 + Math.random() * H$1 * .35,
 					vx: (fromLeft ? 1 : -1) * (2.2 + Math.random() * 2),
 					vy: .4 + Math.random() * .9,
 					life: 0,
@@ -9493,39 +9815,39 @@ function GhostScene({ agents, visible = true }) {
 				for (let i = 0; i < 7; i++) {
 					const ta = alpha * (1 - i * .14);
 					X.fillStyle = `rgba(255,240,200,${Math.max(0, ta)})`;
-					X.fillRect((ss.x - ss.vx * i * .6) * S, (ss.y - ss.vy * i * .6) * S, 2 * S, 1 * S);
+					X.fillRect((ss.x - ss.vx * i * .6) * S$1, (ss.y - ss.vy * i * .6) * S$1, 2 * S$1, 1 * S$1);
 				}
 				X.fillStyle = `rgba(255,255,255,${alpha})`;
-				X.fillRect(ss.x * S, ss.y * S, 2 * S, 2 * S);
+				X.fillRect(ss.x * S$1, ss.y * S$1, 2 * S$1, 2 * S$1);
 			});
 			shootingRef.current = shootingRef.current.filter((ss) => ss.life < ss.maxLife);
 			const mx = 378, my = 46;
-			const glow = X.createRadialGradient(mx * S, my * S, 0, mx * S, my * S, 40 * S);
+			const glow = X.createRadialGradient(mx * S$1, my * S$1, 0, mx * S$1, my * S$1, 40 * S$1);
 			glow.addColorStop(0, "rgba(240,238,220,0.16)");
 			glow.addColorStop(1, "transparent");
 			X.fillStyle = glow;
-			X.fillRect(338 * S, 6 * S, 80 * S, 80 * S);
+			X.fillRect(338 * S$1, 6 * S$1, 80 * S$1, 80 * S$1);
 			X.fillStyle = "#efe9d4";
 			X.beginPath();
-			X.arc(mx * S, my * S, 17 * S, 0, Math.PI * 2);
+			X.arc(mx * S$1, my * S$1, 17 * S$1, 0, Math.PI * 2);
 			X.fill();
 			X.fillStyle = "#ddd5bc";
 			X.beginPath();
-			X.arc(373 * S, 42 * S, 3.4 * S, 0, Math.PI * 2);
+			X.arc(373 * S$1, 42 * S$1, 3.4 * S$1, 0, Math.PI * 2);
 			X.fill();
 			X.beginPath();
-			X.arc(384 * S, 51 * S, 2.4 * S, 0, Math.PI * 2);
+			X.arc(384 * S$1, 51 * S$1, 2.4 * S$1, 0, Math.PI * 2);
 			X.fill();
 			X.beginPath();
-			X.arc(380 * S, 38 * S, 1.6 * S, 0, Math.PI * 2);
+			X.arc(380 * S$1, 38 * S$1, 1.6 * S$1, 0, Math.PI * 2);
 			X.fill();
 			X.fillStyle = "#1e1740";
 			X.beginPath();
-			X.moveTo(0, H * .82 * S);
-			X.quadraticCurveTo(W * .25 * S, H * .72 * S, W * .5 * S, H * .8 * S);
-			X.quadraticCurveTo(W * .75 * S, H * .88 * S, W * S, H * .78 * S);
-			X.lineTo(W * S, H * S);
-			X.lineTo(0, H * S);
+			X.moveTo(0, H$1 * .82 * S$1);
+			X.quadraticCurveTo(W$1 * .25 * S$1, H$1 * .72 * S$1, W$1 * .5 * S$1, H$1 * .8 * S$1);
+			X.quadraticCurveTo(W$1 * .75 * S$1, H$1 * .88 * S$1, W$1 * S$1, H$1 * .78 * S$1);
+			X.lineTo(W$1 * S$1, H$1 * S$1);
+			X.lineTo(0, H$1 * S$1);
 			X.fill();
 			firefliesRef.current.forEach((ff) => {
 				const fx = ff.x + Math.sin(t * ff.speed + ff.drift) * 18;
@@ -9534,9 +9856,9 @@ function GhostScene({ agents, visible = true }) {
 				if (glow > .15) {
 					X.globalAlpha = glow * .8;
 					X.fillStyle = "#ffe08a";
-					X.fillRect(fx * S, fy * S, 1.2 * S, 1.2 * S);
+					X.fillRect(fx * S$1, fy * S$1, 1.2 * S$1, 1.2 * S$1);
 					X.globalAlpha = glow * .25;
-					X.fillRect((fx - 1) * S, (fy - 1) * S, 3.2 * S, 3.2 * S);
+					X.fillRect((fx - 1) * S$1, (fy - 1) * S$1, 3.2 * S$1, 3.2 * S$1);
 				}
 			});
 			X.globalAlpha = 1;
@@ -9545,16 +9867,16 @@ function GhostScene({ agents, visible = true }) {
 				X.globalAlpha = wp.alpha + Math.sin(t * wp.speed * 1.4 + wp.drift) * .02;
 				X.fillStyle = "#a9b4d8";
 				X.beginPath();
-				X.ellipse(wx * S, wp.y * S, 34 * S, 6 * S, 0, 0, Math.PI * 2);
+				X.ellipse(wx * S$1, wp.y * S$1, 34 * S$1, 6 * S$1, 0, 0, Math.PI * 2);
 				X.fill();
 			});
 			X.globalAlpha = 1;
 			T.fillStyle = "#a89ee0";
 			T.font = sceneFont("title", "bold");
-			T.fillText(i18nT("pages.scenes.ghostScene.kiro_haunt"), (W / 2 - 22) * S, 26 * S);
+			T.fillText(i18nT("pages.scenes.ghostScene.kiro_haunt"), (W$1 / 2 - 22) * S$1, 26 * S$1);
 			T.fillStyle = "#7a70ad";
 			T.font = sceneFont("detail");
-			T.fillText(i18nT("pages.scenes.ghostScene.friendly_hauntings_only"), (W / 2 - 20) * S, 34 * S);
+			T.fillText(i18nT("pages.scenes.ghostScene.friendly_hauntings_only"), (W$1 / 2 - 20) * S$1, 34 * S$1);
 		};
 		const update = (t) => {
 			ghostsRef.current.forEach((g) => {
@@ -9570,7 +9892,7 @@ function GhostScene({ agents, visible = true }) {
 			});
 		};
 		const draw = (t) => {
-			T.clearRect(0, 0, W * S, H * S);
+			T.clearRect(0, 0, W$1 * S$1, H$1 * S$1);
 			drawBackground(t);
 			[...ghostsRef.current].sort((a, b) => a.y - b.y).forEach((g) => {
 				const bobAmp = g.running ? 2.6 : 1.1;
@@ -9580,59 +9902,59 @@ function GhostScene({ agents, visible = true }) {
 				const gy = g.y - 14 + bob;
 				X.globalAlpha = g.enterProgress * (g.running ? 1 : .72);
 				if (g.running) {
-					const glow = X.createRadialGradient(g.x * S, (g.y + bob) * S, 0, g.x * S, (g.y + bob) * S, 24 * S);
+					const glow = X.createRadialGradient(g.x * S$1, (g.y + bob) * S$1, 0, g.x * S$1, (g.y + bob) * S$1, 24 * S$1);
 					glow.addColorStop(0, g.color + "30");
 					glow.addColorStop(1, "transparent");
 					X.fillStyle = glow;
-					X.fillRect((g.x - 24) * S, (g.y + bob - 24) * S, 48 * S, 48 * S);
+					X.fillRect((g.x - 24) * S$1, (g.y + bob - 24) * S$1, 48 * S$1, 48 * S$1);
 				}
 				X.globalAlpha = g.enterProgress * .18;
 				X.fillStyle = "#000";
 				X.beginPath();
-				X.ellipse(g.x * S, (g.y + 17) * S, (8.5 - bob * .6) * S, 2.2 * S, 0, 0, Math.PI * 2);
+				X.ellipse(g.x * S$1, (g.y + 17) * S$1, (8.5 - bob * .6) * S$1, 2.2 * S$1, 0, 0, Math.PI * 2);
 				X.fill();
 				X.globalAlpha = g.enterProgress * (g.running ? 1 : .72);
 				drawGhost(gx, gy, g.color, g, t);
 				X.globalAlpha = 1;
-				drawLabel(T, g.running ? "haunting" : "idle", g.x * S, (gy - 11) * S, {
+				drawLabel(T, g.running ? "haunting" : "idle", g.x * S$1, (gy - 11) * S$1, {
 					role: "status",
 					color: g.running ? "#4f4" : "#888",
 					bgColor: "rgba(0,0,0,0.5)",
 					align: "center",
-					scale: S
+					scale: S$1
 				});
 				if (g.lastMessage && Date.now() - g.msgAt < 7e3) {
 					const msgAge = Date.now() - g.msgAt;
 					const msgAlpha = msgAge > 6e3 ? (SPEECH_BUBBLE_MS - msgAge) / 1e3 : 1;
-					drawSpeechBubble(T, g.lastMessage, g.x * S, (gy - 15) * S, {
-						scale: S,
+					drawSpeechBubble(T, g.lastMessage, g.x * S$1, (gy - 15) * S$1, {
+						scale: S$1,
 						alpha: msgAlpha
 					});
 				}
-				const nameLines = drawLabel(T, g.name, g.x * S, (g.y + 21) * S, {
+				const nameLines = drawLabel(T, g.name, g.x * S$1, (g.y + 21) * S$1, {
 					role: "name",
 					weight: "bold",
 					color: "#fff",
 					align: "center",
-					scale: S,
-					maxWidth: 64 * S
+					scale: S$1,
+					maxWidth: 64 * S$1
 				});
-				if (g.detail) drawLabel(T, g.detail, g.x * S, (g.y + 26) * S + (nameLines - 1) * sceneLineHeight("name"), {
+				if (g.detail) drawLabel(T, g.detail, g.x * S$1, (g.y + 26) * S$1 + (nameLines - 1) * sceneLineHeight("name"), {
 					role: "detail",
 					color: "#8f86c9",
 					align: "center",
-					scale: S
+					scale: S$1
 				});
 			});
 			T.fillStyle = "#4c4670";
 			T.font = sceneFont("label");
-			T.fillText(`kiro haunt · ${ghostsRef.current.length} ghosts`, 4 * S, 296 * S);
+			T.fillText(`kiro haunt · ${ghostsRef.current.length} ghosts`, 4 * S$1, 296 * S$1);
 		};
 		return runSceneLoop(visibleRef, tickRef, update, draw);
 	}, []);
 	useVisibleSync(visibleRef, visible);
 	return /* @__PURE__ */ jsxs("div", {
-		style: SCENE_CONTAINER_STYLE(W, H),
+		style: SCENE_CONTAINER_STYLE(W$1, H$1),
 		children: [
 			/* @__PURE__ */ jsx("canvas", {
 				ref: canvasRef,
@@ -9654,6 +9976,1352 @@ function GhostScene({ agents, visible = true }) {
 		]
 	});
 }
+// src/pages/scenes/HanoiScene.tsx
+var W = 440;
+var H = 300;
+var S = SCENE_SCALE;
+var WATER_TOP = 100;
+var WATER_BOTTOM = 192;
+var ISLET_WATERLINE = 141;
+var ISLAND_WATERLINE = 165;
+var BRIDGE_FROM = 318;
+var BRIDGE_TO = 378;
+var BANK_X = 12;
+var SHORE_LIGHTS = Array.from({ length: 28 }, (_, i) => 6 + i * 16);
+var FEET_OFFSET = 9;
+var LABEL_WIDTH = 54;
+var LAMPS = [
+	102,
+	222,
+	342
+];
+var LAMP_HEAD_Y = 172;
+var SPOTS = [
+	{
+		x: 72,
+		y: 213
+	},
+	{
+		x: 132,
+		y: 213
+	},
+	{
+		x: 192,
+		y: 213
+	},
+	{
+		x: 252,
+		y: 213
+	},
+	{
+		x: 312,
+		y: 213
+	},
+	{
+		x: 140,
+		y: 271
+	},
+	{
+		x: 220,
+		y: 271
+	},
+	{
+		x: 300,
+		y: 271
+	}
+];
+var OUTFITS = [
+	"#c0392b",
+	"#d4a017",
+	"#1f618d",
+	"#e8e2d0",
+	"#7d3c98",
+	"#ca6f1e",
+	"#117864",
+	"#d35d8a"
+];
+var SKINS = [
+	"#f0c49a",
+	"#e0ac7e",
+	"#c98b5a",
+	"#a86f45"
+];
+var HATS = [
+	"conical",
+	"helmet",
+	"hair",
+	"conical",
+	"hair",
+	"helmet",
+	"conical",
+	"hair"
+];
+var GARMENTS = [
+	"aodai",
+	"tee",
+	"tee",
+	"aodai",
+	"tee",
+	"tee",
+	"aodai",
+	"tee"
+];
+var HELMETS = [
+	"#2e7d5b",
+	"#c0392b",
+	"#f1c40f",
+	"#2471a3"
+];
+var STOOLS = [
+	"#c0392b",
+	"#2471a3",
+	"#c0392b",
+	"#1e8449",
+	"#2471a3",
+	"#c0392b",
+	"#2471a3",
+	"#d35400"
+];
+var LANTERN_TOP = 243;
+var LANTERNS = [
+	{
+		x: 7,
+		color: "#e74c3c",
+		inner: "#f5b7a8"
+	},
+	{
+		x: 45,
+		color: "#f1c40f",
+		inner: "#fbe7a1"
+	},
+	{
+		x: 355,
+		color: "#e74c3c",
+		inner: "#f5b7a8"
+	},
+	{
+		x: 393,
+		color: "#f1c40f",
+		inner: "#fbe7a1"
+	}
+];
+var WIRES = [
+	{
+		x1: -2,
+		y1: 178,
+		x2: LAMPS[0],
+		y2: 176,
+		sag: 5,
+		bulbs: false
+	},
+	{
+		x1: -2,
+		y1: 181,
+		x2: LAMPS[0],
+		y2: 177,
+		sag: 8,
+		bulbs: false
+	},
+	{
+		x1: -2,
+		y1: 184,
+		x2: LAMPS[0],
+		y2: 178,
+		sag: 4,
+		bulbs: true
+	},
+	{
+		x1: LAMPS[0],
+		y1: 180,
+		x2: LAMPS[1],
+		y2: 180,
+		sag: 7,
+		bulbs: true
+	},
+	{
+		x1: LAMPS[1],
+		y1: 180,
+		x2: LAMPS[2],
+		y2: 180,
+		sag: 7,
+		bulbs: true
+	},
+	{
+		x1: LAMPS[2],
+		y1: 180,
+		x2: 442,
+		y2: 184,
+		sag: 6,
+		bulbs: true
+	}
+];
+var BULB_COLORS = [
+	"#ffd27a",
+	"#ff9f68",
+	"#ffe9b0"
+];
+var RIDERS = [{
+	feet: 243,
+	speed: .8,
+	dir: 1,
+	offset: 0,
+	bike: "#c0392b",
+	helmet: "#f1c40f",
+	shirt: "#1f618d"
+}, {
+	feet: 248,
+	speed: .6,
+	dir: -1,
+	offset: 260,
+	bike: "#2471a3",
+	helmet: "#ecf0f1",
+	shirt: "#7d3c98"
+}];
+var CHAT_LINE_KEYS = [
+	["pages.scenes.hanoiScene.chat_deploy_ask", "pages.scenes.hanoiScene.chat_deploy_reply"],
+	["pages.scenes.hanoiScene.chat_coffee_ask", "pages.scenes.hanoiScene.chat_coffee_reply"],
+	["pages.scenes.hanoiScene.chat_review_ask", "pages.scenes.hanoiScene.chat_review_reply"],
+	["pages.scenes.hanoiScene.chat_bug_ask", "pages.scenes.hanoiScene.chat_bug_reply"],
+	["pages.scenes.hanoiScene.chat_tea_ask", "pages.scenes.hanoiScene.chat_tea_reply"],
+	["pages.scenes.hanoiScene.chat_latency_ask", "pages.scenes.hanoiScene.chat_latency_reply"]
+];
+function onStage(p) {
+	return p.x > 6 && p.x < 434;
+}
+function seeded(seed) {
+	let s = seed >>> 0;
+	return () => {
+		s = s + 1831565813 >>> 0;
+		let t = s;
+		t = Math.imul(t ^ t >>> 15, t | 1);
+		t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+		return ((t ^ t >>> 14) >>> 0) / 4294967296;
+	};
+}
+var STARS = (() => {
+	const rand = seeded(3);
+	return Array.from({ length: 26 }, () => ({
+		x: Math.floor(rand() * W),
+		y: 3 + Math.floor(rand() * 58),
+		phase: rand() * Math.PI * 2
+	}));
+})();
+var BANK_PANES = (() => {
+	const panes = [];
+	for (let y = 69; y < 86; y += 3) for (let x = 13; x < 35; x += 4) panes.push({
+		x,
+		y
+	});
+	return panes;
+})();
+var BANK_TOGGLE_FRAMES = 75;
+var BANK_FLICKER_FRAMES = 12;
+var HANOI_THEME = {
+	get active() {
+		return i18nT("pages.scenes.hanoiScene.coding_at_the_cafe");
+	},
+	get idle() {
+		return i18nT("pages.scenes.hanoiScene.egg_coffee_break");
+	}
+};
+var RIPPLES = (() => {
+	const rand = seeded(5);
+	return Array.from({ length: 70 }, () => ({
+		x: rand() * W,
+		y: 102 + Math.floor(rand() * 89),
+		len: 3 + Math.floor(rand() * 7),
+		speed: .02 + rand() * .05,
+		phase: rand() * Math.PI * 2
+	}));
+})();
+function shade(hex, factor) {
+	const n = parseInt(hex.slice(1), 16);
+	const ch = (v) => Math.max(0, Math.min(255, Math.round(v * factor)));
+	return `#${(ch(n >> 16) << 16 | ch(n >> 8 & 255) << 8 | ch(n & 255)).toString(16).padStart(6, "0")}`;
+}
+function painter(C) {
+	return (x, y, w, h, c) => {
+		C.fillStyle = c;
+		C.fillRect(x * S, y * S, w * S, h * S);
+	};
+}
+function glow(C, x, y, r, rgb, alpha) {
+	const g = C.createRadialGradient(x * S, y * S, 0, x * S, y * S, r * S);
+	g.addColorStop(0, `rgba(${rgb},1)`);
+	g.addColorStop(1, `rgba(${rgb},0)`);
+	C.globalAlpha = alpha;
+	C.fillStyle = g;
+	C.fillRect((x - r) * S, (y - r) * S, r * 2 * S, r * 2 * S);
+	C.globalAlpha = 1;
+}
+function disc(p, cx, cy, r, c) {
+	for (let dy = -r; dy <= r; dy++) {
+		const half = Math.round(Math.sqrt(r * r - dy * dy));
+		p(cx - half, cy + dy, half * 2 + 1, 1, c);
+	}
+}
+function ring(p, cx, cy, r, c) {
+	for (let a = 0; a < Math.PI * 2; a += .25) p(Math.round(cx + Math.cos(a) * r), Math.round(cy + Math.sin(a) * r), 1, 1, c);
+}
+function line(p, x1, y1, x2, y2, c) {
+	const n = Math.max(Math.abs(x2 - x1), Math.abs(y2 - y1), 1);
+	for (let i = 0; i <= n; i++) p(Math.round(x1 + (x2 - x1) * i / n), Math.round(y1 + (y2 - y1) * i / n), 1, 1, c);
+}
+function sagY(x, wire) {
+	const u = (x - wire.x1) / (wire.x2 - wire.x1);
+	return Math.round(wire.y1 + (wire.y2 - wire.y1) * u + wire.sag * 4 * u * (1 - u));
+}
+function bridgeDeckY(x) {
+	const u = (x - BRIDGE_FROM) / 60;
+	return Math.round(174 + -8 * u - Math.sin(u * Math.PI) * 5);
+}
+function bridgeWaterY(x) {
+	const u = (x - BRIDGE_FROM) / 60;
+	return bridgeDeckY(x) + Math.round(8 - u * 2);
+}
+function createLayer(paint) {
+	const canvas = document.createElement("canvas");
+	canvas.width = W * S;
+	canvas.height = H * S;
+	const C = canvas.getContext("2d");
+	C.imageSmoothingEnabled = false;
+	paint(C, painter(C));
+	return canvas;
+}
+function paintBase(C, p) {
+	const sky = C.createLinearGradient(0, 0, 0, WATER_TOP * S);
+	sky.addColorStop(0, "#081625");
+	sky.addColorStop(.6, "#1b4058");
+	sky.addColorStop(1, "#4a6b6e");
+	C.fillStyle = sky;
+	C.fillRect(0, 0, W * S, WATER_TOP * S);
+	C.globalAlpha = .14;
+	for (const [x, y, w] of [
+		[
+			18,
+			40,
+			70
+		],
+		[
+			60,
+			44,
+			40
+		],
+		[
+			230,
+			34,
+			90
+		],
+		[
+			300,
+			38,
+			50
+		],
+		[
+			120,
+			60,
+			60
+		]
+	]) p(x, y, w, 1, "#a9c2c8");
+	C.globalAlpha = 1;
+	glow(C, 392, 28, 34, "255,240,200", .35);
+	disc(p, 392, 28, 9, "#f6edc8");
+	p(388, 24, 3, 2, "#e6d9ab");
+	p(395, 30, 2, 2, "#e6d9ab");
+	p(390, 32, 2, 1, "#e6d9ab");
+	const lake = C.createLinearGradient(0, WATER_TOP * S, 0, WATER_BOTTOM * S);
+	lake.addColorStop(0, "#1f5062");
+	lake.addColorStop(.35, "#14384a");
+	lake.addColorStop(1, "#0b2230");
+	C.fillStyle = lake;
+	C.fillRect(0, WATER_TOP * S, W * S, 200 * S);
+}
+function paintBank(C, p) {
+	const x = BANK_X;
+	p(14, 63, 20, 1, "#5f5b50");
+	p(14, 64, 20, 4, "#1d3f3d");
+	p(14, 66, 20, 1, "#2f625c");
+	p(x, 68, 24, 20, "#1d252c");
+	for (let y = 68; y <= 86; y += 3) p(x, y, 24, 1, "#4c4940");
+	for (let gx = x; gx <= 35; gx += 4) p(gx, 68, 1, 20, "#4c4940");
+	p(36, 67, 6, 21, "#1c4438");
+	p(37, 66, 4, 1, "#1c4438");
+	p(36, 67, 1, 21, "#14322a");
+	for (let y = 69; y < 86; y += 3) p(37, y, 5, 1, "#3a7560");
+	glow(C, 27, 88, 14, "255,214,90", .12);
+	p(11, 86, 32, 4, "#c79f00");
+	p(11, 86, 32, 1, "#e8bd1a");
+	p(17, 88, 20, 1, "#a88600");
+}
+function paintSkyline(C, p) {
+	const rand = seeded(7);
+	const tones = [
+		"#0f1b27",
+		"#12202d",
+		"#162533"
+	];
+	for (let x = -4; x < W;) {
+		const w = 8 + Math.floor(rand() * 14);
+		const h = 6 + Math.floor(rand() * 16);
+		const top = 94 - h;
+		const tone = tones[Math.floor(rand() * tones.length)];
+		p(x, top, w, h + 6, tone);
+		if (rand() < .12) p(x + 2, top - 1, 3, 1, "#ff4a4a");
+		for (let wy = top + 2; wy < 92; wy += 3) for (let wx = x + 1; wx < x + w - 1; wx += 3) if (rand() < .08) {
+			C.globalAlpha = .6;
+			p(wx, wy, 1, 1, rand() < .6 ? "#e2bf72" : "#a9c0bd");
+			C.globalAlpha = 1;
+		}
+		x += w - 1;
+	}
+	p(46, 60, 12, 32, "#14222f");
+	p(48, 59, 3, 1, "#ff4a4a");
+	paintBank(C, p);
+	for (let x = -2; x < W;) {
+		const r = x > 6 && x < 48 ? 3 : 5 + Math.floor(rand() * 5);
+		const roll = rand();
+		const crown = roll < .18 ? "#2e3a1e" : roll < .3 ? "#3a2c1a" : "#0c1f24";
+		const cy = WATER_TOP - r + 1;
+		disc(p, x, cy, r, crown);
+		disc(p, x - 1, cy - 1, Math.max(1, r - 3), shade(crown, 1.3));
+		C.globalAlpha = .7;
+		p(x - r + 1, 99, r * 2 - 1, 1, "#8a7434");
+		C.globalAlpha = 1;
+		x += r + 2 + Math.floor(rand() * 4);
+	}
+	for (const wx of [124, 284]) {
+		disc(p, wx, 90, 6, "#1d4030");
+		disc(p, wx - 1, 89, 4, "#25523a");
+	}
+	for (const x of SHORE_LIGHTS) {
+		glow(C, x, 98, 4, "255,216,138", .5);
+		p(x, 98, 1, 1, "#ffe2a0");
+	}
+}
+function arch(p, x, y, w, h) {
+	p(x, y + 1, w, h - 1, "#3a2e22");
+	p(x + Math.floor(w / 2), y, w % 2 ? 1 : 0, 1, "#3a2e22");
+	if (w > 2) p(x + 1, y, w - 2, 1, "#3a2e22");
+}
+function balustrade(p, x, y, w) {
+	p(x, y, w, 1, "#d9c890");
+	for (let bx = x + 1; bx < x + w - 1; bx += 2) p(bx, y + 1, 1, 1, "#b9a46a");
+	p(x, y, 2, 3, "#e3d39c");
+	p(x + w - 2, y, 2, 3, "#e3d39c");
+}
+function paintTurtleTower(C, p) {
+	glow(C, 160, 122, 30, "255,217,138", .24);
+	for (const [y, x1, x2] of [
+		[
+			137,
+			144,
+			177
+		],
+		[
+			138,
+			141,
+			180
+		],
+		[
+			139,
+			139,
+			182
+		],
+		[
+			140,
+			138,
+			183
+		]
+	]) p(x1, y, x2 - x1, 1, y < 139 ? "#4a6a34" : "#2f4628");
+	p(138, 140, 46, 1, "#77745f");
+	p(149, 126, 24, 11, "#eadba3");
+	p(168, 126, 5, 11, "#c4ad72");
+	p(148, 136, 26, 1, "#9c8a58");
+	arch(p, 151, 131, 2, 5);
+	arch(p, 155, 128, 4, 8);
+	arch(p, 163, 128, 4, 8);
+	arch(p, 169, 131, 2, 5);
+	p(157, 134, 1, 1, "#ffb347");
+	p(148, 125, 26, 1, "#7a6a44");
+	balustrade(p, 149, 122, 24);
+	p(152, 115, 18, 7, "#eadba3");
+	p(166, 115, 4, 7, "#c4ad72");
+	arch(p, 153, 117, 2, 4);
+	arch(p, 156, 116, 3, 6);
+	arch(p, 162, 116, 3, 6);
+	arch(p, 167, 117, 2, 4);
+	p(151, 114, 20, 1, "#7a6a44");
+	balustrade(p, 152, 111, 18);
+	p(156, 106, 10, 6, "#e3d39c");
+	p(163, 106, 3, 6, "#bfa86c");
+	p(160, 108, 2, 3, "#3a2e22");
+	p(154, 104, 14, 2, "#5c4a32");
+	p(155, 103, 12, 1, "#6e5a3c");
+	p(157, 102, 8, 1, "#6e5a3c");
+	p(152, 102, 2, 2, "#8fa3b5");
+	p(168, 102, 2, 2, "#8fa3b5");
+	p(160, 100, 2, 2, "#c9b47a");
+}
+function paintPenTower(C, p) {
+	glow(C, 306, 160, 20, "255,224,160", .18);
+	const rand = seeded(23);
+	for (let y = 176; y < WATER_BOTTOM; y++) {
+		const half = Math.min(16, 6 + Math.floor((y - 176) * 1.2));
+		p(306 - half, y, half * 2, 1, "#55564c");
+	}
+	for (let i = 0; i < 40; i++) {
+		const y = 177 + Math.floor(rand() * 14);
+		const half = Math.min(16, 6 + Math.floor((y - 176) * 1.2));
+		p(306 - half + Math.floor(rand() * half * 2), y, 2, 1, rand() < .5 ? "#7d7d72" : "#3f4038");
+	}
+	disc(p, 294, 182, 5, "#1f4a34");
+	disc(p, 319, 184, 4, "#1f4a34");
+	disc(p, 293, 181, 3, "#2b6a44");
+	let top = 177;
+	for (const [w, h] of [
+		[8, 7],
+		[7, 6],
+		[6, 6],
+		[5, 5],
+		[4, 5]
+	]) {
+		const x = 306 - Math.floor(w / 2);
+		top -= h;
+		p(x, top, w, h, "#b8b2a2");
+		p(x + w - 2, top, 2, h, "#86806f");
+		p(x + 1, top + 2, 2, h - 3, "#9d9786");
+		p(x - 1, top, w + 2, 1, "#6f6a5c");
+	}
+	p(305, top - 2, 2, 2, "#cfc8b4");
+	p(305, top - 4, 2, 2, "#b8b2a2");
+	p(320, 172, 6, 2, "#6f6a5c");
+	p(321, 169, 4, 3, "#5f7480");
+}
+function paintBridge(C, p) {
+	glow(C, 348, 168, 34, "255,74,58", .16);
+	for (let x = BRIDGE_FROM; x <= BRIDGE_TO; x++) {
+		const y = bridgeDeckY(x);
+		const i = x - BRIDGE_FROM;
+		if (i % 4 === 0) p(x, y + 2, 1, bridgeWaterY(x) - y - 2, "#c8302a");
+		p(x, y, 1, 2, "#ff4a3a");
+		p(x, y + 1, 1, 1, "#b02a22");
+		p(x, y - 4, 1, 1, "#ff7a5c");
+		if (i % 4 === 0) p(x, y - 4, 1, 4, "#ff5a44");
+		else p(x, y - 3 + (i % 4 === 2 ? 1 : 0), 1, 1, "#e8443a");
+	}
+}
+function upturnedRoof(p, x, y, w, h) {
+	p(x, y, w, h, "#4a3528");
+	p(x + 1, y - 1, w - 2, 1, "#5c4332");
+	p(x - 2, y - 2, 2, 2, "#4a3528");
+	p(x + w, y - 2, 2, 2, "#4a3528");
+}
+function paintJadeIsland(C, p) {
+	glow(C, 392, 146, 32, "255,200,120", .2);
+	for (const [x, y, r, c] of [
+		[
+			376,
+			146,
+			8,
+			"#5a5a22"
+		],
+		[
+			388,
+			136,
+			10,
+			"#1f4a34"
+		],
+		[
+			402,
+			132,
+			11,
+			"#6a4a1e"
+		],
+		[
+			414,
+			140,
+			10,
+			"#1f4a34"
+		],
+		[
+			370,
+			152,
+			6,
+			"#2b5a2e"
+		]
+	]) {
+		disc(p, x, y, r, c);
+		disc(p, x - 2, y - 2, r - 3, shade(c, 1.35));
+		C.globalAlpha = .6;
+		p(x - r + 2, y + r - 2, r * 2 - 3, 1, "#e0b84a");
+		C.globalAlpha = 1;
+	}
+	p(368, 156, 44, 9, "#1d3324");
+	p(368, 156, 44, 1, "#2f5a3a");
+	p(367, 164, 46, 1, "#6a6858");
+	p(394, 151, 16, 5, "#b98b4e");
+	p(398, 152, 3, 4, "#e8a040");
+	upturnedRoof(p, 392, 147, 20, 4);
+	p(376, 148, 15, 8, "#dcc07a");
+	p(387, 148, 4, 8, "#b39a5c");
+	p(381, 151, 5, 5, "#3a2a1c");
+	upturnedRoof(p, 374, 145, 19, 3);
+	p(379, 140, 9, 5, "#dcc07a");
+	p(382, 141, 3, 3, "#e8a040");
+	upturnedRoof(p, 377, 137, 13, 3);
+	p(382, 134, 3, 2, "#c9a35c");
+}
+function paintLandmarks(C, p) {
+	paintTurtleTower(C, p);
+	paintJadeIsland(C, p);
+	paintPenTower(C, p);
+	paintBridge(C, p);
+}
+function paintLampPost(p, x) {
+	p(x - 2, 226, 5, 4, "#1b1e22");
+	p(x - 1, 222, 3, 4, "#23272c");
+	p(x, 180, 1, 42, "#23272c");
+	p(x - 1, 200, 3, 1, "#23272c");
+	p(x - 1, 186, 3, 1, "#23272c");
+	p(x - 1, 170, 3, 1, "#1b1e22");
+	p(x - 2, 171, 5, 1, "#1b1e22");
+	p(x - 2, LAMP_HEAD_Y, 5, 6, "#ffe6a0");
+	p(x - 2, LAMP_HEAD_Y, 1, 6, "#2a2e33");
+	p(x + 2, LAMP_HEAD_Y, 1, 6, "#2a2e33");
+	p(x - 1, 178, 3, 2, "#1b1e22");
+}
+function paintBigTree(C, p) {
+	p(48, 150, 5, 80, "#3e2c20");
+	p(51, 150, 2, 80, "#2e2018");
+	p(46, 226, 9, 4, "#3e2c20");
+	p(44, 160, 4, 2, "#3e2c20");
+	p(53, 156, 6, 2, "#3e2c20");
+	const clusters = [
+		[
+			50,
+			132,
+			18
+		],
+		[
+			34,
+			142,
+			12
+		],
+		[
+			74,
+			136,
+			15
+		],
+		[
+			92,
+			148,
+			10
+		],
+		[
+			60,
+			152,
+			12
+		],
+		[
+			40,
+			124,
+			10
+		]
+	];
+	clusters.forEach(([x, y, r]) => disc(p, x, y, r, "#1c4630"));
+	clusters.forEach(([x, y, r]) => disc(p, x - 2, y - 3, r - 4, "#2b6a44"));
+	const rand = seeded(41);
+	for (let i = 0; i < 90; i++) {
+		const [x, y, r] = clusters[i % clusters.length];
+		const a = rand() * Math.PI * 2;
+		const dist = rand() * r;
+		p(Math.round(x + Math.cos(a) * dist), Math.round(y + Math.sin(a) * dist), 2, 1, rand() < .6 ? "#c9a640" : "#e0c060");
+	}
+	C.globalAlpha = .5;
+	clusters.forEach(([x, y, r]) => p(x - r + 3, y + r - 2, r * 2 - 5, 2, "#9a8a3a"));
+	C.globalAlpha = 1;
+}
+function paintSeat(p, index) {
+	const { x } = SPOTS[index];
+	const feet = SPOTS[index].y + FEET_OFFSET;
+	const stool = STOOLS[index];
+	p(x - 4, feet - 5, 8, 2, stool);
+	p(x - 4, feet - 3, 1, 3, shade(stool, .7));
+	p(x + 3, feet - 3, 1, 3, shade(stool, .7));
+	p(x - 3, feet - 2, 6, 1, shade(stool, .6));
+	const table = index % 2 ? "#2e86c1" : "#d9d4c7";
+	p(x + 6, feet - 7, 12, 2, table);
+	p(x + 7, feet - 5, 1, 5, shade(table, .7));
+	p(x + 16, feet - 5, 1, 5, shade(table, .7));
+}
+function drawMotorbike(p, x, feet, color, facing) {
+	const fx = (dx, w) => facing === 1 ? x + dx : x + 18 - dx - w;
+	disc(p, fx(3, 1), feet - 3, 3, "#111111");
+	disc(p, fx(15, 1), feet - 3, 3, "#111111");
+	p(fx(3, 1), feet - 3, 1, 1, "#777777");
+	p(fx(15, 1), feet - 3, 1, 1, "#777777");
+	p(fx(2, 10), feet - 9, 10, 4, color);
+	p(fx(3, 7), feet - 11, 7, 2, "#1a1a1a");
+	p(fx(6, 7), feet - 5, 7, 1, "#3a3a3a");
+	p(fx(14, 2), feet - 12, 2, 8, "#4a4a4a");
+	p(fx(12, 5), feet - 14, 5, 1, "#222222");
+	p(fx(13, 3), feet - 11, 3, 3, color);
+	p(fx(17, 1), feet - 11, 1, 2, "#ffe9a0");
+	p(fx(0, 1), feet - 9, 1, 1, "#e03a2a");
+}
+function paintFlowerBike(p) {
+	ring(p, 356, 224, 4, "#2a2e33");
+	ring(p, 372, 224, 4, "#2a2e33");
+	line(p, 356, 224, 363, 217, "#3f7f78");
+	line(p, 363, 217, 372, 224, "#3f7f78");
+	line(p, 363, 217, 363, 224, "#3f7f78");
+	line(p, 356, 224, 363, 224, "#3f7f78");
+	line(p, 372, 224, 370, 214, "#3f7f78");
+	p(368, 213, 5, 1, "#222222");
+	p(361, 215, 4, 1, "#1a1a1a");
+	p(348, 208, 18, 6, "#8a6a3f");
+	for (let bx = 348; bx < 366; bx += 3) p(bx, 208, 1, 6, "#6e5230");
+	const rand = seeded(53);
+	for (let i = 0; i < 80; i++) {
+		const dx = rand() * 18;
+		const height = 8 * Math.sin(dx / 18 * Math.PI);
+		const dy = rand() * height;
+		const roll = rand();
+		p(Math.round(348 + dx), Math.round(207 - dy), 1, 1, roll < .7 ? "#f4f1e6" : roll < .9 ? "#f1c40f" : "#e8a0b0");
+	}
+	p(370, 209, 5, 4, "#8a6a3f");
+	p(370, 207, 5, 2, "#f1c40f");
+}
+function paintTeaBoard(p) {
+	line(p, 52, 266, 48, 282, "#8a6a3f");
+	line(p, 62, 266, 66, 282, "#8a6a3f");
+	p(50, 266, 14, 11, "#1f2a24");
+	p(50, 266, 14, 1, "#8a6a3f");
+	p(50, 276, 14, 1, "#8a6a3f");
+}
+function paintUmbrella(p, cx, stripe) {
+	for (let k = 0; k < 6; k++) {
+		const half = 10 + k * 2;
+		for (let x = cx - half; x < cx + half; x++) p(x, 236 + k, 1, 1, Math.floor((x - cx + 40) / 4) % 2 ? stripe : "#efe6d4");
+	}
+	p(cx - 22, 242, 44, 1, shade(stripe, .6));
+	p(cx - 1, 234, 2, 2, shade(stripe, .6));
+	p(cx, 243, 1, 26, "#3a3a3a");
+	p(cx - 1, 244, 3, 2, "#ffe6a0");
+}
+function paintCart(p, x, signBg, signBorder) {
+	p(x, 268, 40, 2, "#c9a35c");
+	p(x + 1, 270, 38, 16, "#7a4a24");
+	p(x + 1, 270, 38, 1, "#9a6a3a");
+	p(x + 4, 272, 32, 9, signBg);
+	p(x + 4, 272, 32, 1, signBorder);
+	p(x + 4, 280, 32, 1, signBorder);
+	p(x + 1, 285, 38, 1, "#4a2a14");
+	for (const wx of [x + 7, x + 33]) {
+		disc(p, wx, 289, 3, "#1a1a1a");
+		p(wx, 289, 1, 1, "#777777");
+	}
+}
+function paintStalls(C, p) {
+	glow(C, 26, 262, 34, "255,179,92", .22);
+	glow(C, 374, 262, 34, "255,179,92", .22);
+	paintUmbrella(p, 26, "#c0392b");
+	paintUmbrella(p, 374, "#1e8449");
+	p(28, 259, 6, 9, "#7a5a3a");
+	p(29, 254, 4, 5, "#d9a06b");
+	p(26, 253, 10, 1, "#e8d8a8");
+	p(28, 252, 6, 1, "#d9c48a");
+	p(30, 251, 2, 1, "#c9b47a");
+	paintCart(p, 6, "#8e1f1f", "#f1c40f");
+	for (const cx of [
+		12,
+		16,
+		20
+	]) {
+		p(cx, 265, 2, 3, "#f3ede0");
+		p(cx, 265, 2, 1, "#f3dca0");
+	}
+	p(36, 262, 5, 6, "#c9d6cf");
+	p(36, 262, 5, 1, "#e8f0ea");
+	p(364, 259, 6, 9, "#2e5a8a");
+	p(365, 254, 4, 5, "#c98b5a");
+	p(365, 253, 4, 2, "#2c1e16");
+	paintCart(p, 354, "#1f4e79", "#d6eaf8");
+	p(378, 258, 11, 10, "#9aa3a8");
+	p(378, 258, 11, 1, "#c9d0d4");
+	p(377, 260, 1, 2, "#6b7378");
+	p(389, 260, 1, 2, "#6b7378");
+	p(358, 266, 4, 2, "#efe6d4");
+	p(364, 266, 4, 2, "#efe6d4");
+	p(370, 265, 5, 3, "#2f8a3a");
+}
+function paintGround(C, p) {
+	p(0, 192, W, 2, "#8a8174");
+	p(0, 194, W, 36, "#45403a");
+	for (let y = 199; y < 230; y += 6) p(0, y, W, 1, "#3b3732");
+	for (let y = 194, row = 0; y < 230; y += 6, row++) for (let x = row % 2 * 6; x < W; x += 12) p(x, y, 1, 6, "#3b3732");
+	for (const x of LAMPS) glow(C, x, 226, 26, "255,210,122", .16);
+	p(0, 230, W, 2, "#8a8174");
+	p(0, 232, W, 16, "#24272d");
+	const rand = seeded(31);
+	for (let i = 0; i < 120; i++) p(Math.floor(rand() * W), 232 + Math.floor(rand() * 16), 1, 1, "#2d3138");
+	for (let x = 4; x < W; x += 18) p(x, 240, 8, 1, "#8c8a7c");
+	p(0, 248, W, 2, "#8a8174");
+	p(0, 250, W, 50, "#544d47");
+	for (let y = 258; y < H; y += 8) p(0, y, W, 1, "#4a443f");
+	for (let y = 250, row = 0; y < H; y += 8, row++) for (let x = row % 2 * 7; x < W; x += 14) p(x, y, 1, 8, "#4a443f");
+	for (let x = 0; x < W; x += 10) {
+		if (x > 290 && x < 320) continue;
+		p(x, 186, 1, 6, "#1b1e22");
+	}
+	for (const [from, to] of [[0, 291], [320, W]]) {
+		p(from, 187, to - from, 1, "#2a2e33");
+		p(from, 190, to - from, 1, "#2a2e33");
+	}
+	paintBigTree(C, p);
+	LAMPS.forEach((x) => paintLampPost(p, x));
+	SPOTS.forEach((_, i) => paintSeat(p, i));
+	drawMotorbike(p, 74, 272, "#7f8c8d", 1);
+	drawMotorbike(p, 410, 274, "#c0392b", -1);
+	paintFlowerBike(p);
+	paintTeaBoard(p);
+	paintStalls(C, p);
+}
+function HanoiScene({ agents, visible = true }) {
+	const canvasRef = useRef(null);
+	const textRef = useRef(null);
+	const tickRef = useRef(0);
+	const peopleRef = useRef([]);
+	const visibleRef = useRef(visible);
+	const leavesRef = useRef([]);
+	const { canvasProps, tooltipEl } = useSceneInteraction(canvasRef, peopleRef, W, H, HANOI_THEME, 11, void 0, agents);
+	useEffect(() => {
+		leavesRef.current = Array.from({ length: 14 }, () => ({
+			x: 28 + Math.random() * 72,
+			y: 150 + Math.random() * 70,
+			vx: -.05 - Math.random() * .1,
+			vy: .1 + Math.random() * .15,
+			spin: Math.random() * Math.PI * 2,
+			color: Math.random() < .6 ? "#d4b45a" : "#c98a3a"
+		}));
+	}, []);
+	useEffect(() => {
+		const existing = peopleRef.current;
+		const next = [];
+		agents.slice(0, SPOTS.length).forEach((src, i) => {
+			const spot = SPOTS[i];
+			const prev = existing.find((p) => p.id === src.id);
+			if (prev) {
+				prev.name = src.name;
+				prev.label = src.label;
+				prev.kind = src.kind;
+				prev.running = src.running;
+				prev.detail = src.detail;
+				prev.tx = spot.x;
+				prev.ty = spot.y;
+				if ((src.lastMessage || "") !== prev.lastMessage) {
+					prev.lastMessage = src.lastMessage || "";
+					prev.msgAt = Date.now();
+				}
+				next.push(prev);
+				return;
+			}
+			const known = isKnownAgent("hanoi", src.id);
+			const fromLeft = spot.x < W / 2;
+			next.push({
+				id: src.id,
+				name: src.name,
+				label: src.label,
+				kind: src.kind,
+				x: known ? spot.x : fromLeft ? -16 - i * 30 : 456 + i * 30,
+				y: spot.y,
+				tx: spot.x,
+				ty: spot.y,
+				running: src.running,
+				detail: src.detail,
+				color: OUTFITS[i % OUTFITS.length],
+				skin: SKINS[i % SKINS.length],
+				hat: HATS[i % HATS.length],
+				helmet: HELMETS[i % HELMETS.length],
+				garment: GARMENTS[i % GARMENTS.length],
+				phase: Math.random() * Math.PI * 2,
+				blink: 140 + Math.random() * 260,
+				sip: Math.floor(Math.random() * 240),
+				enterProgress: known ? 1 : 0,
+				facing: fromLeft ? 1 : -1,
+				lastMessage: src.lastMessage || "",
+				msgAt: 0
+			});
+			markAgentsKnown("hanoi", [src.id]);
+		});
+		peopleRef.current = next;
+		pruneAgents("hanoi", next.map((p) => p.id));
+	}, [agents]);
+	useEffect(() => {
+		const { X, T, d } = initSceneCanvases(canvasRef.current, textRef.current, W, H, S);
+		const baseLayer = createLayer(paintBase);
+		const skylineLayer = createLayer(paintSkyline);
+		const landmarkLayer = createLayer(paintLandmarks);
+		const groundLayer = createLayer(paintGround);
+		const bankRand = seeded(11);
+		const bankPanes = BANK_PANES.map((pane) => ({
+			...pane,
+			lit: bankRand() < .3,
+			warm: bankRand() < .5,
+			flicker: 0
+		}));
+		const officeLights = () => {
+			bankPanes.forEach((pane) => {
+				if (!pane.lit || Math.floor(pane.flicker / 3) % 2 === 1) return;
+				X.globalAlpha = .6;
+				d(pane.x, pane.y, 3, 2, pane.warm ? "#d9c48e" : "#c3cdc6");
+			});
+			X.globalAlpha = 1;
+		};
+		const reflect = (layer, x, waterline, w, rows, t, alpha) => {
+			for (let r = 0; r < rows; r++) {
+				const dy = waterline + r;
+				if (dy >= WATER_BOTTOM) break;
+				if ((r + Math.floor(t / 6)) % 4 === 3) continue;
+				const dx = Math.round(Math.sin(r * .6 + t * .06) * (.6 + r * .04));
+				X.globalAlpha = alpha * (1 - r / rows * .6);
+				X.drawImage(layer, x * S, (waterline - 1 - r) * S, w * S, S, (x + dx) * S, dy * S, w * S, S);
+			}
+			X.globalAlpha = 1;
+		};
+		const stars = (t) => {
+			STARS.forEach((s) => {
+				X.globalAlpha = .25 + Math.abs(Math.sin(t * .015 + s.phase)) * .55;
+				d(s.x, s.y, 1, 1, "#e8f0ff");
+			});
+			X.globalAlpha = 1;
+		};
+		const streak = (x, y0, rows, step, color, t, alpha) => {
+			for (let k = 0; k < rows; k++) {
+				if ((k + Math.floor(t / 8)) % 3 === 0) continue;
+				const width = 1 + (k * 7 + Math.floor(t / 10)) % 3;
+				X.globalAlpha = alpha * (1 - k / rows);
+				d(x - Math.floor(width / 2), y0 + k * step, width, 1, color);
+			}
+			X.globalAlpha = 1;
+		};
+		const water = (t) => {
+			RIPPLES.forEach((r) => {
+				const x = (r.x + t * r.speed) % 460 - 10;
+				X.globalAlpha = .18 + Math.abs(Math.sin(t * .03 + r.phase)) * .22;
+				d(Math.round(x), r.y, r.len, 1, r.y < 140 ? "#3b7a8a" : "#2a6475");
+			});
+			X.globalAlpha = 1;
+			SHORE_LIGHTS.forEach((x, i) => streak(x, 101, 10 + i % 3 * 3, 2, "#ffd88a", t + i * 7, .5));
+			LAMPS.forEach((x) => streak(x, 180, 6, 2, "#ffe6a0", t + x, .5));
+			const bx = Math.round(236 + Math.sin(t * .004) * 40);
+			d(bx, 176, 12, 2, "#3e2a1e");
+			d(bx + 1, 178, 10, 1, "#2a1c14");
+			d(bx + 5, 172, 2, 4, "#1a1a1a");
+			d(bx + 3, 171, 6, 1, "#c9b47a");
+			d(bx + 4, 170, 4, 1, "#d9c48a");
+			d(bx + 10, 173, 1, 2, "#ffb347");
+			glow(X, bx + 10, 174, 6, "255,179,71", .3);
+			X.globalAlpha = .3;
+			d(bx, 180, 12, 1, "#000000");
+			X.globalAlpha = 1;
+		};
+		const willows = (t) => {
+			for (const base of [125, 285]) for (let k = 0; k < 7; k++) {
+				const sway = Math.round(Math.sin(t * .02 + k * .8) * 1);
+				d(base - 6 + k * 2 + sway, 90, 1, 6 + k % 3 * 3, k % 2 ? "#2a5a3a" : "#3a6a40");
+			}
+		};
+		const bridgeReflection = (t) => {
+			for (let x = BRIDGE_FROM; x <= BRIDGE_TO; x++) {
+				const waterY = bridgeWaterY(x);
+				const pillar = waterY - bridgeDeckY(x);
+				const depth = (x - BRIDGE_FROM) % 4 === 0 ? pillar + 2 : 2;
+				for (let k = pillar - depth; k < pillar + 3; k++) {
+					const y = waterY + k;
+					if (y >= WATER_BOTTOM || (k + Math.floor(t / 6)) % 4 === 3) continue;
+					const dx = Math.round(Math.sin(y * .6 + t * .06) * .8);
+					X.globalAlpha = .55 * (1 - k / (pillar + 6));
+					d(x + dx, y, 1, 1, k >= pillar ? "#ff5a40" : "#d9362a");
+				}
+			}
+			X.globalAlpha = 1;
+		};
+		const bridgeLights = (t) => {
+			for (let x = 320; x < BRIDGE_TO; x += 8) {
+				X.globalAlpha = .6 + Math.abs(Math.sin(t * .03 + x)) * .4;
+				d(x, bridgeDeckY(x) - 5, 1, 1, "#ffd27a");
+			}
+			X.globalAlpha = 1;
+		};
+		const potSteam = (t) => {
+			for (let k = 0; k < 6; k++) {
+				const rise = (t * .3 + k * 4) % 14;
+				X.globalAlpha = .3 * (1 - rise / 14);
+				d(380 + k % 3 * 3 + Math.round(Math.sin(t * .05 + k)), Math.round(256 - rise), 1, 1, "#ffffff");
+			}
+			X.globalAlpha = 1;
+		};
+		const lampGlows = (t) => {
+			LAMPS.forEach((x, i) => {
+				glow(X, x + .5, 175, 16, "255,216,138", .24 + Math.sin(t * .05 + i) * .03);
+			});
+		};
+		const lanterns = (t) => {
+			LANTERNS.forEach((l, i) => {
+				const sway = Math.round(Math.sin(t * .03 + i) * 1.2);
+				const top = LANTERN_TOP;
+				d(l.x, top, 1, 3, "#2a1d17");
+				d(l.x - 2 + sway, 246, 5, 6, l.color);
+				d(l.x - 1 + sway, 247, 3, 4, l.inner);
+				d(l.x - 2 + sway, 245, 5, 1, "#5c4332");
+				d(l.x - 1 + sway, 252, 3, 1, "#5c4332");
+				d(l.x + sway, 253, 1, 2, "#f1c40f");
+				glow(X, l.x + sway + .5, 249, 10, l.color === "#e74c3c" ? "231,76,60" : "241,196,15", .25);
+			});
+		};
+		const wires = (t) => {
+			WIRES.forEach((wire, wi) => {
+				for (let x = wire.x1; x <= wire.x2; x++) d(x, sagY(x, wire), 1, 1, "#14171b");
+				if (!wire.bulbs) return;
+				for (let x = wire.x1 + 5, k = 0; x < wire.x2 - 2; x += 9, k++) {
+					const on = .5 + Math.abs(Math.sin(t * .04 + k * 1.3 + wi)) * .5;
+					const color = BULB_COLORS[k % BULB_COLORS.length];
+					const y = sagY(x, wire) + 1;
+					X.globalAlpha = on * .35;
+					d(x - 1, y - 1, 3, 3, color);
+					X.globalAlpha = on;
+					d(x, y, 1, 1, color);
+				}
+				X.globalAlpha = 1;
+			});
+		};
+		const leaves = () => {
+			leavesRef.current.forEach((leaf) => {
+				leaf.x += leaf.vx;
+				leaf.y += leaf.vy;
+				leaf.spin += .04;
+				if (leaf.y > 228) {
+					leaf.x = 28 + Math.random() * 72;
+					leaf.y = 150 + Math.random() * 12;
+				}
+				X.globalAlpha = .8;
+				d(Math.round(leaf.x + Math.sin(leaf.spin) * 2), Math.round(leaf.y), 2, 1, leaf.color);
+			});
+			X.globalAlpha = 1;
+		};
+		const riders = (t) => {
+			RIDERS.forEach((r) => {
+				const travel = (t * r.speed + r.offset) % 520;
+				const x = Math.round(r.dir === 1 ? travel - 40 : 480 - travel - 18);
+				const fx = (dx, w) => r.dir === 1 ? x + dx : x + 18 - dx - w;
+				for (let k = 0; k < 22; k++) {
+					X.globalAlpha = .16 * (1 - k / 22);
+					const spread = Math.floor(k / 4);
+					d(r.dir === 1 ? x + 18 + k : x - 1 - k, r.feet - 11 - spread, 1, 2 + spread * 2, "#fff2b0");
+				}
+				X.globalAlpha = 1;
+				drawMotorbike(d, x, r.feet, r.bike, r.dir);
+				d(fx(7, 4), r.feet - 12, 4, 2, "#263238");
+				d(fx(6, 4), r.feet - 18, 4, 6, r.shirt);
+				d(fx(9, 4), r.feet - 16, 4, 1, r.shirt);
+				d(fx(6, 4), r.feet - 22, 4, 4, r.helmet);
+				d(fx(9, 1), r.feet - 20, 1, 1, "#1a1a1a");
+				d(fx(0, 2), r.feet - 10, 2, 1, "#ff4b3a");
+			});
+		};
+		const vendor = (t) => {
+			const x = Math.round(t * .22 % 500 - 30);
+			const step = Math.floor(t / 10) % 2;
+			d(x - 2, 256, 2, 6 - step, "#2c2c2c");
+			d(x + 1, 256, 2, 5 + step, "#2c2c2c");
+			d(x - 2, 249, 5, 7, "#8e6fa8");
+			d(x - 1, 245, 4, 4, "#d9a06b");
+			d(x - 4, 244, 10, 1, "#e8d8a8");
+			d(x - 2, 243, 6, 1, "#d9c48a");
+			d(x, 242, 2, 1, "#c9b47a");
+			const bounce = step;
+			d(x - 13, 248 + bounce, 27, 1, "#8a6a3f");
+			for (const side of [-12, 8]) {
+				d(x + side, 249 + bounce, 1, 5, "#6e5230");
+				d(x + side + 4, 249 + bounce, 1, 5, "#6e5230");
+				d(x + side - 1, 254 + bounce, 7, 4, "#a07a4a");
+				for (let k = 0; k < 5; k++) d(x + side + k, 253 + bounce - k % 2, 1, 1, side < 0 ? "#f4f1e6" : "#e67e22");
+			}
+		};
+		const statusIcon = (p, t) => {
+			const feet = Math.round(p.y) + FEET_OFFSET;
+			const x = Math.round(p.x);
+			X.globalAlpha = .55 * p.enterProgress;
+			d(x - 5, feet - 34, 11, 7, "#0b0f14");
+			X.globalAlpha = p.enterProgress;
+			if (p.running) {
+				d(x - 3, feet - 33, 7, 4, "#7ef7b0");
+				d(x - 2, feet - 32, 5, 2, "#0b3a26");
+				if (Math.floor(t / 15) % 2) d(x - 1, feet - 32, 1, 2, "#7ef7b0");
+				d(x - 4, feet - 29, 9, 1, "#7ef7b0");
+			} else {
+				d(x - 2, feet - 32, 4, 3, "#f7d774");
+				d(x + 2, feet - 31, 1, 1, "#f7d774");
+				d(x - 3, feet - 29, 6, 1, "#f7d774");
+				X.globalAlpha = p.enterProgress * (.4 + Math.abs(Math.sin(t * .05 + p.phase)) * .5);
+				d(x - 1 + Math.floor(t / 20) % 2, feet - 33, 1, 1, "#ffffff");
+			}
+			X.globalAlpha = 1;
+		};
+		const steam = (x, y, t, phase) => {
+			for (let k = 0; k < 3; k++) {
+				X.globalAlpha = .35 * (1 - k / 3);
+				d(x + Math.round(Math.sin(t * .08 + k + phase)), y - k * 2 - Math.floor(t / 12) % 2, 1, 1, "#ffffff");
+			}
+			X.globalAlpha = 1;
+		};
+		const hat = (p, x, feet, facing) => {
+			if (p.hat === "conical") {
+				d(x - 5, feet - 22, 11, 1, "#e8d8a8");
+				d(x - 3, feet - 23, 7, 1, "#d9c48a");
+				d(x - 1, feet - 24, 3, 1, "#c9b47a");
+				d(x, feet - 25, 1, 1, "#b8a36b");
+				return;
+			}
+			if (p.hat === "helmet") {
+				d(x - 3, feet - 23, 7, 3, p.helmet);
+				d(x - 2, feet - 24, 5, 1, shade(p.helmet, 1.25));
+				d(facing === 1 ? x + 3 : x - 4, feet - 21, 2, 1, "#222222");
+				return;
+			}
+			d(x - 3, feet - 22, 6, 2, "#2c1e16");
+			d(facing === 1 ? x - 3 : x + 1, feet - 20, 2, p.garment === "aodai" ? 7 : 3, "#2c1e16");
+		};
+		const drawAgent = (p, t) => {
+			const feet = Math.round(p.y) + FEET_OFFSET;
+			const x = Math.round(p.x);
+			const seated = Math.abs(p.tx - p.x) < 1 && Math.abs(p.ty - p.y) < 1;
+			const facing = seated ? 1 : p.facing;
+			const pants = p.garment === "aodai" ? "#efeae0" : "#2c3e66";
+			X.globalAlpha = .3 * p.enterProgress;
+			X.fillStyle = "#000000";
+			X.beginPath();
+			X.ellipse(x * S, feet * S, 6 * S, 1.5 * S, 0, 0, Math.PI * 2);
+			X.fill();
+			X.globalAlpha = p.enterProgress;
+			if (seated) {
+				d(x - 2, feet - 7, 6, 2, pants);
+				d(x + 3, feet - 5, 2, 4, pants);
+				d(x + 3, feet - 1, 3, 1, "#1a1a1a");
+			} else {
+				const step = Math.floor(t / 6 + p.phase) % 2;
+				d(x - 2, feet - 7, 2, 7 - step, pants);
+				d(x + 1, feet - 7, 2, 6 + step, pants);
+			}
+			d(x - 3, feet - 15, 6, 8, p.color);
+			d(facing === 1 ? x - 3 : x + 2, feet - 15, 1, 8, shade(p.color, .75));
+			if (p.garment === "aodai") {
+				d(x - 3, feet - 8, seated ? 8 : 6, 2, p.color);
+				d(x - 1, feet - 16, 3, 1, p.color);
+			} else d(x, feet - 15, 2, 1, p.skin);
+			const lifting = !p.running && p.sip < 60;
+			if (!seated) {
+				const swing = Math.floor(t / 6 + p.phase) % 2 ? 3 : -4;
+				d(x + swing, feet - 14, 1, 5, p.color);
+			} else if (p.running) {
+				const tap = Math.floor((t + p.phase * 20) / 5) % 2;
+				d(x + 1, feet - 14, 2, 3, p.color);
+				d(x + 3, feet - 11, 4, 1, p.skin);
+				d(x + 7, feet - 10 - tap, 1, 1, p.skin);
+				d(x + 8, feet - 8, 8, 1, "#90a4ae");
+				d(x + 15, feet - 14, 1, 6, "#37474f");
+				d(x + 14, feet - 13, 1, 4, "#7ee8c8");
+				glow(X, x + 11, feet - 11, 9, "126,232,200", .2 + Math.abs(Math.sin(t * .05 + p.phase)) * .08);
+				d(x + 16, feet - 10, 2, 3, "#f3ede0");
+				d(x + 16, feet - 10, 2, 1, "#f3dca0");
+			} else if (lifting) {
+				d(x + 1, feet - 14, 2, 2, p.color);
+				d(x + 2, feet - 13, 2, 1, p.skin);
+				d(x + 3, feet - 17, 2, 3, "#f3ede0");
+				d(x + 3, feet - 17, 2, 1, "#f3dca0");
+				steam(x + 4, feet - 19, t, p.phase);
+			} else {
+				d(x + 1, feet - 13, 2, 4, p.color);
+				d(x + 2, feet - 9, 2, 1, p.skin);
+				d(x + 11, feet - 10, 2, 3, "#f3ede0");
+				d(x + 11, feet - 10, 2, 1, "#f3dca0");
+				steam(x + 12, feet - 12, t, p.phase);
+			}
+			d(x - 3, feet - 21, 6, 6, p.skin);
+			d(facing === 1 ? x - 2 : x + 1, feet - 18, 1, 1, shade(p.skin, .8));
+			if (p.blink > 6) d(facing === 1 ? x + 1 : x - 2, feet - 19, 1, 1, "#1b1b1b");
+			d(facing === 1 ? x + 2 : x - 3, feet - 17, 1, 1, shade(p.skin, .7));
+			hat(p, x, feet, facing);
+			X.globalAlpha = 1;
+		};
+		const labels = (p) => {
+			const feet = Math.round(p.y) + FEET_OFFSET;
+			const nameLines = drawLabel(T, p.name, p.x * S, (feet + 3.6) * S, {
+				role: "name",
+				weight: "bold",
+				color: "#fff7e8",
+				bgColor: "rgba(10,14,20,0.55)",
+				padX: 2,
+				padY: .5,
+				align: "center",
+				scale: S,
+				maxWidth: LABEL_WIDTH * S
+			});
+			if (p.detail) drawLabel(T, p.detail, p.x * S, (feet + 3.6) * S + nameLines * sceneLineHeight("name"), {
+				role: "detail",
+				color: "#efe3cb",
+				bgColor: "rgba(10,14,20,0.45)",
+				padX: 2,
+				padY: .3,
+				align: "center",
+				scale: S,
+				maxWidth: LABEL_WIDTH * S
+			});
+		};
+		const bubbles = (t) => {
+			const people = peopleRef.current;
+			let anyFresh = false;
+			people.forEach((p) => {
+				if (!onStage(p) || !p.lastMessage || Date.now() - p.msgAt >= 7e3) return;
+				anyFresh = true;
+				const age = Date.now() - p.msgAt;
+				const alpha = age > 6e3 ? (SPEECH_BUBBLE_MS - age) / 1e3 : 1;
+				drawSpeechBubble(T, p.lastMessage, p.x * S, (p.y + FEET_OFFSET - 35) * S, {
+					scale: S,
+					alpha
+				});
+			});
+			if (anyFresh || people.length < 2 || t % 240 >= 140) return;
+			const pairIndex = Math.floor(t / 240) % (people.length - 1);
+			const a = people[pairIndex];
+			const b = people[pairIndex + 1];
+			if (a.ty !== b.ty || Math.abs(a.tx - a.x) > 1 || Math.abs(b.tx - b.x) > 1) return;
+			const [askKey, replyKey] = CHAT_LINE_KEYS[Math.floor(t / 240) % CHAT_LINE_KEYS.length];
+			const pair = [i18nT(askKey), i18nT(replyKey)];
+			drawSpeechBubble(T, pair[0], a.x * S, (a.y + FEET_OFFSET - 35) * S, {
+				scale: S,
+				alpha: .9,
+				maxWidth: 50 * S
+			});
+			drawSpeechBubble(T, pair[1], b.x * S, (b.y + FEET_OFFSET - 35) * S, {
+				scale: S,
+				alpha: .9,
+				maxWidth: 50 * S
+			});
+		};
+		const signs = () => {
+			T.textAlign = "center";
+			T.textBaseline = "middle";
+			T.font = sceneFont("label", "bold");
+			T.fillStyle = "#f7dc6f";
+			T.fillText(i18nT("pages.scenes.hanoiScene.sign_egg_coffee"), 26 * S, 276.5 * S);
+			T.fillStyle = "#fef9e7";
+			T.fillText(i18nT("pages.scenes.hanoiScene.sign_pho"), 374 * S, 276.5 * S);
+			T.fillStyle = "#f4f1e6";
+			T.fillText(i18nT("pages.scenes.hanoiScene.sign_iced_tea"), 57 * S, 271.5 * S);
+			T.textAlign = "start";
+			T.textBaseline = "alphabetic";
+		};
+		const update = (t) => {
+			if (t % BANK_TOGGLE_FRAMES === 0) {
+				const pane = bankPanes[Math.floor(Math.random() * bankPanes.length)];
+				pane.lit = !pane.lit;
+				pane.flicker = pane.lit ? BANK_FLICKER_FRAMES : 0;
+			}
+			bankPanes.forEach((pane) => {
+				if (pane.flicker > 0) pane.flicker -= 1;
+			});
+			peopleRef.current.forEach((p) => {
+				if (p.enterProgress < 1) p.enterProgress = Math.min(1, p.enterProgress + .03);
+				const dx = p.tx - p.x;
+				const dy = p.ty - p.y;
+				if (Math.abs(dx) > .01) {
+					p.x += Math.sign(dx) * Math.min(Math.abs(dx), .7);
+					p.facing = dx > 0 ? 1 : -1;
+				}
+				if (Math.abs(dy) > .01) p.y += Math.sign(dy) * Math.min(Math.abs(dy), .7);
+				p.blink -= 1;
+				if (p.blink <= 0) p.blink = 150 + Math.random() * 280;
+				p.sip = (p.sip + 1) % 260;
+			});
+		};
+		const draw = (t) => {
+			T.clearRect(0, 0, W * S, H * S);
+			X.drawImage(baseLayer, 0, 0);
+			stars(t);
+			X.drawImage(skylineLayer, 0, 0);
+			officeLights();
+			reflect(skylineLayer, 0, WATER_TOP, W, 28, t, .3);
+			water(t);
+			willows(t);
+			X.drawImage(landmarkLayer, 0, 0);
+			reflect(landmarkLayer, 138, ISLET_WATERLINE, 46, 42, t, .55);
+			reflect(landmarkLayer, 380, ISLAND_WATERLINE, 60, 40, t, .45);
+			bridgeReflection(t);
+			bridgeLights(t);
+			X.drawImage(groundLayer, 0, 0);
+			leaves();
+			const people = [...peopleRef.current].sort((a, b) => a.y - b.y || a.x - b.x);
+			people.filter((p) => p.y < 240).forEach((p) => drawAgent(p, t));
+			riders(t);
+			vendor(t);
+			people.filter((p) => p.y >= 240).forEach((p) => drawAgent(p, t));
+			lampGlows(t);
+			lanterns(t);
+			potSteam(t);
+			wires(t);
+			const visiblePeople = people.filter(onStage);
+			visiblePeople.forEach((p) => statusIcon(p, t));
+			signs();
+			visiblePeople.forEach(labels);
+			bubbles(t);
+			T.textAlign = "center";
+			T.fillStyle = "#f7e7c6";
+			T.font = sceneFont("title", "bold");
+			T.fillText(i18nT("pages.scenes.hanoiScene.hanoi_old_quarter"), W / 2 * S, 15 * S);
+			T.fillStyle = "#a8c7c2";
+			T.font = sceneFont("detail");
+			T.fillText(i18nT("pages.scenes.hanoiScene.hoan_kiem_lakeside"), W / 2 * S, 24 * S);
+			T.textAlign = "start";
+			drawLabel(T, i18nT("pages.scenes.hanoiScene.at_the_cafe", {
+				n: peopleRef.current.length,
+				total: SPOTS.length
+			}), 5 * S, 295 * S, {
+				role: "label",
+				color: "#f7e7c6",
+				bgColor: "rgba(10,14,20,0.7)",
+				padX: 2,
+				padY: 1,
+				scale: S
+			});
+		};
+		return runSceneLoop(visibleRef, tickRef, update, draw);
+	}, []);
+	useVisibleSync(visibleRef, visible);
+	return /* @__PURE__ */ jsxs("div", {
+		style: SCENE_CONTAINER_STYLE(W, H),
+		children: [
+			/* @__PURE__ */ jsx("canvas", {
+				ref: canvasRef,
+				"aria-label": i18nT("pages.scenes.hanoiScene.hanoi_old_quarter_animation"),
+				style: {
+					...PIXEL_CANVAS_STYLE,
+					...canvasProps.style
+				},
+				onMouseMove: canvasProps.onMouseMove,
+				onMouseLeave: canvasProps.onMouseLeave,
+				onClick: canvasProps.onClick
+			}),
+			/* @__PURE__ */ jsx("canvas", {
+				ref: textRef,
+				"aria-label": i18nT("pages.scenes.hanoiScene.hanoi_old_quarter_text_overlay"),
+				style: TEXT_CANVAS_STYLE
+			}),
+			tooltipEl
+		]
+	});
+}
 // src/pages/scenes/components.ts
 var SCENE_COMPONENTS = {
 	office: OfficeScene,
@@ -9663,7 +11331,8 @@ var SCENE_COMPONENTS = {
 	underwater: UnderwaterLabScene,
 	mission: MissionControlScene,
 	serengeti: WateringHoleScene,
-	ghost: GhostScene
+	ghost: GhostScene,
+	hanoi: HanoiScene
 };
 // src/components/RadioChipGroup.tsx
 /**

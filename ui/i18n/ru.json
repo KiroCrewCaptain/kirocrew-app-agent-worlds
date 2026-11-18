@@ -57,6 +57,8 @@
       "config": {
         "ghost_desc": "Призраки Kiro в шляпах, очках и плащах",
         "ghost_label": "Призраки Kiro",
+        "hanoi_desc": "Старый квартал у озера Хоанкьем",
+        "hanoi_label": "Ханой",
         "mission_desc": "Операционный центр NASA",
         "mission_label": "Mission Control",
         "neural_desc": "Карта созвездий",
@@ -77,6 +79,30 @@
         "kiro_ghost_haunt_animation": "Анимация призрака Kiro",
         "kiro_ghost_haunt_text_overlay": "Текстовый слой анимации призрака Kiro",
         "kiro_haunt": "Призраки Kiro"
+      },
+      "hanoiScene": {
+        "at_the_cafe": "{{n}}/{{total}} в кафе",
+        "chat_bug_ask": "Баг исправлен?",
+        "chat_bug_reply": "Готово!",
+        "chat_coffee_ask": "Кофе с яйцом?",
+        "chat_coffee_reply": "Одну чашку!",
+        "chat_deploy_ask": "Уже задеплоил?",
+        "chat_deploy_reply": "Собираю!",
+        "chat_latency_ask": "Задержка высокая?",
+        "chat_latency_reply": "Масштабирую!",
+        "chat_review_ask": "Пул-реквест в порядке?",
+        "chat_review_reply": "Выглядит отлично!",
+        "chat_tea_ask": "Холодный чай?",
+        "chat_tea_reply": "Два стакана!",
+        "coding_at_the_cafe": "кодит в кафе",
+        "egg_coffee_break": "перерыв на яичный кофе",
+        "hanoi_old_quarter": "Старый квартал Ханоя",
+        "hanoi_old_quarter_animation": "анимация Старого квартала Ханоя",
+        "hanoi_old_quarter_text_overlay": "текстовый слой Старого квартала Ханоя",
+        "hoan_kiem_lakeside": "На берегу озера Хоанкьем",
+        "sign_egg_coffee": "CÀ PHÊ TRỨNG",
+        "sign_iced_tea": "TRÀ ĐÁ",
+        "sign_pho": "PHỞ BÒ"
       },
       "missionControl": {
         "missionControlScene": {

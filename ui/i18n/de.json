@@ -57,6 +57,8 @@
       "config": {
         "ghost_desc": "Kiro-Geister mit Hüten, Brillen und Umhängen",
         "ghost_label": "Kiro-Spuk",
+        "hanoi_desc": "Altstadt am Hoàn-Kiếm-See",
+        "hanoi_label": "Hanoi",
         "mission_desc": "NASA-Kontrollzentrum",
         "mission_label": "Mission Control",
         "neural_desc": "Sternbildkarte",
@@ -77,6 +79,30 @@
         "kiro_ghost_haunt_animation": "Animation des Kiro-Geisterspuks",
         "kiro_ghost_haunt_text_overlay": "Text-Overlay des Kiro-Geisterspuks",
         "kiro_haunt": "Kiro-Spuk"
+      },
+      "hanoiScene": {
+        "at_the_cafe": "{{n}}/{{total}} im Café",
+        "chat_bug_ask": "Bug behoben?",
+        "chat_bug_reply": "Alles erledigt!",
+        "chat_coffee_ask": "Eierkaffee?",
+        "chat_coffee_reply": "Eine Tasse, bitte!",
+        "chat_deploy_ask": "Schon deployt?",
+        "chat_deploy_reply": "Baut gerade!",
+        "chat_latency_ask": "Latenz hoch?",
+        "chat_latency_reply": "Skaliere hoch!",
+        "chat_review_ask": "PR in Ordnung?",
+        "chat_review_reply": "Sieht gut aus!",
+        "chat_tea_ask": "Eistee?",
+        "chat_tea_reply": "Zwei Gläser!",
+        "coding_at_the_cafe": "codet im Café",
+        "egg_coffee_break": "Eierkaffee-Pause",
+        "hanoi_old_quarter": "Altstadt von Hanoi",
+        "hanoi_old_quarter_animation": "Animation der Altstadt von Hanoi",
+        "hanoi_old_quarter_text_overlay": "Textüberlagerung der Altstadt von Hanoi",
+        "hoan_kiem_lakeside": "Am Hoàn-Kiếm-See",
+        "sign_egg_coffee": "CÀ PHÊ TRỨNG",
+        "sign_iced_tea": "TRÀ ĐÁ",
+        "sign_pho": "PHỞ BÒ"
       },
       "missionControl": {
         "missionControlScene": {
