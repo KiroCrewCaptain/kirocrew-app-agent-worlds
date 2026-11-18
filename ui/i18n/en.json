@@ -57,6 +57,8 @@
       "config": {
         "ghost_desc": "Kiro ghosts in hats, glasses, and capes",
         "ghost_label": "Kiro Haunt",
+        "hanoi_desc": "Old Quarter by Hoàn Kiếm Lake",
+        "hanoi_label": "Hà Nội",
         "mission_desc": "NASA ops center",
         "mission_label": "Mission Control",
         "neural_desc": "Constellation map",
@@ -77,6 +79,30 @@
         "kiro_ghost_haunt_animation": "Kiro ghost haunt animation",
         "kiro_ghost_haunt_text_overlay": "Kiro ghost haunt text overlay",
         "kiro_haunt": "Kiro Haunt"
+      },
+      "hanoiScene": {
+        "at_the_cafe": "{{n}}/{{total}} at the café",
+        "chat_bug_ask": "Bug fixed?",
+        "chat_bug_reply": "All done!",
+        "chat_coffee_ask": "Egg coffee?",
+        "chat_coffee_reply": "One cup, please!",
+        "chat_deploy_ask": "Deployed yet?",
+        "chat_deploy_reply": "Building now!",
+        "chat_latency_ask": "Latency high?",
+        "chat_latency_reply": "Scaling up!",
+        "chat_review_ask": "PR look OK?",
+        "chat_review_reply": "Looks good!",
+        "chat_tea_ask": "Iced tea?",
+        "chat_tea_reply": "Two glasses!",
+        "coding_at_the_cafe": "coding at the café",
+        "egg_coffee_break": "egg-coffee break",
+        "hanoi_old_quarter": "Hà Nội Old Quarter",
+        "hanoi_old_quarter_animation": "Hà Nội old quarter animation",
+        "hanoi_old_quarter_text_overlay": "Hà Nội old quarter text overlay",
+        "hoan_kiem_lakeside": "Hoàn Kiếm lakeside",
+        "sign_egg_coffee": "CÀ PHÊ TRỨNG",
+        "sign_iced_tea": "TRÀ ĐÁ",
+        "sign_pho": "PHỞ BÒ"
       },
       "missionControl": {
         "missionControlScene": {

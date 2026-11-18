@@ -57,6 +57,8 @@
       "config": {
         "ghost_desc": "Fantômes Kiro avec chapeaux, lunettes et capes",
         "ghost_label": "Repaire hanté de Kiro",
+        "hanoi_desc": "Vieux quartier au bord du lac Hoàn Kiếm",
+        "hanoi_label": "Hanoï",
         "mission_desc": "Centre des opérations de la NASA",
         "mission_label": "Mission Control",
         "neural_desc": "Carte des constellations",
@@ -77,6 +79,30 @@
         "kiro_ghost_haunt_animation": "Animation du fantôme Kiro",
         "kiro_ghost_haunt_text_overlay": "Superposition de texte du fantôme Kiro",
         "kiro_haunt": "Repaire hanté de Kiro"
+      },
+      "hanoiScene": {
+        "at_the_cafe": "{{n}}/{{total}} au café",
+        "chat_bug_ask": "Bug corrigé ?",
+        "chat_bug_reply": "C'est fait !",
+        "chat_coffee_ask": "Café à l'œuf ?",
+        "chat_coffee_reply": "Une tasse, merci !",
+        "chat_deploy_ask": "Déjà déployé ?",
+        "chat_deploy_reply": "Compilation en cours !",
+        "chat_latency_ask": "Latence élevée ?",
+        "chat_latency_reply": "On augmente !",
+        "chat_review_ask": "La PR est bonne ?",
+        "chat_review_reply": "Ça me va !",
+        "chat_tea_ask": "Thé glacé ?",
+        "chat_tea_reply": "Deux verres !",
+        "coding_at_the_cafe": "code au café",
+        "egg_coffee_break": "pause café à l'œuf",
+        "hanoi_old_quarter": "Vieux quartier de Hanoï",
+        "hanoi_old_quarter_animation": "animation du Vieux quartier de Hanoï",
+        "hanoi_old_quarter_text_overlay": "calque de texte du Vieux quartier de Hanoï",
+        "hoan_kiem_lakeside": "Au bord du lac Hoàn Kiếm",
+        "sign_egg_coffee": "CÀ PHÊ TRỨNG",
+        "sign_iced_tea": "TRÀ ĐÁ",
+        "sign_pho": "PHỞ BÒ"
       },
       "missionControl": {
         "missionControlScene": {

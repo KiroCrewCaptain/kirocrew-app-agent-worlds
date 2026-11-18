@@ -92,3 +92,12 @@ Every change to the built-in since `33979525d8`, up to KiroCrew `main` `2e250367
 | #38097 | the collapse toggle of the page and the pop-out draws a lucide chevron instead of a triangle glyph | `ui/src/pages/WorldsPage.tsx`, `ui/src/pages/WorldsPopout.tsx`, the toggle cases |
 
 No string the page shows changed in that range, in any language.
+
+## Scenes that land here first
+
+A scene proposed for the built-in after the port lands in this repository first,
+and the KiroCrew pull request names the commit here.
+
+| KiroCrew | Scene | Here |
+|---|---|---|
+| #25858 | Hà Nội: Hoàn Kiếm Lake and the Old Quarter at night | `ui/src/pages/scenes/HanoiScene.tsx` (the pull request's `website/src/pages/scenes/HanoiScene.tsx`, line for line), its entry in `ui/src/pages/scenes/config.tsx` and `components.ts`, the `pages.scenes.config.hanoi_*` and `pages.scenes.hanoiScene` strings in every `ui/i18n/<locale>.json`, `ui/tests/HanoiScene.coverage.test.tsx` and its cases in `Scenes.test.tsx`, `WorldsPage.test.tsx` and `WorldsPopout.test.tsx` |

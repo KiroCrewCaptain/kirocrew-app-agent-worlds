@@ -57,6 +57,8 @@
       "config": {
         "ghost_desc": "모자, 안경, 망토를 걸친 Kiro 유령들",
         "ghost_label": "Kiro 유령 출몰",
+        "hanoi_desc": "호안끼엠 호수 옆 구시가지",
+        "hanoi_label": "하노이",
         "mission_desc": "NASA 운영 센터",
         "mission_label": "Mission Control",
         "neural_desc": "별자리 지도",
@@ -77,6 +79,30 @@
         "kiro_ghost_haunt_animation": "Kiro 유령 출몰 애니메이션",
         "kiro_ghost_haunt_text_overlay": "Kiro 유령 출몰 텍스트 오버레이",
         "kiro_haunt": "Kiro 유령 출몰"
+      },
+      "hanoiScene": {
+        "at_the_cafe": "카페에 {{n}}/{{total}}명",
+        "chat_bug_ask": "버그 고쳤어?",
+        "chat_bug_reply": "다 됐어!",
+        "chat_coffee_ask": "에그 커피?",
+        "chat_coffee_reply": "한 잔 주세요!",
+        "chat_deploy_ask": "배포했어?",
+        "chat_deploy_reply": "빌드 중!",
+        "chat_latency_ask": "지연 시간 높아?",
+        "chat_latency_reply": "확장 중!",
+        "chat_review_ask": "풀 리퀘스트 괜찮아?",
+        "chat_review_reply": "좋아 보여!",
+        "chat_tea_ask": "아이스티?",
+        "chat_tea_reply": "두 잔!",
+        "coding_at_the_cafe": "카페에서 코딩",
+        "egg_coffee_break": "에그커피 휴식",
+        "hanoi_old_quarter": "하노이 구시가지",
+        "hanoi_old_quarter_animation": "하노이 구시가지 애니메이션",
+        "hanoi_old_quarter_text_overlay": "하노이 구시가지 텍스트 오버레이",
+        "hoan_kiem_lakeside": "호안끼엠 호숫가",
+        "sign_egg_coffee": "CÀ PHÊ TRỨNG",
+        "sign_iced_tea": "TRÀ ĐÁ",
+        "sign_pho": "PHỞ BÒ"
       },
       "missionControl": {
         "missionControlScene": {

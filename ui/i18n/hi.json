@@ -57,6 +57,8 @@
       "config": {
         "ghost_desc": "टोपी, चश्मा और लबादा पहने Kiro भूत",
         "ghost_label": "Kiro भूत-अड्डा",
+        "hanoi_desc": "होआन कीम झील के पास पुराना शहर",
+        "hanoi_label": "हनोई",
         "mission_desc": "NASA संचालन केंद्र",
         "mission_label": "Mission Control",
         "neural_desc": "तारामंडल का नक्शा",
@@ -77,6 +79,30 @@
         "kiro_ghost_haunt_animation": "Kiro भूत एनिमेशन",
         "kiro_ghost_haunt_text_overlay": "Kiro भूत टेक्स्ट ओवरले",
         "kiro_haunt": "Kiro भूत-अड्डा"
+      },
+      "hanoiScene": {
+        "at_the_cafe": "{{n}}/{{total}} कैफ़े में",
+        "chat_bug_ask": "बग ठीक हुआ?",
+        "chat_bug_reply": "सब हो गया!",
+        "chat_coffee_ask": "एग कॉफ़ी?",
+        "chat_coffee_reply": "एक कप, प्लीज़!",
+        "chat_deploy_ask": "डिप्लॉय हो गया?",
+        "chat_deploy_reply": "बिल्ड चल रहा है!",
+        "chat_latency_ask": "लेटेंसी ज़्यादा?",
+        "chat_latency_reply": "स्केल कर रहे हैं!",
+        "chat_review_ask": "पीआर ठीक है?",
+        "chat_review_reply": "बढ़िया लग रहा है!",
+        "chat_tea_ask": "आइस्ड टी?",
+        "chat_tea_reply": "दो गिलास!",
+        "coding_at_the_cafe": "कैफ़े में कोडिंग",
+        "egg_coffee_break": "एग-कॉफ़ी ब्रेक",
+        "hanoi_old_quarter": "हनोई पुराना शहर",
+        "hanoi_old_quarter_animation": "हनोई पुराने शहर का एनिमेशन",
+        "hanoi_old_quarter_text_overlay": "हनोई पुराने शहर का टेक्स्ट ओवरले",
+        "hoan_kiem_lakeside": "होआन कीएम झील के किनारे",
+        "sign_egg_coffee": "CÀ PHÊ TRỨNG",
+        "sign_iced_tea": "TRÀ ĐÁ",
+        "sign_pho": "PHỞ BÒ"
       },
       "missionControl": {
         "missionControlScene": {
